@@ -3,37 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automotive Reference Hub</title>
+    <title>Premium Automotive Specifications</title>
     <style>
         :root {
-            --primary: #2563eb;
-            --secondary: #1e40af;
-            --light-bg: #f1f5f9;
-            --dark: #1e293b;
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --black-primary: #0a0a0a;
+            --black-secondary: #111111;
+            --black-tertiary: #1a1a1a;
+            --black-card: #161616;
+            --black-hover: #222222;
+            --text-primary: #f5f5f5;
+            --text-secondary: #aaaaaa;
+            --accent-red: #c41e3a;
+            --accent-red-hover: #e12142;
+            --overlay-dark: rgba(0, 0, 0, 0.7);
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
         }
         
         body {
-            background-color: var(--light-bg);
-            color: var(--dark);
+            background-color: var(--black-primary);
+            color: var(--text-primary);
             line-height: 1.6;
         }
         
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 3rem 0 8rem;
-            text-align: center;
+            background: linear-gradient(to right, var(--black-primary), var(--black-tertiary));
+            padding: 4rem 0 10rem;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
         
         .bg-pattern {
@@ -43,15 +46,26 @@
             top: 0;
             left: 0;
             background-image: 
-                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 1%, transparent 8%),
-                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 1%, transparent 8%);
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.03) 1%, transparent 8%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.03) 1%, transparent 8%);
             background-size: 60px 60px;
             opacity: 0.4;
+        }
+        
+        .header-accent {
+            position: absolute;
+            width: 30%;
+            height: 5px;
+            background: var(--accent-red);
+            bottom: 0;
+            left: 0;
+            box-shadow: 0 0 20px rgba(196, 30, 58, 0.5);
         }
         
         .header-content {
             position: relative;
             z-index: 2;
+            text-align: center;
         }
         
         .container {
@@ -64,61 +78,88 @@
         .page-title {
             font-size: 2.8rem;
             margin-bottom: 0.5rem;
-            font-weight: 700;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .page-title span {
+            color: var(--accent-red);
+            font-weight: 600;
         }
         
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 300;
             max-width: 600px;
             margin: 0 auto;
-            opacity: 0.9;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
         }
         
         .section-title {
             text-align: center;
-            margin: -4rem 0 3rem;
+            margin: -6rem 0 4rem;
             position: relative;
             z-index: 10;
         }
         
         .section-title h2 {
             display: inline-block;
-            background-color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            color: var(--primary);
-            font-size: 1.5rem;
-            box-shadow: var(--card-shadow);
+            background-color: var(--black-card);
+            padding: 1.2rem 3rem;
+            border-radius: 3px;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border-bottom: 3px solid var(--accent-red);
         }
         
         .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 5rem;
+            gap: 2.5rem;
+            margin-bottom: 6rem;
         }
         
         .index-card {
-            background-color: white;
-            border-radius: 10px;
+            background-color: var(--black-card);
+            border-radius: 4px;
             overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-            transform-style: preserve-3d;
-            perspective: 1000px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             position: relative;
-            height: 260px;
+            height: 280px;
+            border-top: 1px solid #333;
+            border-left: 1px solid #252525;
         }
         
         .index-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .index-card:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30%;
+            height: 3px;
+            background: var(--accent-red);
+            transition: width 0.3s ease;
+        }
+        
+        .index-card:hover:after {
+            width: 100%;
         }
         
         .card-content {
-            padding: 2rem;
+            padding: 2.5rem;
             position: relative;
             z-index: 2;
             display: flex;
@@ -129,54 +170,44 @@
         
         .card-title {
             font-size: 1.8rem;
-            font-weight: 600;
+            font-weight: 400;
             margin-bottom: 0.5rem;
-            color: var(--primary);
+            color: var(--text-primary);
+            letter-spacing: 1px;
         }
         
         .card-desc {
-            color: var(--dark);
+            color: var(--text-secondary);
             font-size: 0.95rem;
-            opacity: 0.8;
+            line-height: 1.6;
+            font-weight: 300;
         }
         
         .card-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            opacity: 0.5;
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            color: var(--accent-red);
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
         }
         
         .card-tag {
             display: inline-block;
-            background-color: rgba(37, 99, 235, 0.1);
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
+            background-color: rgba(196, 30, 58, 0.1);
+            color: var(--accent-red);
+            padding: 0.35rem 1rem;
+            border-radius: 2px;
             font-size: 0.8rem;
-            font-weight: 600;
-            margin-top: 1rem;
-        }
-        
-        .chevy-card {
-            border-top: 4px solid #ffca28;
-        }
-        
-        .ford-card {
-            border-top: 4px solid #4caf50;
-        }
-        
-        .dodge-card {
-            border-top: 4px solid #ef5350;
-        }
-        
-        .bike-card {
-            border-top: 4px solid #9c27b0;
+            font-weight: 500;
+            margin-top: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
         
         .section {
             padding: 5rem 0;
             display: none;
+            background-color: var(--black-secondary);
+            min-height: 100vh;
         }
         
         .active-section {
@@ -190,68 +221,114 @@
         }
         
         .back-btn {
-            background-color: var(--primary);
-            color: white;
+            background-color: var(--black-tertiary);
+            color: var(--text-primary);
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            margin-bottom: 2rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 2px;
+            margin-bottom: 3rem;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 400;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: background-color 0.2s;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            border-left: 3px solid var(--accent-red);
         }
         
         .back-btn:hover {
-            background-color: var(--secondary);
+            background-color: var(--black-hover);
+            transform: translateX(5px);
+        }
+        
+        .section-heading {
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            color: var(--text-primary);
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .section-heading span {
+            color: var(--accent-red);
+            font-weight: 600;
         }
         
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 2rem;
-            background-color: white;
-            border-radius: 10px;
+            margin-bottom: 2.5rem;
+            background-color: var(--black-card);
+            border-radius: 4px;
             overflow: hidden;
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
         th, td {
-            padding: 1rem;
+            padding: 1.2rem 1.5rem;
             text-align: left;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         th {
-            background-color: rgba(37, 99, 235, 0.1);
-            color: var(--primary);
-            font-weight: 600;
+            background-color: rgba(196, 30, 58, 0.1);
+            color: var(--text-primary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
         }
         
         tr:nth-child(even) {
-            background-color: rgba(0,0,0,0.02);
+            background-color: rgba(255, 255, 255, 0.02);
         }
         
         tr:hover {
-            background-color: rgba(37, 99, 235, 0.05);
+            background-color: rgba(196, 30, 58, 0.05);
+        }
+        
+        td {
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+        
+        td:first-child {
+            color: var(--text-primary);
+            font-weight: 400;
         }
         
         footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 2rem 0;
+            background-color: var(--black-tertiary);
+            color: var(--text-secondary);
+            padding: 3rem 0;
             text-align: center;
+            position: relative;
+        }
+        
+        .footer-accent {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--accent-red);
         }
         
         .footer-content {
             font-size: 0.9rem;
-            opacity: 0.7;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
         
         .footer-content strong {
-            opacity: 1;
+            color: var(--text-primary);
+            font-weight: 400;
         }
         
         @media (max-width: 768px) {
@@ -260,21 +337,21 @@
             }
             
             .section-title h2 {
-                font-size: 1.2rem;
-                padding: 0.75rem 1.5rem;
+                font-size: 1.1rem;
+                padding: 1rem 2rem;
             }
             
             .cards-container {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 2rem;
             }
             
             .index-card {
-                height: 220px;
+                height: 250px;
             }
             
             .card-content {
-                padding: 1.5rem;
+                padding: 2rem;
             }
             
             .card-title {
@@ -286,27 +363,29 @@
             }
             
             th, td {
-                padding: 0.75rem;
+                padding: 1rem;
             }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="bg-pattern"></div>
         <div class="container header-content">
-            <h1 class="page-title">Automotive Reference Hub</h1>
-            <p class="subtitle">Your one-stop resource for vehicle specifications and rental information</p>
+            <h1 class="page-title">Premium <span>Automotive</span> Specifications</h1>
+            <p class="subtitle">Precision-engineered solutions for automotive enthusiasts</p>
         </div>
+        <div class="header-accent"></div>
     </header>
     
     <div class="container">
         <div class="section-title">
-            <h2>Quick References</h2>
+            <h2>Specification Database</h2>
         </div>
         
         <div class="cards-container" id="index-cards">
-            <div class="index-card chevy-card" onclick="showSection('chevy-section')">
+            <div class="index-card" onclick="showSection('chevy-section')">
                 <div class="card-content">
                     <div>
                         <div class="card-icon">
@@ -315,13 +394,13 @@
                             </svg>
                         </div>
                         <h3 class="card-title">Chevrolet</h3>
-                        <p class="card-desc">Lug patterns for Chevy vehicles including Silverado, Tahoe, Equinox, and more.</p>
+                        <p class="card-desc">Lug patterns for premium Chevy vehicles including Silverado, Tahoe, Equinox, and more.</p>
                     </div>
                     <div class="card-tag">12 Vehicles</div>
                 </div>
             </div>
             
-            <div class="index-card ford-card" onclick="showSection('ford-section')">
+            <div class="index-card" onclick="showSection('ford-section')">
                 <div class="card-content">
                     <div>
                         <div class="card-icon">
@@ -330,13 +409,13 @@
                             </svg>
                         </div>
                         <h3 class="card-title">Ford</h3>
-                        <p class="card-desc">Lug patterns for Ford vehicles including F-150, Explorer, Mustang, and more.</p>
+                        <p class="card-desc">Lug patterns for premium Ford vehicles including F-150, Explorer, Mustang, and more.</p>
                     </div>
                     <div class="card-tag">11 Vehicles</div>
                 </div>
             </div>
             
-            <div class="index-card dodge-card" onclick="showSection('dodge-section')">
+            <div class="index-card" onclick="showSection('dodge-section')">
                 <div class="card-content">
                     <div>
                         <div class="card-icon">
@@ -345,13 +424,13 @@
                             </svg>
                         </div>
                         <h3 class="card-title">Dodge/RAM</h3>
-                        <p class="card-desc">Lug patterns for Dodge and RAM vehicles including Ram 1500, Charger, Durango, and more.</p>
+                        <p class="card-desc">Lug patterns for premium Dodge and RAM vehicles including Ram 1500, Charger, Durango, and more.</p>
                     </div>
                     <div class="card-tag">10 Vehicles</div>
                 </div>
             </div>
             
-            <div class="index-card bike-card" onclick="showSection('bike-section')">
+            <div class="index-card" onclick="showSection('bike-section')">
                 <div class="card-content">
                     <div>
                         <div class="card-icon">
@@ -361,7 +440,7 @@
                             </svg>
                         </div>
                         <h3 class="card-title">Package Deals</h3>
-                        <p class="card-desc">Pricing for wheel and tire packages - various sizes and program options with sensors.</p>
+                        <p class="card-desc">Luxury wheel and tire packages - premium sizes and exclusive program options with sensors.</p>
                     </div>
                     <div class="card-tag">Pricing Options</div>
                 </div>
@@ -376,10 +455,10 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                 </svg>
-                Back to Index
+                Return to Index
             </button>
             
-            <h2 style="margin-bottom: 2rem; color: var(--primary);">Chevrolet Vehicles Lug Patterns</h2>
+            <h2 class="section-heading">Chevrolet Vehicles <span>Lug Patterns</span></h2>
             
             <table>
                 <thead>
@@ -462,10 +541,10 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                 </svg>
-                Back to Index
+                Return to Index
             </button>
             
-            <h2 style="margin-bottom: 2rem; color: var(--primary);">Ford Vehicles Lug Patterns</h2>
+            <h2 class="section-heading">Ford Vehicles <span>Lug Patterns</span></h2>
             
             <table>
                 <thead>
@@ -543,10 +622,10 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                 </svg>
-                Back to Index
+                Return to Index
             </button>
             
-            <h2 style="margin-bottom: 2rem; color: var(--primary);">Dodge/RAM Vehicles Lug Patterns</h2>
+            <h2 class="section-heading">Dodge/RAM Vehicles <span>Lug Patterns</span></h2>
             
             <table>
                 <thead>
@@ -619,96 +698,22 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                 </svg>
-                Back to Index
+                Return to Index
             </button>
             
-            <h2 style="margin-bottom: 2rem; color: var(--primary);">Wheel & Tire Package Deals</h2>
+            <h2 class="section-heading">Premium Wheel & Tire <span>Package Deals</span></h2>
             
             <table>
                 <thead>
                     <tr>
                         <th>Size</th>
-                        <th>Rental Rate (Per Day)</th>
+                        <th>Weekly Rate</th>
                         <th>Program with Sensors</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>18s</td>
-                        <td>$65</td>
+                        <td>$455</td>
                         <td>$2,220</td>
                     </tr>
-                    <tr>
-                        <td>20s</td>
-                        <td>$70</td>
-                        <td>$2,620</td>
-                    </tr>
-                    <tr>
-                        <td>22s</td>
-                        <td>$80</td>
-                        <td>$2,920</td>
-                    </tr>
-                    <tr>
-                        <td>24s</td>
-                        <td>$95</td>
-                        <td>$3,520</td>
-                    </tr>
-                    <tr>
-                        <td>Off-Road 20</td>
-                        <td>$99</td>
-                        <td>$3,420</td>
-                    </tr>
-                    <tr>
-                        <td>Off-Road 22</td>
-                        <td>$105</td>
-                        <td>$3,720</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <p class="footer-content">This reference tool was created for <strong>workplace use</strong>. Last updated: May 2025.</p>
-        </div>
-    </footer>
-    
-    <script>
-        // Show main page and hide all sections
-        function showMainPage() {
-            document.getElementById('index-cards').style.display = 'grid';
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active-section');
-            });
-            
-            // Scroll back to top
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-        
-        // Show specific section and hide index cards
-        function showSection(sectionId) {
-            document.getElementById('index-cards').style.display = 'none';
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active-section');
-            });
-            
-            document.getElementById(sectionId).classList.add('active-section');
-            
-            // Scroll to top of section
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-        
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            showMainPage();
-        });
-    </script>
-</body>
-</html>
