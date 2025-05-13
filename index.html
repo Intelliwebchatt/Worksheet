@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Dark Theme with Navigation Cards</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Premium Automotive Specifications</title>
     <style>
         :root {
             --black-primary: #0a0a0a;
@@ -18,33 +16,29 @@
             --accent-red: #c41e3a;
             --accent-red-hover: #e12142;
             --overlay-dark: rgba(0, 0, 0, 0.7);
-            --transition-standard: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Montserrat', 'Segoe UI', sans-serif;
         }
-
+        
         body {
             background-color: var(--black-primary);
             color: var(--text-primary);
             line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
         }
-
-        /* Improved header with more dynamic gradients */
+        
         header {
-            background: linear-gradient(135deg, var(--black-primary), var(--black-tertiary), #1d1d1d);
-            padding: 5rem 0 11rem;
+            background: linear-gradient(to right, var(--black-primary), var(--black-tertiary));
+            padding: 4rem 0 10rem;
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
-
+        
         .bg-pattern {
             position: absolute;
             width: 100%;
@@ -56,14 +50,8 @@
                 radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.03) 1%, transparent 8%);
             background-size: 60px 60px;
             opacity: 0.4;
-            animation: fadePattern 20s infinite alternate;
         }
-
-        @keyframes fadePattern {
-            0% { opacity: 0.3; }
-            100% { opacity: 0.5; }
-        }
-
+        
         .header-accent {
             position: absolute;
             width: 30%;
@@ -72,156 +60,90 @@
             bottom: 0;
             left: 0;
             box-shadow: 0 0 20px rgba(196, 30, 58, 0.5);
-            animation: accentPulse 3s infinite alternate;
         }
-
-        @keyframes accentPulse {
-            0% { box-shadow: 0 0 20px rgba(196, 30, 58, 0.3); }
-            100% { box-shadow: 0 0 30px rgba(196, 30, 58, 0.7); }
-        }
-
+        
         .header-content {
             position: relative;
             z-index: 2;
             text-align: center;
         }
-
+        
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
         }
-
+        
         .page-title {
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            margin-bottom: 0.8rem;
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
             font-weight: 300;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
-
+        
         .page-title span {
             color: var(--accent-red);
             font-weight: 600;
-            position: relative;
-            display: inline-block;
         }
-
-        .page-title span::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent-red);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.5s ease;
-        }
-
-        .page-title:hover span::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
+        
         .subtitle {
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-size: 1.1rem;
             font-weight: 300;
             max-width: 600px;
             margin: 0 auto;
             color: var(--text-secondary);
             letter-spacing: 1px;
         }
-
-        /* Improved section title with better shadow and positioning */
+        
         .section-title {
             text-align: center;
             margin: -6rem 0 4rem;
             position: relative;
             z-index: 10;
         }
-
+        
         .section-title h2 {
             display: inline-block;
             background-color: var(--black-card);
             padding: 1.2rem 3rem;
-            border-radius: 4px;
+            border-radius: 3px;
             color: var(--text-primary);
-            font-size: clamp(1rem, 3vw, 1.3rem);
+            font-size: 1.3rem;
             font-weight: 400;
             letter-spacing: 2px;
             text-transform: uppercase;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             border-bottom: 3px solid var(--accent-red);
-            position: relative;
-            overflow: hidden;
         }
-
-        .section-title h2::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-            transform: translateX(-100%);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            100% { transform: translateX(100%); }
-        }
-
-        /* Improved card layout and responsiveness */
+        
         .cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2.5rem;
             margin-bottom: 6rem;
         }
-
+        
         .index-card {
             background-color: var(--black-card);
-            border-radius: 8px;
+            border-radius: 4px;
             overflow: hidden;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            transition: var(--transition-standard);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             position: relative;
-            height: 300px;
+            height: 280px;
             border-top: 1px solid #333;
             border-left: 1px solid #252525;
-            text-decoration: none;
-            display: block;
         }
-
+        
         .index-card:hover {
-            transform: translateY(-15px) scale(1.02);
+            transform: translateY(-15px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            background-color: var(--black-hover);
         }
-
-        .index-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, transparent 50%, rgba(0, 0, 0, 0.5));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: 1;
-        }
-
-        .index-card:hover::before {
-            opacity: 1;
-        }
-
-        .index-card::after {
+        
+        .index-card:after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -229,14 +151,13 @@
             width: 30%;
             height: 3px;
             background: var(--accent-red);
-            transition: width 0.5s ease, box-shadow 0.5s ease;
+            transition: width 0.3s ease;
         }
-
-        .index-card:hover::after {
+        
+        .index-card:hover:after {
             width: 100%;
-            box-shadow: 0 0 15px rgba(196, 30, 58, 0.8);
         }
-
+        
         .card-content {
             padding: 2.5rem;
             position: relative;
@@ -246,409 +167,553 @@
             justify-content: space-between;
             height: 100%;
         }
-
+        
         .card-title {
             font-size: 1.8rem;
             font-weight: 400;
             margin-bottom: 0.5rem;
             color: var(--text-primary);
             letter-spacing: 1px;
-            transition: color 0.3s ease;
         }
-
-        .index-card:hover .card-title {
-            color: var(--accent-red);
-        }
-
+        
         .card-desc {
             color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.6;
             font-weight: 300;
-            transition: color 0.3s ease;
         }
-
-        .index-card:hover .card-desc {
-            color: #d0d0d0;
-        }
-
+        
         .card-icon {
             font-size: 2.2rem;
             color: var(--accent-red);
             margin-bottom: 1.5rem;
             opacity: 0.8;
-            transition: transform 0.5s ease, opacity 0.3s ease;
         }
-
-        .index-card:hover .card-icon {
-            transform: translateY(-5px) scale(1.1);
-            opacity: 1;
-        }
-
+        
         .card-tag {
             display: inline-block;
             background-color: rgba(196, 30, 58, 0.1);
             color: var(--accent-red);
             padding: 0.35rem 1rem;
-            border-radius: 4px;
+            border-radius: 2px;
             font-size: 0.8rem;
             font-weight: 500;
             margin-top: 1.5rem;
             letter-spacing: 1px;
             text-transform: uppercase;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
-
-        .index-card:hover .card-tag {
-            background-color: rgba(196, 30, 58, 0.2);
-            color: #ff3a5f;
-        }
-
-        /* Pages styling with smooth transitions */
-        .page {
+        
+        .section {
+            padding: 5rem 0;
             display: none;
             background-color: var(--black-secondary);
             min-height: 100vh;
-            padding: 5rem 0;
-            animation: fadeIn 0.7s ease forwards;
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .page-active {
+        
+        .active-section {
             display: block;
+            animation: fadeIn 0.6s ease-in-out;
         }
-
-        /* Navigation styling */
-        .back-button {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: var(--accent-red);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .back-btn {
+            background-color: var(--black-tertiary);
+            color: var(--text-primary);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 2px;
+            margin-bottom: 3rem;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            z-index: 100;
-            opacity: 0;
-            visibility: hidden;
+            font-weight: 400;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            border-left: 3px solid var(--accent-red);
         }
-
-        .back-button.visible {
-            opacity: 1;
-            visibility: visible;
+        
+        .back-btn:hover {
+            background-color: var(--black-hover);
+            transform: translateX(5px);
         }
-
-        .back-button:hover {
-            background-color: var(--accent-red-hover);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        
+        .section-heading {
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            color: var(--text-primary);
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
-
-        /* Content styling for inner pages */
-        .page-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .page-content h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
+        
+        .section-heading span {
             color: var(--accent-red);
+            font-weight: 600;
         }
-
-        .page-content p {
-            margin-bottom: 1.5rem;
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2.5rem;
+            background-color: var(--black-card);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        th, td {
+            padding: 1.2rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        th {
+            background-color: rgba(196, 30, 58, 0.1);
+            color: var(--text-primary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+        
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+        
+        tr:hover {
+            background-color: rgba(196, 30, 58, 0.05);
+        }
+        
+        td {
             color: var(--text-secondary);
+            font-weight: 300;
         }
-
-        /* Responsive improvements */
+        
+        td:first-child {
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+        
+        footer {
+            background-color: var(--black-tertiary);
+            color: var(--text-secondary);
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .footer-accent {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--accent-red);
+        }
+        
+        .footer-content {
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .footer-content strong {
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+        
         @media (max-width: 768px) {
-            header {
-                padding: 3rem 0 9rem;
+            .page-title {
+                font-size: 2rem;
             }
-
-            .section-title {
-                margin: -5rem 0 3rem;
-            }
-
+            
             .section-title h2 {
+                font-size: 1.1rem;
                 padding: 1rem 2rem;
             }
-
+            
             .cards-container {
-                gap: 1.5rem;
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
-
+            
             .index-card {
-                height: auto;
-                min-height: 250px;
+                height: 250px;
             }
-
+            
             .card-content {
-                padding: 1.8rem;
+                padding: 2rem;
             }
-
+            
             .card-title {
                 font-size: 1.5rem;
             }
-
-            .card-desc {
+            
+            table {
                 font-size: 0.9rem;
             }
-
-            .back-button {
-                bottom: 1.5rem;
-                right: 1.5rem;
-                width: 45px;
-                height: 45px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .page-title {
-                font-size: 1.8rem;
-            }
-
-            .subtitle {
-                font-size: 0.9rem;
-            }
-
-            .section-title h2 {
-                font-size: 1rem;
-                padding: 0.8rem 1.5rem;
-            }
-
-            .card-icon {
-                font-size: 1.8rem;
+            
+            th, td {
+                padding: 1rem;
             }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Main Page with Index Cards -->
-    <div id="home-page" class="page page-active">
-        <header>
-            <div class="bg-pattern"></div>
-            <div class="header-content container">
-                <h1 class="page-title">Modern <span>Dark</span> Interface</h1>
-                <p class="subtitle">A sleek and modern interface with animated index cards that function as navigation elements</p>
-            </div>
-            <div class="header-accent"></div>
-        </header>
+    <header>
+        <div class="bg-pattern"></div>
+        <div class="container header-content">
+            <h1 class="page-title">Premium <span>Automotive</span> Specifications</h1>
+            <p class="subtitle">Precision-engineered solutions for automotive enthusiasts</p>
+        </div>
+        <div class="header-accent"></div>
+    </header>
+    
+    <div class="container">
+        <div class="section-title">
+            <h2>Specification Database</h2>
+        </div>
         
+        <div class="cards-container" id="index-cards">
+            <div class="index-card" onclick="showSection('chevy-section')">
+                <div class="card-content">
+                    <div>
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Chevrolet</h3>
+                        <p class="card-desc">Lug patterns for premium Chevy vehicles including Silverado, Tahoe, Equinox, and more.</p>
+                    </div>
+                    <div class="card-tag">12 Vehicles</div>
+                </div>
+            </div>
+            
+            <div class="index-card" onclick="showSection('ford-section')">
+                <div class="card-content">
+                    <div>
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Ford</h3>
+                        <p class="card-desc">Lug patterns for premium Ford vehicles including F-150, Explorer, Mustang, and more.</p>
+                    </div>
+                    <div class="card-tag">11 Vehicles</div>
+                </div>
+            </div>
+            
+            <div class="index-card" onclick="showSection('dodge-section')">
+                <div class="card-content">
+                    <div>
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Dodge/RAM</h3>
+                        <p class="card-desc">Lug patterns for premium Dodge and RAM vehicles including Ram 1500, Charger, Durango, and more.</p>
+                    </div>
+                    <div class="card-tag">10 Vehicles</div>
+                </div>
+            </div>
+            
+            <div class="index-card" onclick="showSection('bike-section')">
+                <div class="card-content">
+                    <div>
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8.235 1.559a.5.5 0 0 0-.47 0l-7.5 4a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882l-7.5-4zM8 7.15L1.705 4 8 .85 14.295 4 8 7.15z"/>
+                                <path fill-rule="evenodd" d="M8 12.85L1.705 9.85 8 6.7l6.295 3.15L8 12.85zm7.5-5.15a.5.5 0 1 1 1 0v4a.5.5 0 0 1-.276.447l-8 4A.5.5 0 0 1 8 16.5a.5.5 0 0 1-.224-.053l-8-4A.5.5 0 0 1 0 11.85v-4a.5.5 0 1 1 1 0v3.65l7 3.5 7-3.5V7.7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Package Deals</h3>
+                        <p class="card-desc">Luxury wheel and tire packages - premium sizes and exclusive program options with sensors.</p>
+                    </div>
+                    <div class="card-tag">Pricing Options</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chevrolet Section -->
+    <section id="chevy-section" class="section">
         <div class="container">
-            <div class="section-title">
-                <h2>Featured Sections</h2>
-            </div>
+            <button class="back-btn" onclick="showMainPage()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                </svg>
+                Return to Index
+            </button>
             
-            <div class="cards-container">
-                <!-- Card 1 -->
-                <div class="index-card" data-page="page1">
-                    <div class="card-content">
-                        <div>
-                            <i class="fas fa-code card-icon"></i>
-                            <h3 class="card-title">Development</h3>
-                            <p class="card-desc">Explore our development services and technologies we specialize in.</p>
-                        </div>
-                        <span class="card-tag">Services</span>
-                    </div>
-                </div>
-                
-                <!-- Card 2 -->
-                <div class="index-card" data-page="page2">
-                    <div class="card-content">
-                        <div>
-                            <i class="fas fa-paint-brush card-icon"></i>
-                            <h3 class="card-title">Design</h3>
-                            <p class="card-desc">Discover our design philosophy and creative process.</p>
-                        </div>
-                        <span class="card-tag">Creative</span>
-                    </div>
-                </div>
-                
-                <!-- Card 3 -->
-                <div class="index-card" data-page="page3">
-                    <div class="card-content">
-                        <div>
-                            <i class="fas fa-chart-line card-icon"></i>
-                            <h3 class="card-title">Analytics</h3>
-                            <p class="card-desc">Data-driven insights to help grow your business.</p>
-                        </div>
-                        <span class="card-tag">Data</span>
-                    </div>
-                </div>
-                
-                <!-- Card 4 -->
-                <div class="index-card" data-page="page4">
-                    <div class="card-content">
-                        <div>
-                            <i class="fas fa-users card-icon"></i>
-                            <h3 class="card-title">About Us</h3>
-                            <p class="card-desc">Learn about our team and company values.</p>
-                        </div>
-                        <span class="card-tag">Team</span>
-                    </div>
-                </div>
-                
-                <!-- Card 5 -->
-                <div class="index-card" data-page="page5">
-                    <div class="card-content">
-                        <div>
-                            <i class="fas fa-envelope card-icon"></i>
-                            <h3 class="card-title">Contact</h3>
-                            <p class="card-desc">Get in touch with our team for inquiries and collaborations.</p>
-                        </div>
-                        <span class="card-tag">Connect</span>
-                    </div>
-                </div>
-                
-                <!-- Card 6 -->
-                <div class="index-card" data-page="page6">
-                    <div class="card-content">
-                        <div>
-                            <i class="fas fa-briefcase card-icon"></i>
-                            <h3 class="card-title">Portfolio</h3>
-                            <p class="card-desc">Explore our latest projects and case studies.</p>
-                        </div>
-                        <span class="card-tag">Projects</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Content Pages (Hidden initially) -->
-    <!-- Page 1 -->
-    <div id="page1" class="page">
-        <div class="container page-content">
-            <h2>Development Services</h2>
-            <p>Our team specializes in modern web and mobile development technologies. We build scalable, responsive applications using the latest frameworks and best practices.</p>
-            <p>From front-end to back-end, we've got your digital needs covered with expertise in React, Vue.js, Node.js, Python, and more.</p>
-        </div>
-    </div>
-
-    <!-- Page 2 -->
-    <div id="page2" class="page">
-        <div class="container page-content">
-            <h2>Design Philosophy</h2>
-            <p>We create intuitive, user-centered designs that not only look beautiful but also enhance the user experience. Our design process focuses on usability, accessibility, and brand consistency.</p>
-            <p>From wireframing to prototyping to final design, we work closely with clients to deliver visuals that engage and convert.</p>
-        </div>
-    </div>
-
-    <!-- Page 3 -->
-    <div id="page3" class="page">
-        <div class="container page-content">
-            <h2>Analytics Solutions</h2>
-            <p>Data tells a story. We help you understand that story through comprehensive analytics solutions that track user behavior, conversion rates, and more.</p>
-            <p>Our team leverages advanced tools and custom reporting to turn raw data into actionable insights for your business.</p>
-        </div>
-    </div>
-
-    <!-- Page 4 -->
-    <div id="page4" class="page">
-        <div class="container page-content">
-            <h2>About Our Team</h2>
-            <p>We're a passionate group of tech enthusiasts dedicated to creating exceptional digital experiences. With backgrounds spanning design, development, and marketing, our team brings diverse perspectives to every project.</p>
-            <p>Founded in 2018, we've grown from a small startup to a full-service digital agency with clients worldwide.</p>
-        </div>
-    </div>
-
-    <!-- Page 5 -->
-    <div id="page5" class="page">
-        <div class="container page-content">
-            <h2>Contact Us</h2>
-            <p>Ready to start your next project? We'd love to hear from you! Reach out to discuss your ideas, questions, or collaboration opportunities.</p>
-            <p>Email: hello@example.com<br>Phone: (555) 123-4567</p>
-        </div>
-    </div>
-
-    <!-- Page 6 -->
-    <div id="page6" class="page">
-        <div class="container page-content">
-            <h2>Our Portfolio</h2>
-            <p>Browse through our collection of successful projects across various industries. Each project showcases our commitment to quality, innovation, and results.</p>
-            <p>From e-commerce platforms to corporate websites to mobile applications, our portfolio demonstrates our versatility and expertise.</p>
-        </div>
-    </div>
-
-    <!-- Back Button (Hidden initially) -->
-    <div class="back-button">
-        <i class="fas fa-home"></i>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all index cards
-            const indexCards = document.querySelectorAll('.index-card');
-            // Get the back button
-            const backButton = document.querySelector('.back-button');
-            // Get the home page
-            const homePage = document.getElementById('home-page');
+            <h2 class="section-heading">Chevrolet Vehicles <span>Lug Patterns</span></h2>
             
-            // Add click event to all index cards
-            indexCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    // Get the target page ID from the data-page attribute
-                    const targetPageId = this.getAttribute('data-page');
-                    const targetPage = document.getElementById(targetPageId);
-                    
-                    // Hide home page
-                    homePage.classList.remove('page-active');
-                    
-                    // Show target page with animation
-                    setTimeout(() => {
-                        targetPage.classList.add('page-active');
-                    }, 100);
-                    
-                    // Show back button
-                    backButton.classList.add('visible');
-                    
-                    // Scroll to top
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            });
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vehicle</th>
+                        <th>Years Covered</th>
+                        <th>Lug Pattern</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Silverado 1500</td>
+                        <td>1999-Present</td>
+                        <td>6x139.7 mm (6x5.5")</td>
+                    </tr>
+                    <tr>
+                        <td>Silverado 2500HD/3500HD</td>
+                        <td>2001-Present</td>
+                        <td>8x165.1 mm (pre-2011), 8x180 mm (2011+)</td>
+                    </tr>
+                    <tr>
+                        <td>Tahoe</td>
+                        <td>2000-Present</td>
+                        <td>6x139.7 mm (6x5.5")</td>
+                    </tr>
+                    <tr>
+                        <td>Suburban</td>
+                        <td>2000-Present</td>
+                        <td>6x139.7 mm (6x5.5")</td>
+                    </tr>
+                    <tr>
+                        <td>Colorado</td>
+                        <td>2004-2012, 2015-Present</td>
+                        <td>6x120 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Trailblazer</td>
+                        <td>2002-2009, 2021-Present</td>
+                        <td>6x127 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Equinox</td>
+                        <td>2005-Present</td>
+                        <td>5x120 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Traverse</td>
+                        <td>2009-Present</td>
+                        <td>6x120 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Malibu</td>
+                        <td>2000-Present</td>
+                        <td>5x115 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Impala</td>
+                        <td>2000-2020</td>
+                        <td>5x115 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Camaro</td>
+                        <td>2010-Present</td>
+                        <td>5x120 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Blazer</td>
+                        <td>2019-Present</td>
+                        <td>5x120 mm</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+    <!-- Ford Section -->
+    <section id="ford-section" class="section">
+        <div class="container">
+            <button class="back-btn" onclick="showMainPage()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                </svg>
+                Return to Index
+            </button>
             
-            // Add click event to back button
-            backButton.addEventListener('click', function() {
-                // Get all pages
-                const pages = document.querySelectorAll('.page');
-                
-                // Hide all pages
-                pages.forEach(page => {
-                    if (page.id !== 'home-page') {
-                        page.classList.remove('page-active');
-                    }
-                });
-                
-                // Show home page
-                setTimeout(() => {
-                    homePage.classList.add('page-active');
-                }, 100);
-                
-                // Hide back button
-                this.classList.remove('visible');
-                
-                // Scroll to top
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+            <h2 class="section-heading">Ford Vehicles <span>Lug Patterns</span></h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vehicle</th>
+                        <th>Years Covered</th>
+                        <th>Lug Pattern</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>F-150</td>
+                        <td>2000-Present</td>
+                        <td>6x135 mm</td>
+                    </tr>
+                    <tr>
+                        <td>F-250/F-350 Super Duty</td>
+                        <td>2000-Present</td>
+                        <td>8x170 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Explorer</td>
+                        <td>2000-Present</td>
+                        <td>5x114.3 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Expedition</td>
+                        <td>2000-Present</td>
+                        <td>6x135 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Escape</td>
+                        <td>2001-Present</td>
+                        <td>5x114.3 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Edge</td>
+                        <td>2007-Present</td>
+                        <td>5x114.3 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Mustang</td>
+                        <td>2000-Present</td>
+                        <td>5x114.3 mm (2005+), 5x4.25" (pre-2005)</td>
+                    </tr>
+                    <tr>
+                        <td>Ranger</td>
+                        <td>2000-2011, 2019-Present</td>
+                        <td>5x114.3 mm (2019+), 5x4.5" (pre-2011)</td>
+                    </tr>
+                    <tr>
+                        <td>Bronco</td>
+                        <td>2021-Present</td>
+                        <td>6x139.7 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Fusion</td>
+                        <td>2006-2020</td>
+                        <td>5x114.3 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Taurus</td>
+                        <td>2000-2019</td>
+                        <td>5x114.3 mm</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+    <!-- Dodge/RAM Section -->
+    <section id="dodge-section" class="section">
+        <div class="container">
+            <button class="back-btn" onclick="showMainPage()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                </svg>
+                Return to Index
+            </button>
+            
+            <h2 class="section-heading">Dodge/RAM Vehicles <span>Lug Patterns</span></h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vehicle</th>
+                        <th>Years Covered</th>
+                        <th>Lug Pattern</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ram 1500</td>
+                        <td>2002-Present</td>
+                        <td>5x139.7 mm (2002-2018), 6x139.7 mm (2019+)</td>
+                    </tr>
+                    <tr>
+                        <td>Ram 2500/3500</td>
+                        <td>2000-Present</td>
+                        <td>8x165.1 mm (pre-2013), 8x170 mm (2013+)</td>
+                    </tr>
+                    <tr>
+                        <td>Durango</td>
+                        <td>2004-Present</td>
+                        <td>5x127 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Dakota</td>
+                        <td>2000-2011</td>
+                        <td>6x114.3 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Charger</td>
+                        <td>2006-Present</td>
+                        <td>5x115 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Challenger</td>
+                        <td>2008-Present</td>
+                        <td>5x115 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Journey</td>
+                        <td>2009-2020</td>
+                        <td>5x127 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Grand Caravan</td>
+                        <td>2000-2020</td>
+                        <td>5x127 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Avenger</td>
+                        <td>2008-2014</td>
+                        <td>5x114.3 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Nitro</td>
+                        <td>2007-2012</td>
+                        <td>5x114.3 mm</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+    <!-- Package Deals Section -->
+    <section id="bike-section" class="section">
+        <div class="container">
+            <button class="back-btn" onclick="showMainPage()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                </svg>
+                Return to Index
+            </button>
+            
+            <h2 class="section-heading">Premium Wheel & Tire <span>Package Deals</span></h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Size</th>
+                        <th>Weekly Rate</th>
+                        <th>Program with Sensors</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>18s</td>
+                        <td>$455</td>
+                        <td>$2,220</td>
+                    </tr>
