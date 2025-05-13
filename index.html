@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Changed Title -->
     <title>Shane's Fitment Page</title>
     <style>
         :root {
@@ -272,7 +271,7 @@
         
         th, td {
             padding: 1.2rem 1.5rem;
-            text-align: left;
+            text-align: left; /* Default from your style, React sample used center */
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         
@@ -298,10 +297,16 @@
             font-weight: 300;
         }
         
-        td:first-child {
+        td:first-child { /* This makes the "Size" column primary color and slightly bolder */
             color: var(--text-primary);
             font-weight: 400;
         }
+        /* You might want to make other data cells more prominent too: */
+        td:not(:first-child) {
+             /* color: var(--text-primary); */ /* Uncomment if you want all data to be primary color */
+             /* font-weight: 400; */ /* Uncomment for slightly bolder data */
+        }
+
         
         footer {
             background-color: var(--black-tertiary);
@@ -348,7 +353,8 @@
             }
             
             .index-card {
-                height: 250px;
+                height: auto; /* Adjust for potentially more content */
+                min-height: 250px;
             }
             
             .card-content {
@@ -365,7 +371,26 @@
             
             th, td {
                 padding: 1rem;
+                /* For smaller screens, text-align: left might be better for readability if data is long */
             }
+             /* For smaller screens, you might want to make table cells display as blocks for better layout */
+            /*
+            th, td {
+                display: block;
+                width: 100%;
+                text-align: right; 
+            }
+            td:before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: var(--text-primary);
+            }
+            thead {
+                display: none; 
+            }
+            */
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -374,9 +399,7 @@
     <header>
         <div class="bg-pattern"></div>
         <div class="container header-content">
-            <!-- Changed Page Title -->
             <h1 class="page-title">Shane's <span>Fitment</span> Page</h1>
-            <!-- Optional: Changed Subtitle -->
             <p class="subtitle">Precision fitment data for your automotive needs</p>
         </div>
         <div class="header-accent"></div>
@@ -384,7 +407,6 @@
     
     <div class="container">
         <div class="section-title">
-            <!-- Optional: Changed Section Title Header -->
             <h2>Fitment Database</h2>
         </div>
         
@@ -461,9 +483,7 @@
                 </svg>
                 Return to Index
             </button>
-            
             <h2 class="section-heading">Chevrolet Vehicles <span>Lug Patterns</span></h2>
-            
             <table>
                 <thead>
                     <tr>
@@ -473,66 +493,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Silverado 1500</td>
-                        <td>1999-Present</td>
-                        <td>6x139.7 mm (6x5.5")</td>
-                    </tr>
-                    <tr>
-                        <td>Silverado 2500HD/3500HD</td>
-                        <td>2001-Present</td>
-                        <td>8x165.1 mm (pre-2011), 8x180 mm (2011+)</td>
-                    </tr>
-                    <tr>
-                        <td>Tahoe</td>
-                        <td>2000-Present</td>
-                        <td>6x139.7 mm (6x5.5")</td>
-                    </tr>
-                    <tr>
-                        <td>Suburban</td>
-                        <td>2000-Present</td>
-                        <td>6x139.7 mm (6x5.5")</td>
-                    </tr>
-                    <tr>
-                        <td>Colorado</td>
-                        <td>2004-2012, 2015-Present</td>
-                        <td>6x120 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Trailblazer</td>
-                        <td>2002-2009, 2021-Present</td>
-                        <td>6x127 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Equinox</td>
-                        <td>2005-Present</td>
-                        <td>5x120 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Traverse</td>
-                        <td>2009-Present</td>
-                        <td>6x120 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Malibu</td>
-                        <td>2000-Present</td>
-                        <td>5x115 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Impala</td>
-                        <td>2000-2020</td>
-                        <td>5x115 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Camaro</td>
-                        <td>2010-Present</td>
-                        <td>5x120 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Blazer</td>
-                        <td>2019-Present</td>
-                        <td>5x120 mm</td>
-                    </tr>
+                    <tr><td data-label="Vehicle">Silverado 1500</td><td data-label="Years Covered">1999-Present</td><td data-label="Lug Pattern">6x139.7 mm (6x5.5")</td></tr>
+                    <tr><td data-label="Vehicle">Silverado 2500HD/3500HD</td><td data-label="Years Covered">2001-Present</td><td data-label="Lug Pattern">8x165.1 mm (pre-2011), 8x180 mm (2011+)</td></tr>
+                    <tr><td data-label="Vehicle">Tahoe</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">6x139.7 mm (6x5.5")</td></tr>
+                    <tr><td data-label="Vehicle">Suburban</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">6x139.7 mm (6x5.5")</td></tr>
+                    <tr><td data-label="Vehicle">Colorado</td><td data-label="Years Covered">2004-2012, 2015-Present</td><td data-label="Lug Pattern">6x120 mm</td></tr>
+                    <tr><td data-label="Vehicle">Trailblazer</td><td data-label="Years Covered">2002-2009, 2021-Present</td><td data-label="Lug Pattern">6x127 mm</td></tr>
+                    <tr><td data-label="Vehicle">Equinox</td><td data-label="Years Covered">2005-Present</td><td data-label="Lug Pattern">5x120 mm</td></tr>
+                    <tr><td data-label="Vehicle">Traverse</td><td data-label="Years Covered">2009-Present</td><td data-label="Lug Pattern">6x120 mm</td></tr>
+                    <tr><td data-label="Vehicle">Malibu</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">5x115 mm</td></tr>
+                    <tr><td data-label="Vehicle">Impala</td><td data-label="Years Covered">2000-2020</td><td data-label="Lug Pattern">5x115 mm</td></tr>
+                    <tr><td data-label="Vehicle">Camaro</td><td data-label="Years Covered">2010-Present</td><td data-label="Lug Pattern">5x120 mm</td></tr>
+                    <tr><td data-label="Vehicle">Blazer</td><td data-label="Years Covered">2019-Present</td><td data-label="Lug Pattern">5x120 mm</td></tr>
                 </tbody>
             </table>
         </div>
@@ -547,9 +519,7 @@
                 </svg>
                 Return to Index
             </button>
-            
             <h2 class="section-heading">Ford Vehicles <span>Lug Patterns</span></h2>
-            
             <table>
                 <thead>
                     <tr>
@@ -559,61 +529,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>F-150</td>
-                        <td>2000-Present</td>
-                        <td>6x135 mm</td>
-                    </tr>
-                    <tr>
-                        <td>F-250/F-350 Super Duty</td>
-                        <td>2000-Present</td>
-                        <td>8x170 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Explorer</td>
-                        <td>2000-Present</td>
-                        <td>5x114.3 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Expedition</td>
-                        <td>2000-Present</td>
-                        <td>6x135 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Escape</td>
-                        <td>2001-Present</td>
-                        <td>5x114.3 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Edge</td>
-                        <td>2007-Present</td>
-                        <td>5x114.3 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Mustang</td>
-                        <td>2000-Present</td>
-                        <td>5x114.3 mm (2005+), 5x4.25" (pre-2005)</td>
-                    </tr>
-                    <tr>
-                        <td>Ranger</td>
-                        <td>2000-2011, 2019-Present</td>
-                        <td>5x114.3 mm (2019+), 5x4.5" (pre-2011)</td>
-                    </tr>
-                    <tr>
-                        <td>Bronco</td>
-                        <td>2021-Present</td>
-                        <td>6x139.7 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Fusion</td>
-                        <td>2006-2020</td>
-                        <td>5x114.3 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Taurus</td>
-                        <td>2000-2019</td>
-                        <td>5x114.3 mm</td>
-                    </tr>
+                    <tr><td data-label="Vehicle">F-150</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">6x135 mm</td></tr>
+                    <tr><td data-label="Vehicle">F-250/F-350 Super Duty</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">8x170 mm</td></tr>
+                    <tr><td data-label="Vehicle">Explorer</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">5x114.3 mm</td></tr>
+                    <tr><td data-label="Vehicle">Expedition</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">6x135 mm</td></tr>
+                    <tr><td data-label="Vehicle">Escape</td><td data-label="Years Covered">2001-Present</td><td data-label="Lug Pattern">5x114.3 mm</td></tr>
+                    <tr><td data-label="Vehicle">Edge</td><td data-label="Years Covered">2007-Present</td><td data-label="Lug Pattern">5x114.3 mm</td></tr>
+                    <tr><td data-label="Vehicle">Mustang</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">5x114.3 mm (2005+), 5x4.25" (pre-2005)</td></tr>
+                    <tr><td data-label="Vehicle">Ranger</td><td data-label="Years Covered">2000-2011, 2019-Present</td><td data-label="Lug Pattern">5x114.3 mm (2019+), 5x4.5" (pre-2011)</td></tr>
+                    <tr><td data-label="Vehicle">Bronco</td><td data-label="Years Covered">2021-Present</td><td data-label="Lug Pattern">6x139.7 mm</td></tr>
+                    <tr><td data-label="Vehicle">Fusion</td><td data-label="Years Covered">2006-2020</td><td data-label="Lug Pattern">5x114.3 mm</td></tr>
+                    <tr><td data-label="Vehicle">Taurus</td><td data-label="Years Covered">2000-2019</td><td data-label="Lug Pattern">5x114.3 mm</td></tr>
                 </tbody>
             </table>
         </div>
@@ -628,9 +554,7 @@
                 </svg>
                 Return to Index
             </button>
-            
             <h2 class="section-heading">Dodge/RAM Vehicles <span>Lug Patterns</span></h2>
-            
             <table>
                 <thead>
                     <tr>
@@ -640,56 +564,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Ram 1500</td>
-                        <td>2002-Present</td>
-                        <td>5x139.7 mm (2002-2018), 6x139.7 mm (2019+)</td>
-                    </tr>
-                    <tr>
-                        <td>Ram 2500/3500</td>
-                        <td>2000-Present</td>
-                        <td>8x165.1 mm (pre-2013), 8x170 mm (2013+)</td>
-                    </tr>
-                    <tr>
-                        <td>Durango</td>
-                        <td>2004-Present</td>
-                        <td>5x127 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Dakota</td>
-                        <td>2000-2011</td>
-                        <td>6x114.3 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Charger</td>
-                        <td>2006-Present</td>
-                        <td>5x115 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Challenger</td>
-                        <td>2008-Present</td>
-                        <td>5x115 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Journey</td>
-                        <td>2009-2020</td>
-                        <td>5x127 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Grand Caravan</td>
-                        <td>2000-2020</td>
-                        <td>5x127 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Avenger</td>
-                        <td>2008-2014</td>
-                        <td>5x114.3 mm</td>
-                    </tr>
-                    <tr>
-                        <td>Nitro</td>
-                        <td>2007-2012</td>
-                        <td>5x114.3 mm</td>
-                    </tr>
+                    <tr><td data-label="Vehicle">Ram 1500</td><td data-label="Years Covered">2002-Present</td><td data-label="Lug Pattern">5x139.7 mm (2002-2018), 6x139.7 mm (2019+)</td></tr>
+                    <tr><td data-label="Vehicle">Ram 2500/3500</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">8x165.1 mm (pre-2013), 8x170 mm (2013+)</td></tr>
+                    <tr><td data-label="Vehicle">Durango</td><td data-label="Years Covered">2004-Present</td><td data-label="Lug Pattern">5x127 mm</td></tr>
+                    <tr><td data-label="Vehicle">Dakota</td><td data-label="Years Covered">2000-2011</td><td data-label="Lug Pattern">6x114.3 mm</td></tr>
+                    <tr><td data-label="Vehicle">Charger</td><td data-label="Years Covered">2006-Present</td><td data-label="Lug Pattern">5x115 mm</td></tr>
+                    <tr><td data-label="Vehicle">Challenger</td><td data-label="Years Covered">2008-Present</td><td data-label="Lug Pattern">5x115 mm</td></tr>
+                    <tr><td data-label="Vehicle">Journey</td><td data-label="Years Covered">2009-2020</td><td data-label="Lug Pattern">5x127 mm</td></tr>
+                    <tr><td data-label="Vehicle">Grand Caravan</td><td data-label="Years Covered">2000-2020</td><td data-label="Lug Pattern">5x127 mm</td></tr>
+                    <tr><td data-label="Vehicle">Avenger</td><td data-label="Years Covered">2008-2014</td><td data-label="Lug Pattern">5x114.3 mm</td></tr>
+                    <tr><td data-label="Vehicle">Nitro</td><td data-label="Years Covered">2007-2012</td><td data-label="Lug Pattern">5x114.3 mm</td></tr>
                 </tbody>
             </table>
         </div>
@@ -711,15 +595,40 @@
                 <thead>
                     <tr>
                         <th>Size</th>
-                        <th>Weekly Rate</th>
+                        <th>Rental Rate (Per Day)</th>
                         <th>Program with Sensors</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>18s</td>
-                        <td>$455</td>
-                        <td>$2,220.</td>
+                        <td data-label="Size">18s</td>
+                        <td data-label="Rental Rate (Per Day)">$65</td>
+                        <td data-label="Program with Sensors">$2,220</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Size">20s</td>
+                        <td data-label="Rental Rate (Per Day)">$70</td>
+                        <td data-label="Program with Sensors">$2,620</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Size">22s</td>
+                        <td data-label="Rental Rate (Per Day)">$80</td>
+                        <td data-label="Program with Sensors">$2,920</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Size">24s</td>
+                        <td data-label="Rental Rate (Per Day)">$95</td>
+                        <td data-label="Program with Sensors">$3,520</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Size">Off-Road 20</td>
+                        <td data-label="Rental Rate (Per Day)">$99</td>
+                        <td data-label="Program with Sensors">$3,420</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Size">Off-Road 22</td>
+                        <td data-label="Rental Rate (Per Day)">$105</td>
+                        <td data-label="Program with Sensors">$3,720</td>
                     </tr>
                 </tbody>
             </table>
@@ -729,7 +638,6 @@
     <footer>
         <div class="footer-accent"></div>
         <div class="container footer-content">
-            <!-- Changed Footer Content -->
             <p>© 2024 Shane's Fitment Page. All Rights Reserved. <strong>Developed by intelliaipro.com</strong></p>
         </div>
     </footer>
@@ -758,8 +666,8 @@
                 section.style.display = 'none';
             });
             
-            document.getElementById('index-cards').style.display = 'grid'; // Or 'flex', 'block' depending on original
-            document.querySelector('.section-title').style.display = 'block'; // Or 'flex', etc.
+            document.getElementById('index-cards').style.display = 'grid';
+            document.querySelector('.section-title').style.display = 'block';
             window.scrollTo(0, 0);
         }
     </script>
