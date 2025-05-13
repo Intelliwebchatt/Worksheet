@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Automotive Specifications</title>
+    <!-- Changed Title -->
+    <title>Shane's Fitment Page</title>
     <style>
         :root {
             --black-primary: #0a0a0a;
@@ -373,15 +374,18 @@
     <header>
         <div class="bg-pattern"></div>
         <div class="container header-content">
-            <h1 class="page-title">Premium <span>Automotive</span> Specifications</h1>
-            <p class="subtitle">Precision-engineered solutions for automotive enthusiasts</p>
+            <!-- Changed Page Title -->
+            <h1 class="page-title">Shane's <span>Fitment</span> Page</h1>
+            <!-- Optional: Changed Subtitle -->
+            <p class="subtitle">Precision fitment data for your automotive needs</p>
         </div>
         <div class="header-accent"></div>
     </header>
     
     <div class="container">
         <div class="section-title">
-            <h2>Specification Database</h2>
+            <!-- Optional: Changed Section Title Header -->
+            <h2>Fitment Database</h2>
         </div>
         
         <div class="cards-container" id="index-cards">
@@ -715,5 +719,49 @@
                     <tr>
                         <td>18s</td>
                         <td>$455</td>
-                        <td>$2,220</td>
+                        <td>$2,220.</td>
                     </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-accent"></div>
+        <div class="container footer-content">
+            <!-- Changed Footer Content -->
+            <p>© 2024 Shane's Fitment Page. All Rights Reserved. <strong>Developed by intelliaipro.com</strong></p>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            document.getElementById('index-cards').style.display = 'none';
+            document.querySelector('.section-title').style.display = 'none';
+            
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active-section');
+                section.style.display = 'none';
+            });
+            
+            const activeSection = document.getElementById(sectionId);
+            activeSection.style.display = 'block';
+            activeSection.classList.add('active-section');
+            window.scrollTo(0, 0);
+        }
+
+        function showMainPage() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active-section');
+                section.style.display = 'none';
+            });
+            
+            document.getElementById('index-cards').style.display = 'grid'; // Or 'flex', 'block' depending on original
+            document.querySelector('.section-title').style.display = 'block'; // Or 'flex', etc.
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
