@@ -3,675 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shane's Fitment Page</title>
-    <style>
-        :root {
-            --black-primary: #0a0a0a;
-            --black-secondary: #111111;
-            --black-tertiary: #1a1a1a;
-            --black-card: #161616;
-            --black-hover: #222222;
-            --text-primary: #f5f5f5;
-            --text-secondary: #aaaaaa;
-            --accent-red: #c41e3a;
-            --accent-red-hover: #e12142;
-            --overlay-dark: rgba(0, 0, 0, 0.7);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', 'Segoe UI', sans-serif;
-        }
-        
-        body {
-            background-color: var(--black-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-        
-        header {
-            background: linear-gradient(to right, var(--black-primary), var(--black-tertiary));
-            padding: 4rem 0 10rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        }
-        
-        .bg-pattern {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.03) 1%, transparent 8%),
-                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.03) 1%, transparent 8%);
-            background-size: 60px 60px;
-            opacity: 0.4;
-        }
-        
-        .header-accent {
-            position: absolute;
-            width: 30%;
-            height: 5px;
-            background: var(--accent-red);
-            bottom: 0;
-            left: 0;
-            box-shadow: 0 0 20px rgba(196, 30, 58, 0.5);
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        .page-title {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        
-        .page-title span {
-            color: var(--accent-red);
-            font-weight: 600;
-        }
-        
-        .subtitle {
-            font-size: 1.1rem;
-            font-weight: 300;
-            max-width: 600px;
-            margin: 0 auto;
-            color: var(--text-secondary);
-            letter-spacing: 1px;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin: -6rem 0 4rem;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .section-title h2 {
-            display: inline-block;
-            background-color: var(--black-card);
-            padding: 1.2rem 3rem;
-            border-radius: 3px;
-            color: var(--text-primary);
-            font-size: 1.3rem;
-            font-weight: 400;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            border-bottom: 3px solid var(--accent-red);
-        }
-        
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 6rem;
-        }
-        
-        .index-card {
-            background-color: var(--black-card);
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            position: relative;
-            height: 280px;
-            border-top: 1px solid #333;
-            border-left: 1px solid #252525;
-        }
-        
-        .index-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        }
-        
-        .index-card:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 30%;
-            height: 3px;
-            background: var(--accent-red);
-            transition: width 0.3s ease;
-        }
-        
-        .index-card:hover:after {
-            width: 100%;
-        }
-        
-        .card-content {
-            padding: 2.5rem;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
-        
-        .card-title {
-            font-size: 1.8rem;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-            letter-spacing: 1px;
-        }
-        
-        .card-desc {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            font-weight: 300;
-        }
-        
-        .card-icon {
-            font-size: 2.2rem;
-            color: var(--accent-red);
-            margin-bottom: 1.5rem;
-            opacity: 0.8;
-        }
-        
-        .card-tag {
-            display: inline-block;
-            background-color: rgba(196, 30, 58, 0.1);
-            color: var(--accent-red);
-            padding: 0.35rem 1rem;
-            border-radius: 2px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-top: 1.5rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        
-        .section {
-            padding: 5rem 0;
-            display: none;
-            background-color: var(--black-secondary);
-            min-height: 100vh;
-        }
-        
-        .active-section {
-            display: block;
-            animation: fadeIn 0.6s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        
-        .back-btn {
-            background-color: var(--black-tertiary);
-            color: var(--text-primary);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 2px;
-            margin-bottom: 3rem;
-            cursor: pointer;
-            font-weight: 400;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.85rem;
-            border-left: 3px solid var(--accent-red);
-        }
-        
-        .back-btn:hover {
-            background-color: var(--black-hover);
-            transform: translateX(5px);
-        }
-        
-        .section-heading {
-            margin-bottom: 3rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #333;
-            color: var(--text-primary);
-            font-weight: 300;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        
-        .section-heading span {
-            color: var(--accent-red);
-            font-weight: 600;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 2.5rem;
-            background-color: var(--black-card);
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        th, td {
-            padding: 1.2rem 1.5rem;
-            text-align: left; /* Default from your style, React sample used center */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        th {
-            background-color: rgba(196, 30, 58, 0.1);
-            color: var(--text-primary);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-        }
-        
-        tr:nth-child(even) {
-            background-color: rgba(255, 255, 255, 0.02);
-        }
-        
-        tr:hover {
-            background-color: rgba(196, 30, 58, 0.05);
-        }
-        
-        td {
-            color: var(--text-secondary);
-            font-weight: 300;
-        }
-        
-        td:first-child { /* This makes the "Size" column primary color and slightly bolder */
-            color: var(--text-primary);
-            font-weight: 400;
-        }
-        /* You might want to make other data cells more prominent too: */
-        td:not(:first-child) {
-             /* color: var(--text-primary); */ /* Uncomment if you want all data to be primary color */
-             /* font-weight: 400; */ /* Uncomment for slightly bolder data */
-        }
-
-        
-        footer {
-            background-color: var(--black-tertiary);
-            color: var(--text-secondary);
-            padding: 3rem 0;
-            text-align: center;
-            position: relative;
-        }
-        
-        .footer-accent {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: var(--accent-red);
-        }
-        
-        .footer-content {
-            font-size: 0.9rem;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-        
-        .footer-content strong {
-            color: var(--text-primary);
-            font-weight: 400;
-        }
-        
-        @media (max-width: 768px) {
-            .page-title {
-                font-size: 2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.1rem;
-                padding: 1rem 2rem;
-            }
-            
-            .cards-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .index-card {
-                height: auto; /* Adjust for potentially more content */
-                min-height: 250px;
-            }
-            
-            .card-content {
-                padding: 2rem;
-            }
-            
-            .card-title {
-                font-size: 1.5rem;
-            }
-            
-            table {
-                font-size: 0.9rem;
-            }
-            
-            th, td {
-                padding: 1rem;
-                /* For smaller screens, text-align: left might be better for readability if data is long */
-            }
-             /* For smaller screens, you might want to make table cells display as blocks for better layout */
-            /*
-            th, td {
-                display: block;
-                width: 100%;
-                text-align: right; 
-            }
-            td:before {
-                content: attr(data-label);
-                float: left;
-                font-weight: bold;
-                text-transform: uppercase;
-                color: var(--text-primary);
-            }
-            thead {
-                display: none; 
-            }
-            */
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Shane's Custom Wheels & Fitment</title>
+    <meta name="description" content="Internal tool for Shane's sales team. Quick access to wheel and tire fitment data, package deals, and distributor information.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Favicon (optional) -->
+    <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
 </head>
 <body>
-    <header>
-        <div class="bg-pattern"></div>
-        <div class="container header-content">
-            <h1 class="page-title">Shane's <span>Fitment</span> Page</h1>
-            <p class="subtitle">Precision fitment data for your automotive needs</p>
+
+    <!-- Top Navigation (Desktop) -->
+    <nav class="app-nav">
+        <div class="container">
+            <a href="#" class="nav-logo" data-page="home-page">Shane's <span>Fitment</span></a>
+            <div class="nav-links">
+                <a href="#" data-page="home-page" class="active-nav-link">Home</a>
+                <a href="#" data-page="fitment-page">Fitment Database</a>
+                <a href="#" data-page="service-page">Service Info</a>
+            </div>
         </div>
-        <div class="header-accent"></div>
-    </header>
-    
-    <div class="container">
-        <div class="section-title">
-            <h2>Fitment Database</h2>
+    </nav>
+
+    <!-- Home Page Content -->
+    <div id="home-page" class="page-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Perfect Fit, <span>Premium Style</span></h1>
+                <p class="hero-subtitle">Shane's internal sales tool for custom wheels, tire packages, and expert vehicle fitment information.</p>
+                <a href="#" class="hero-cta-button" data-page="fitment-page">Explore Fitment Database</a>
+            </div>
+        </section>
+
+        <section class="home-section" id="home-package-deals-section">
+            <div class="container">
+                <h2 class="home-section-title">Wheel & Tire <span>Package Deals</span></h2>
+                <p class="home-section-subtitle">Weekly rates and purchase programs. Includes TPMS, mount & balance.</p>
+                <table>
+                    <thead><tr><th>Size</th><th>Weekly Rate</th><th>Purchase Pkg (w/ Sensors)</th></tr></thead>
+                    <tbody>
+                        <tr><td data-label="Size">18s</td><td data-label="Weekly Rate">$65</td><td data-label="Purchase Pkg">$2,220</td></tr>
+                        <tr><td data-label="Size">20s</td><td data-label="Weekly Rate">$70</td><td data-label="Purchase Pkg">$2,620</td></tr>
+                        <tr><td data-label="Size">22s</td><td data-label="Weekly Rate">$80</td><td data-label="Purchase Pkg">$2,920</td></tr>
+                        <tr><td data-label="Size">24s</td><td data-label="Weekly Rate">$95</td><td data-label="Purchase Pkg">$3,520</td></tr>
+                        <tr><td data-label="Size">Off-Road 20</td><td data-label="Weekly Rate">$99</td><td data-label="Purchase Pkg">$3,420</td></tr>
+                        <tr><td data-label="Size">Off-Road 22</td><td data-label="Weekly Rate">$105</td><td data-label="Purchase Pkg">$3,720</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="home-section" id="distributor-info-section">
+            <div class="container">
+                <h2 class="home-section-title">Our <span>Distributors</span></h2>
+                <p class="home-section-subtitle">Proudly partnering with leading brands in the industry.</p>
+                <div class="distributor-logos">
+                    <!-- Replace with actual logos if you have them, e.g., <img src="images/brand1-logo.png" alt="Brand Logo 1"> -->
+                    <img src="https://via.placeholder.com/120x45/333333/FFFFFF?text=Brand+1" alt="Brand Logo 1">
+                    <img src="https://via.placeholder.com/120x45/333333/FFFFFF?text=Brand+2" alt="Brand Logo 2">
+                    <img src="https://via.placeholder.com/120x45/333333/FFFFFF?text=Brand+3" alt="Brand Logo 3">
+                    <img src="https://via.placeholder.com/120x45/333333/FFFFFF?text=Brand+4" alt="Brand Logo 4">
+                </div>
+                <div class="distributor-contact">
+                    <p>Sales Inquiries: <a href="mailto:sales@example.com">sales@example.com</a> | Phone: (555) 123-4567</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Fitment Page Content -->
+    <div id="fitment-page" class="page-content">
+        <header class="page-header-generic fitment-page-header"> <!-- Combined generic header style -->
+            <div class="container">
+                <h1>Vehicle <span>Fitment</span> Database</h1>
+                <p>Quick reference for sales. Select a manufacturer.</p>
+            </div>
+        </header>
+
+        <div class="fitment-search-container">
+            <input type="text" id="manufacturer-search-input" placeholder="Search Manufacturers (e.g., Ford)...">
         </div>
         
-        <div class="cards-container" id="index-cards">
-            <div class="index-card" onclick="showSection('chevy-section')">
-                <div class="card-content">
-                    <div>
-                        <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
-                            </svg>
-                        </div>
-                        <h3 class="card-title">Chevrolet</h3>
-                        <p class="card-desc">Lug patterns for premium Chevy vehicles including Silverado, Tahoe, Equinox, and more.</p>
-                    </div>
-                    <div class="card-tag">12 Vehicles</div>
-                </div>
-            </div>
-            
-            <div class="index-card" onclick="showSection('ford-section')">
-                <div class="card-content">
-                    <div>
-                        <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
-                            </svg>
-                        </div>
-                        <h3 class="card-title">Ford</h3>
-                        <p class="card-desc">Lug patterns for premium Ford vehicles including F-150, Explorer, Mustang, and more.</p>
-                    </div>
-                    <div class="card-tag">11 Vehicles</div>
-                </div>
-            </div>
-            
-            <div class="index-card" onclick="showSection('dodge-section')">
-                <div class="card-content">
-                    <div>
-                        <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
-                            </svg>
-                        </div>
-                        <h3 class="card-title">Dodge/RAM</h3>
-                        <p class="card-desc">Lug patterns for premium Dodge and RAM vehicles including Ram 1500, Charger, Durango, and more.</p>
-                    </div>
-                    <div class="card-tag">10 Vehicles</div>
-                </div>
-            </div>
-            
-            <div class="index-card" onclick="showSection('bike-section')">
-                <div class="card-content">
-                    <div>
-                        <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M8.235 1.559a.5.5 0 0 0-.47 0l-7.5 4a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882l-7.5-4zM8 7.15L1.705 4 8 .85 14.295 4 8 7.15z"/>
-                                <path fill-rule="evenodd" d="M8 12.85L1.705 9.85 8 6.7l6.295 3.15L8 12.85zm7.5-5.15a.5.5 0 1 1 1 0v4a.5.5 0 0 1-.276.447l-8 4A.5.5 0 0 1 8 16.5a.5.5 0 0 1-.224-.053l-8-4A.5.5 0 0 1 0 11.85v-4a.5.5 0 1 1 1 0v3.65l7 3.5 7-3.5V7.7z"/>
-                            </svg>
-                        </div>
-                        <h3 class="card-title">Package Deals</h3>
-                        <p class="card-desc">Luxury wheel and tire packages - premium sizes and exclusive program options with sensors.</p>
-                    </div>
-                    <div class="card-tag">Pricing Options</div>
+        <div class="manufacturer-cards-container" id="manufacturer-cards-list">
+            <!-- Manufacturer cards will be dynamically inserted here by JavaScript -->
+        </div>
+
+        <!-- Fitment Detail View (for individual manufacturer's table) -->
+        <div id="fitment-detail-section-wrapper" class="page-content" style="display: none;"> 
+            <div class="container fitment-detail-view">
+                <header class="fitment-detail-header">
+                    <button class="back-to-list-btn" id="back-to-mfg-list-btn" aria-label="Back to manufacturer list">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    <h2 class="fitment-detail-title" id="fitment-detail-manufacturer-name"><span>Manufacturer</span> Fitment</h2>
+                </header>
+                <div id="fitment-detail-table-container">
+                    <!-- Table will be dynamically inserted here -->
                 </div>
             </div>
         </div>
     </div>
-    
-    <!-- Chevrolet Section -->
-    <section id="chevy-section" class="section">
-        <div class="container">
-            <button class="back-btn" onclick="showMainPage()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                </svg>
-                Return to Index
-            </button>
-            <h2 class="section-heading">Chevrolet Vehicles <span>Lug Patterns</span></h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Vehicle</th>
-                        <th>Years Covered</th>
-                        <th>Lug Pattern</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td data-label="Vehicle">Silverado 1500</td><td data-label="Years Covered">1999-Present</td><td data-label="Lug Pattern">6x139.7 mm (6x5.5")</td></tr>
-                    <tr><td data-label="Vehicle">Silverado 2500HD/3500HD</td><td data-label="Years Covered">2001-Present</td><td data-label="Lug Pattern">8x165.1 mm (pre-2011), 8x180 mm (2011+)</td></tr>
-                    <tr><td data-label="Vehicle">Tahoe</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">6x139.7 mm (6x5.5")</td></tr>
-                    <tr><td data-label="Vehicle">Suburban</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">6x139.7 mm (6x5.5")</td></tr>
-                    <tr><td data-label="Vehicle">Colorado</td><td data-label="Years Covered">2004-2012, 2015-Present</td><td data-label="Lug Pattern">6x120 mm</td></tr>
-                    <tr><td data-label="Vehicle">Trailblazer</td><td data-label="Years Covered">2002-2009, 2021-Present</td><td data-label="Lug Pattern">6x127 mm</td></tr>
-                    <tr><td data-label="Vehicle">Equinox</td><td data-label="Years Covered">2005-Present</td><td data-label="Lug Pattern">5x120 mm</td></tr>
-                    <tr><td data-label="Vehicle">Traverse</td><td data-label="Years Covered">2009-Present</td><td data-label="Lug Pattern">6x120 mm</td></tr>
-                    <tr><td data-label="Vehicle">Malibu</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">5x115 mm</td></tr>
-                    <tr><td data-label="Vehicle">Impala</td><td data-label="Years Covered">2000-2020</td><td data-label="Lug Pattern">5x115 mm</td></tr>
-                    <tr><td data-label="Vehicle">Camaro</td><td data-label="Years Covered">2010-Present</td><td data-label="Lug Pattern">5x120 mm</td></tr>
-                    <tr><td data-label="Vehicle">Blazer</td><td data-label="Years Covered">2019-Present</td><td data-label="Lug Pattern">5x120 mm</td></tr>
-                </tbody>
-            </table>
+
+    <!-- Service Page Content -->
+    <div id="service-page" class="page-content">
+        <header class="page-header-generic">
+            <div class="container">
+                <h1>BMS <span>Claim Requirements</span></h1>
+                <p class="handwritten-note-header">(BMS Requires: 2 Written Forms, one Payment History). Send Email to Logan/Heather.</p>
+            </div>
+        </header>
+        <div class="container content-section">
+            <div class="service-requirements">
+                <h2>Claim Checklist:</h2>
+                <ul>
+                    <li>BMS Waivers fully filled out
+                        <ul><li>Including Tread Depth</li></ul>
+                    </li>
+                    <li>$1,000 Tire & Wheel Guarantee Form</li>
+                    <li>Rental Purchase Agreement
+                        <ul><li><strong>STOCK NUMBERS MUST MATCH INVENTORY REPORT</strong></li></ul>
+                    </li>
+                    <li>Inventory Report
+                        <ul>
+                            <li>NOTATION OF DAMAGED TIRE</li>
+                            <li>Swap/Service needs to be done <strong>after NOT before</strong> printing of Inventory Report</li>
+                        </ul>
+                    </li>
+                    <li>Customer Payment History
+                        <ul><li><strong>MAKE SURE CUSTOMER IS CURRENT</strong></li></ul>
+                    </li>
+                    <li>Photos of damaged tires
+                        <ul><li>IF WE ARE CLAIMING MORE THAN ONE THEY ALL HAVE TO BE IN A PICTURE TOGETHER</li></ul>
+                    </li>
+                </ul>
+                <p class="important-note handwritten-note"><strong>Important: CHECK PAYMENT HISTORY FIRST!</strong></p>
+            </div>
         </div>
-    </section>
-    
-    <!-- Ford Section -->
-    <section id="ford-section" class="section">
-        <div class="container">
-            <button class="back-btn" onclick="showMainPage()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                </svg>
-                Return to Index
-            </button>
-            <h2 class="section-heading">Ford Vehicles <span>Lug Patterns</span></h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Vehicle</th>
-                        <th>Years Covered</th>
-                        <th>Lug Pattern</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td data-label="Vehicle">F-150</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">6x135 mm</td></tr>
-                    <tr><td data-label="Vehicle">F-250/F-350 Super Duty</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">8x170 mm</td></tr>
-                    <tr><td data-label="Vehicle">Explorer</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">5x114.3 mm</td></tr>
-                    <tr><td data-label="Vehicle">Expedition</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">6x135 mm</td></tr>
-                    <tr><td data-label="Vehicle">Escape</td><td data-label="Years Covered">2001-Present</td><td data-label="Lug Pattern">5x114.3 mm</td></tr>
-                    <tr><td data-label="Vehicle">Edge</td><td data-label="Years Covered">2007-Present</td><td data-label="Lug Pattern">5x114.3 mm</td></tr>
-                    <tr><td data-label="Vehicle">Mustang</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">5x114.3 mm (2005+), 5x4.25" (pre-2005)</td></tr>
-                    <tr><td data-label="Vehicle">Ranger</td><td data-label="Years Covered">2000-2011, 2019-Present</td><td data-label="Lug Pattern">5x114.3 mm (2019+), 5x4.5" (pre-2011)</td></tr>
-                    <tr><td data-label="Vehicle">Bronco</td><td data-label="Years Covered">2021-Present</td><td data-label="Lug Pattern">6x139.7 mm</td></tr>
-                    <tr><td data-label="Vehicle">Fusion</td><td data-label="Years Covered">2006-2020</td><td data-label="Lug Pattern">5x114.3 mm</td></tr>
-                    <tr><td data-label="Vehicle">Taurus</td><td data-label="Years Covered">2000-2019</td><td data-label="Lug Pattern">5x114.3 mm</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-    
-    <!-- Dodge/RAM Section -->
-    <section id="dodge-section" class="section">
-        <div class="container">
-            <button class="back-btn" onclick="showMainPage()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                </svg>
-                Return to Index
-            </button>
-            <h2 class="section-heading">Dodge/RAM Vehicles <span>Lug Patterns</span></h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Vehicle</th>
-                        <th>Years Covered</th>
-                        <th>Lug Pattern</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td data-label="Vehicle">Ram 1500</td><td data-label="Years Covered">2002-Present</td><td data-label="Lug Pattern">5x139.7 mm (2002-2018), 6x139.7 mm (2019+)</td></tr>
-                    <tr><td data-label="Vehicle">Ram 2500/3500</td><td data-label="Years Covered">2000-Present</td><td data-label="Lug Pattern">8x165.1 mm (pre-2013), 8x170 mm (2013+)</td></tr>
-                    <tr><td data-label="Vehicle">Durango</td><td data-label="Years Covered">2004-Present</td><td data-label="Lug Pattern">5x127 mm</td></tr>
-                    <tr><td data-label="Vehicle">Dakota</td><td data-label="Years Covered">2000-2011</td><td data-label="Lug Pattern">6x114.3 mm</td></tr>
-                    <tr><td data-label="Vehicle">Charger</td><td data-label="Years Covered">2006-Present</td><td data-label="Lug Pattern">5x115 mm</td></tr>
-                    <tr><td data-label="Vehicle">Challenger</td><td data-label="Years Covered">2008-Present</td><td data-label="Lug Pattern">5x115 mm</td></tr>
-                    <tr><td data-label="Vehicle">Journey</td><td data-label="Years Covered">2009-2020</td><td data-label="Lug Pattern">5x127 mm</td></tr>
-                    <tr><td data-label="Vehicle">Grand Caravan</td><td data-label="Years Covered">2000-2020</td><td data-label="Lug Pattern">5x127 mm</td></tr>
-                    <tr><td data-label="Vehicle">Avenger</td><td data-label="Years Covered">2008-2014</td><td data-label="Lug Pattern">5x114.3 mm</td></tr>
-                    <tr><td data-label="Vehicle">Nitro</td><td data-label="Years Covered">2007-2012</td><td data-label="Lug Pattern">5x114.3 mm</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-    
-    <!-- Package Deals Section -->
-    <section id="bike-section" class="section">
-        <div class="container">
-            <button class="back-btn" onclick="showMainPage()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                </svg>
-                Return to Index
-            </button>
-            
-            <h2 class="section-heading">Premium Wheel & Tire <span>Package Deals</span></h2>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Size</th>
-                        <th>Rental Rate (Per Day)</th>
-                        <th>Program with Sensors</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="Size">18s</td>
-                        <td data-label="Rental Rate (Per Day)">$65</td>
-                        <td data-label="Program with Sensors">$2,220</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Size">20s</td>
-                        <td data-label="Rental Rate (Per Day)">$70</td>
-                        <td data-label="Program with Sensors">$2,620</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Size">22s</td>
-                        <td data-label="Rental Rate (Per Day)">$80</td>
-                        <td data-label="Program with Sensors">$2,920</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Size">24s</td>
-                        <td data-label="Rental Rate (Per Day)">$95</td>
-                        <td data-label="Program with Sensors">$3,520</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Size">Off-Road 20</td>
-                        <td data-label="Rental Rate (Per Day)">$99</td>
-                        <td data-label="Program with Sensors">$3,420</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Size">Off-Road 22</td>
-                        <td data-label="Rental Rate (Per Day)">$105</td>
-                        <td data-label="Program with Sensors">$3,720</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-    
+    </div>
+
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="mobile-bottom-nav">
+        <a href="#" data-page="home-page" class="active-nav-link">
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            Home
+        </a>
+        <a href="#" data-page="fitment-page">
+            <svg viewBox="0 0 24 24"><path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V21h4.5c0-1.71 1.29-3.14 3-3.43V19h3v-1.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5V19h3.5v-1.82A2.73 2.73 0 0020.5 11zM11 5H9V3.5c0-.28.22-.5.5-.5s.5.22.5.5V5zm5 0h-2V3.5c0-.28.22-.5.5-.5s.5.22.5.5V5z"/></svg>
+            Fitment
+        </a>
+        <a href="#" data-page="service-page">
+             <svg viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+            Service
+        </a>
+    </nav>
+
     <footer>
-        <div class="footer-accent"></div>
-        <div class="container footer-content">
-            <p>© 2024 Shane's Fitment Page. All Rights Reserved. <strong>Developed by intelliaipro.com</strong></p>
+        <div class="container">
+            <p>© <span id="current-year"></span> Shane's Custom Wheels & Fitment. Internal Sales Tool. <strong>Developed by intelliaipro.com</strong></p>
         </div>
     </footer>
 
-    <script>
-        function showSection(sectionId) {
-            document.getElementById('index-cards').style.display = 'none';
-            document.querySelector('.section-title').style.display = 'none';
-            
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active-section');
-                section.style.display = 'none';
-            });
-            
-            const activeSection = document.getElementById(sectionId);
-            activeSection.style.display = 'block';
-            activeSection.classList.add('active-section');
-            window.scrollTo(0, 0);
-        }
-
-        function showMainPage() {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active-section');
-                section.style.display = 'none';
-            });
-            
-            document.getElementById('index-cards').style.display = 'grid';
-            document.querySelector('.section-title').style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-    </script>
-    <!-- Added Chatbot Script -->
-    <script src="https://app.aminos.ai/js/chat_plugin.js" data-bot-id="50758"></script>
+    <script src="script.js"></script>
 </body>
 </html>
