@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shane's Custom Wheels & Fitment</title>
-    <meta name="description" content="Internal tool for Shane's sales team. Quick access to wheel and tire fitment data, package deals, and distributor information.">
+    <meta name="description" content="Internal tool for Shane's sales team. Quick access to wheel and tire fitment data, package deals, service info, and vendor contacts.">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Favicon (optional) -->
+    <!-- Favicon (optional - create a favicon.ico and place it in the root or an images folder) -->
     <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
 </head>
 <body>
@@ -18,128 +18,174 @@
             <a href="#" class="nav-logo" data-page="home-page">Shane's <span>Fitment</span></a>
             <div class="nav-links">
                 <a href="#" data-page="home-page" class="active-nav-link">Home</a>
-                <a href="#" data-page="fitment-page">Fitment Database</a>
+                <a href="#" data-page="fitment-page">Fitment DB</a>
                 <a href="#" data-page="service-page">Service Info</a>
+                <a href="#" data-page="vendors-page">Vendors</a>
             </div>
         </div>
     </nav>
 
-    <!-- Home Page Content -->
-    <div id="home-page" class="page-content">
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">Perfect Fit, <span>Premium Style</span></h1>
-                <p class="hero-subtitle">Shane's internal sales tool for custom wheels, tire packages, and expert vehicle fitment information.</p>
-                <a href="#" class="hero-cta-button" data-page="fitment-page">Explore Fitment Database</a>
-            </div>
-        </section>
+    <!-- Main Content Area -->
+    <main id="main-content">
 
-        <section class="home-section" id="home-package-deals-section">
-            <div class="container">
-                <h2 class="home-section-title">Wheel & Tire <span>Package Deals</span></h2>
-                <p class="home-section-subtitle">Weekly rates and purchase programs. Includes TPMS, mount & balance.</p>
-                <table>
-                    <thead><tr><th>Size</th><th>Weekly Rate</th><th>Purchase Pkg (w/ Sensors)</th></tr></thead>
-                    <tbody>
-                        <tr><td data-label="Size">18s</td><td data-label="Weekly Rate">$65</td><td data-label="Purchase Pkg">$2,220</td></tr>
-                        <tr><td data-label="Size">20s</td><td data-label="Weekly Rate">$70</td><td data-label="Purchase Pkg">$2,620</td></tr>
-                        <tr><td data-label="Size">22s</td><td data-label="Weekly Rate">$80</td><td data-label="Purchase Pkg">$2,920</td></tr>
-                        <tr><td data-label="Size">24s</td><td data-label="Weekly Rate">$95</td><td data-label="Purchase Pkg">$3,520</td></tr>
-                        <tr><td data-label="Size">Off-Road 20</td><td data-label="Weekly Rate">$99</td><td data-label="Purchase Pkg">$3,420</td></tr>
-                        <tr><td data-label="Size">Off-Road 22</td><td data-label="Weekly Rate">$105</td><td data-label="Purchase Pkg">$3,720</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section class="home-section" id="distributor-info-section">
-            <div class="container">
-                <h2 class="home-section-title">Our <span>Distributors</span></h2>
-                <p class="home-section-subtitle">Proudly partnering with leading brands in the industry.</p>
-                <div class="distributor-logos">
-                    <!-- Replace with actual logos if you have them, e.g., <img src="images/brand1-logo.png" alt="Brand Logo 1"> -->
-                    <img src="https://via.placeholder.com/120x45/333333/FFFFFF?text=Brand+1" alt="Brand Logo 1">
-                    <img src="https://via.placeholder.com/120x45/333333/FFFFFF?text=Brand+2" alt="Brand Logo 2">
-                    <img src="https://via.placeholder.com/120x45/333333/FFFFFF?text=Brand+3" alt="Brand Logo 3">
-                    <img src="https://via.placeholder.com/120x45/333333/FFFFFF?text=Brand+4" alt="Brand Logo 4">
+        <!-- Home Page Content -->
+        <div id="home-page" class="page-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Perfect Fit, <span>Premium Style</span></h1>
+                    <p class="hero-subtitle">Internal sales tool for custom wheels, tire packages, and expert vehicle fitment information.</p>
+                    <a href="#" class="hero-cta-button" data-page="fitment-page">Explore Fitment Database</a>
                 </div>
-                <div class="distributor-contact">
-                    <p>Sales Inquiries: <a href="mailto:sales@example.com">sales@example.com</a> | Phone: (555) 123-4567</p>
+            </section>
+
+            <section class="home-section" id="home-package-deals-section">
+                <div class="container">
+                    <h2 class="home-section-title">Wheel & Tire <span>Package Deals</span></h2>
+                    <p class="home-section-subtitle">Weekly rates and purchase programs. Includes TPMS, mount & balance.</p>
+                    <table>
+                        <thead><tr><th>Size</th><th>Weekly Rate</th><th>Purchase Pkg (w/ Sensors)</th></tr></thead>
+                        <tbody>
+                            <tr><td data-label="Size">18s</td><td data-label="Weekly Rate">$65</td><td data-label="Purchase Pkg">$2,220</td></tr>
+                            <tr><td data-label="Size">20s</td><td data-label="Weekly Rate">$70</td><td data-label="Purchase Pkg">$2,620</td></tr>
+                            <tr><td data-label="Size">22s</td><td data-label="Weekly Rate">$80</td><td data-label="Purchase Pkg">$2,920</td></tr>
+                            <tr><td data-label="Size">24s</td><td data-label="Weekly Rate">$95</td><td data-label="Purchase Pkg">$3,520</td></tr>
+                            <tr><td data-label="Size">Off-Road 20</td><td data-label="Weekly Rate">$99</td><td data-label="Purchase Pkg">$3,420</td></tr>
+                            <tr><td data-label="Size">Off-Road 22</td><td data-label="Weekly Rate">$105</td><td data-label="Purchase Pkg">$3,720</td></tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
 
-    <!-- Fitment Page Content -->
-    <div id="fitment-page" class="page-content">
-        <header class="page-header-generic fitment-page-header"> <!-- Combined generic header style -->
-            <div class="container">
-                <h1>Vehicle <span>Fitment</span> Database</h1>
-                <p>Quick reference for sales. Select a manufacturer.</p>
-            </div>
-        </header>
-
-        <div class="fitment-search-container">
-            <input type="text" id="manufacturer-search-input" placeholder="Search Manufacturers (e.g., Ford)...">
-        </div>
-        
-        <div class="manufacturer-cards-container" id="manufacturer-cards-list">
-            <!-- Manufacturer cards will be dynamically inserted here by JavaScript -->
+            <section class="home-section" id="distributor-info-section">
+                <div class="container">
+                    <h2 class="home-section-title">Our <span>Distributors</span></h2>
+                    <p class="home-section-subtitle">Proudly partnering with leading brands. View our full vendor contact list for details.</p>
+                    <div class="distributor-logos">
+                        <img src="https://via.placeholder.com/120x45/666666/FFFFFF?text=Brand+1" alt="Brand Logo 1">
+                        <img src="https://via.placeholder.com/120x45/666666/FFFFFF?text=Brand+2" alt="Brand Logo 2">
+                        <img src="https://via.placeholder.com/120x45/666666/FFFFFF?text=Brand+3" alt="Brand Logo 3">
+                        <img src="https://via.placeholder.com/120x45/666666/FFFFFF?text=Brand+4" alt="Brand Logo 4">
+                    </div>
+                    <div class="home-cta-container">
+                        <a href="#" class="hero-cta-button secondary-cta" data-page="vendors-page">View Vendor List</a>
+                    </div>
+                    <div class="distributor-contact">
+                        <p>Sales Inquiries: <a href="mailto:sales@example.com">sales@example.com</a> | Phone: (555) 123-4567</p>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <!-- Fitment Detail View (for individual manufacturer's table) -->
-        <div id="fitment-detail-section-wrapper" class="page-content" style="display: none;"> 
-            <div class="container fitment-detail-view">
-                <header class="fitment-detail-header">
-                    <button class="back-to-list-btn" id="back-to-mfg-list-btn" aria-label="Back to manufacturer list">
-                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-                    </button>
-                    <h2 class="fitment-detail-title" id="fitment-detail-manufacturer-name"><span>Manufacturer</span> Fitment</h2>
-                </header>
-                <div id="fitment-detail-table-container">
-                    <!-- Table will be dynamically inserted here -->
+        <!-- Fitment Page Content -->
+        <div id="fitment-page" class="page-content">
+            <header class="page-header-generic">
+                <div class="container">
+                    <h1>Vehicle <span>Fitment</span> Database</h1>
+                    <p>Quick reference for sales. Select a manufacturer or search below.</p>
+                </div>
+            </header>
+            <div class="container">
+                <div class="fitment-search-container">
+                    <input type="text" id="manufacturer-search-input" placeholder="Search Manufacturers (e.g., Ford)...">
+                </div>
+                <div class="manufacturer-cards-container" id="manufacturer-cards-list">
+                    <!-- Manufacturer cards will be dynamically inserted here by JavaScript -->
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Service Page Content -->
-    <div id="service-page" class="page-content">
-        <header class="page-header-generic">
-            <div class="container">
-                <h1>BMS <span>Claim Requirements</span></h1>
-                <p class="handwritten-note-header">(BMS Requires: 2 Written Forms, one Payment History). Send Email to Logan/Heather.</p>
-            </div>
-        </header>
-        <div class="container content-section">
-            <div class="service-requirements">
-                <h2>Claim Checklist:</h2>
-                <ul>
-                    <li>BMS Waivers fully filled out
-                        <ul><li>Including Tread Depth</li></ul>
-                    </li>
-                    <li>$1,000 Tire & Wheel Guarantee Form</li>
-                    <li>Rental Purchase Agreement
-                        <ul><li><strong>STOCK NUMBERS MUST MATCH INVENTORY REPORT</strong></li></ul>
-                    </li>
-                    <li>Inventory Report
-                        <ul>
-                            <li>NOTATION OF DAMAGED TIRE</li>
-                            <li>Swap/Service needs to be done <strong>after NOT before</strong> printing of Inventory Report</li>
-                        </ul>
-                    </li>
-                    <li>Customer Payment History
-                        <ul><li><strong>MAKE SURE CUSTOMER IS CURRENT</strong></li></ul>
-                    </li>
-                    <li>Photos of damaged tires
-                        <ul><li>IF WE ARE CLAIMING MORE THAN ONE THEY ALL HAVE TO BE IN A PICTURE TOGETHER</li></ul>
-                    </li>
-                </ul>
-                <p class="important-note handwritten-note"><strong>Important: CHECK PAYMENT HISTORY FIRST!</strong></p>
+            <!-- Fitment Detail View (for individual manufacturer's table) -->
+            <div id="fitment-detail-section-wrapper" class="page-content" style="display: none;"> 
+                <div class="container fitment-detail-view">
+                    <header class="fitment-detail-header">
+                        <button class="back-to-list-btn" id="back-to-mfg-list-btn" aria-label="Back to manufacturer list">
+                            <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                        </button>
+                        <h2 class="fitment-detail-title" id="fitment-detail-manufacturer-name"><span>Manufacturer</span> Fitment</h2>
+                    </header>
+                    <div id="fitment-detail-table-container">
+                        <!-- Table will be dynamically inserted here -->
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
+        <!-- Service Page Content -->
+        <div id="service-page" class="page-content">
+            <header class="page-header-generic">
+                <div class="container">
+                    <h1>BMS <span>Claim Requirements</span></h1>
+                    <p class="handwritten-note-header">(BMS Requires: 2 Written Forms, one Payment History). Send Email to Logan/Heather.</p>
+                </div>
+            </header>
+            <div class="container content-section">
+                <div class="service-requirements">
+                    <h2>Claim Checklist:</h2>
+                    <ul>
+                        <li>BMS Waivers fully filled out
+                            <ul><li>Including Tread Depth</li></ul>
+                        </li>
+                        <li>$1,000 Tire & Wheel Guarantee Form</li>
+                        <li>Rental Purchase Agreement
+                            <ul><li><strong>STOCK NUMBERS MUST MATCH INVENTORY REPORT</strong></li></ul>
+                        </li>
+                        <li>Inventory Report
+                            <ul>
+                                <li>NOTATION OF DAMAGED TIRE</li>
+                                <li>Swap/Service needs to be done <strong>after NOT before</strong> printing of Inventory Report</li>
+                            </ul>
+                        </li>
+                        <li>Customer Payment History
+                            <ul><li><strong>MAKE SURE CUSTOMER IS CURRENT</strong></li></ul>
+                        </li>
+                        <li>Photos of damaged tires
+                            <ul><li>IF WE ARE CLAIMING MORE THAN ONE THEY ALL HAVE TO BE IN A PICTURE TOGETHER</li></ul>
+                        </li>
+                    </ul>
+                    <p class="important-note handwritten-note"><strong>Important: CHECK PAYMENT HISTORY FIRST!</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vendors Page Content -->
+        <div id="vendors-page" class="page-content">
+            <header class="page-header-generic">
+                <div class="container">
+                    <h1>Wheel Vendor <span>Contact List</span></h1>
+                    <p>Quick reference for contacting our wheel distributors.</p>
+                </div>
+            </header>
+            <div class="container content-section">
+                <div class="table-responsive-wrapper">
+                    <table id="wheel-vendors-table">
+                        <thead>
+                            <tr>
+                                <th>Wheel Vendor</th>
+                                <th>Phone Number</th>
+                                <th>Brands Carried</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td data-label="Vendor">American Tire Distributors</td><td data-label="Number"><a href="tel:800-903-0014">800-903-0014</a></td><td data-label="Brands">Black Rock, Center Line, Cragar, Dick Cepek, DrifZ, Dropstars, Focal, Gear Off-Road, ICW, Konig, Motiv, OE Performance, Pacer, Platinum, TIS Off-Road, Ultra, Worx Off-Road</td></tr>
+                            <tr><td data-label="Vendor">Direct Line</td><td data-label="Number"><a href="tel:904-739-1920">904-739-1920</a></td><td data-label="Brands">904, DPS, Enkei, F1R, Rohana</td></tr>
+                            <tr><td data-label="Vendor">Elite Wheel Warehouse</td><td data-label="Number"><a href="tel:813-673-8393">813-673-8393 ext 115</a></td><td data-label="Brands">Amani Forged, Azara, Blade, Cavallo, Modern Concept, OE Revolution, Spec-1, Twisted, Vortex Off-Road, XF Off-Road, Xtreme Off-Road</td></tr>
+                            <tr><td data-label="Vendor">Fast Forward Wheels</td><td data-label="Number"><a href="tel:469-200-1763">469-200-1763</a></td><td data-label="Brands">2 Crave, Fiero, Heavy Hitters, Mach M, Prive Lux, Replica Tech</td></tr>
+                            <tr><td data-label="Vendor">HPD</td><td data-label="Number"><a href="tel:866-980-5090">866-980-5090</a></td><td data-label="Brands">HD Wheels, HD Off-Road, Overland Sector</td></tr>
+                            <tr><td data-label="Vendor">Impact Wheels</td><td data-label="Number"><a href="tel:949-932-0945">949-932-0945</a></td><td data-label="Brands">Impact Off-Road, Impact Racing, DNK</td></tr>
+                            <tr><td data-label="Vendor">Pinnacle Wheel</td><td data-label="Number"><a href="tel:626-363-6978">626-363-6978</a></td><td data-label="Brands">Pinnacle, Noir Elite, K2 Off-Road, Drag Concepts</td></tr>
+                            <tr><td data-label="Vendor">Southern Tire & Wheel</td><td data-label="Number"><a href="tel:334-288-2288">334-288-2288</a></td><td data-label="Brands">N/A</td></tr>
+                            <tr><td data-label="Vendor">Strada</td><td data-label="Number"><a href="tel:626-336-1634">626-336-1634</a></td><td data-label="Brands">Off-Road Monster, Shift, Xcess, Ignite, Wheel Replicas</td></tr>
+                            <tr><td data-label="Vendor">VCT Wheel</td><td data-label="Number"><a href="tel:877-943-3575">877-943-3575</a></td><td data-label="Brands">Replica 1, Revolution Racing, Scorpion Off-Road, VCT</td></tr>
+                            <tr><td data-label="Vendor">Velocity Wheel</td><td data-label="Number"><a href="tel:626-960-5389">626-960-5389</a></td><td data-label="Brands">Borghini, Dcenti, RDR Off-Road, Red Sport, Strada, U2, Velocity, Velsen</td></tr>
+                            <tr><td data-label="Vendor">Western Distributors</td><td data-label="Number"><a href="tel:866-465-9807">866-465-9807</a></td><td data-label="Brands">Avenue, American Outlaw, Curva Concepts, Defy, DRW, Hardrock Off-Road, Hostile Off-Road, Liquid Metal, NS Wheels, OEM, RBP, Revenge, Wicked, XXR XIX</td></tr>
+                            <tr><td data-label="Vendor">Wheel One</td><td data-label="Number"><a href="tel:866-894-3351">866-894-3351</a></td><td data-label="Brands">American Truxx, Dirty Life, ION, Kraze, Mayhem, Ridler</td></tr>
+                            <tr><td data-label="Vendor">Wheel Pros</td><td data-label="Number"><a href="tel:504-471-0907">504-471-0907</a></td><td data-label="Brands">American Racing, Asanti, Black Rhino, DUB, Fairway, Foose, Fuel Off-Road, KMC, Moto Metal, Motegi, MSA Off-Road, Niche, Petrol, Pro Comp, Replicas, Status, TSW, US Mags, XD</td></tr>
+                            <tr><td data-label="Vendor">Wholesale Wheels</td><td data-label="Number"><a href="tel:469-289-2300">469-289-2300</a></td><td data-label="Brands">LFF, LUX, LUXXX HD, Replica, Venom</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </main>
 
     <!-- Bottom Navigation (Mobile) -->
     <nav class="mobile-bottom-nav">
@@ -154,6 +200,10 @@
         <a href="#" data-page="service-page">
              <svg viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
             Service
+        </a>
+        <a href="#" data-page="vendors-page">
+            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            Vendors
         </a>
     </nav>
 
