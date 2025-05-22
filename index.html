@@ -5,214 +5,585 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shane's Custom Wheels & Fitment</title>
     <meta name="description" content="Internal tool for Shane's sales team. Quick access to wheel and tire fitment data, package deals, service info, and vendor contacts.">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <!-- Favicon (optional - create a favicon.ico and place it in the root or an images folder) -->
-    <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
-</head>
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Original CSS with AI Master additions */
+        :root {
+            --black-primary: #0F0F0F;
+            --black-secondary: #1A1A1A;
+            --black-tertiary: #2C2C2C;
+            --black-card: #1F1F1F;
+            --black-hover: #383838;
+            --text-primary: #EAEAEA;
+            --text-secondary: #B0B0B0;
+            --accent-red: #D92525;
+            --accent-red-hover: #F04040;
+            --overlay-dark: rgba(0, 0, 0, 0.65);
+            --spacing-unit: 1rem;
+            
+            /* AI Master colors */
+            --ai-primary-red: #ff0040;
+            --ai-secondary-red: #cc0033;
+            --ai-accent-orange: #ff6600;
+            --ai-dark-bg: #0a0a0a;
+            --ai-glass-bg: rgba(255, 255, 255, 0.05);
+            --ai-border-glow: rgba(255, 0, 64, 0.6);
+        }
 
-    <!-- Top Navigation (Desktop) -->
-    <nav class="app-nav">
-        <div class="container">
-            <a href="#" class="nav-logo" data-page="home-page">Shane's <span>Fitment</span></a>
-            <div class="nav-links">
-                <a href="#" data-page="home-page" class="active-nav-link">Home</a>
-                <a href="#" data-page="fitment-page">Fitment DB</a>
-                <a href="#" data-page="service-page">Service Info</a>
-                <a href="#" data-page="vendors-page">Vendors</a>
-            </div>
-        </div>
-    </nav>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-    <!-- Main Content Area -->
-    <main id="main-content">
+        html {
+            scroll-behavior: smooth;
+        }
 
-        <!-- Home Page Content -->
-        <div id="home-page" class="page-content">
-            <section class="hero-section">
-                <div class="hero-content">
-                    <h1 class="hero-title">Perfect Fit, <span>Premium Style</span></h1>
-                    <p class="hero-subtitle">Internal sales tool for custom wheels, tire packages, and expert vehicle fitment information.</p>
-                    <a href="#" class="hero-cta-button" data-page="fitment-page">Explore Fitment Database</a>
-                </div>
-            </section>
+        body {
+            background-color: var(--black-primary);
+            color: var(--text-primary);
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+            padding-bottom: 70px;
+        }
 
-            <section class="home-section" id="home-package-deals-section">
-                <div class="container">
-                    <h2 class="home-section-title">Wheel & Tire <span>Package Deals</span></h2>
-                    <p class="home-section-subtitle">Weekly rates and purchase programs. Includes TPMS, mount & balance.</p>
-                    <table>
-                        <thead><tr><th>Size</th><th>Weekly Rate</th><th>Purchase Pkg (w/ Sensors)</th></tr></thead>
-                        <tbody>
-                            <tr><td data-label="Size">18s</td><td data-label="Weekly Rate">$65</td><td data-label="Purchase Pkg">$2,220</td></tr>
-                            <tr><td data-label="Size">20s</td><td data-label="Weekly Rate">$70</td><td data-label="Purchase Pkg">$2,620</td></tr>
-                            <tr><td data-label="Size">22s</td><td data-label="Weekly Rate">$80</td><td data-label="Purchase Pkg">$2,920</td></tr>
-                            <tr><td data-label="Size">24s</td><td data-label="Weekly Rate">$95</td><td data-label="Purchase Pkg">$3,520</td></tr>
-                            <tr><td data-label="Size">Off-Road 20</td><td data-label="Weekly Rate">$99</td><td data-label="Purchase Pkg">$3,420</td></tr>
-                            <tr><td data-label="Size">Off-Road 22</td><td data-label="Weekly Rate">$105</td><td data-label="Purchase Pkg">$3,720</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
 
-            <section class="home-section" id="distributor-info-section">
-                <div class="container">
-                    <h2 class="home-section-title">Our <span>Distributors</span></h2>
-                    <p class="home-section-subtitle">Proudly partnering with leading brands. View our full vendor contact list for details.</p>
-                    <div class="distributor-logos">
-                        <img src="https://via.placeholder.com/120x45/666666/FFFFFF?text=Brand+1" alt="Brand Logo 1">
-                        <img src="https://via.placeholder.com/120x45/666666/FFFFFF?text=Brand+2" alt="Brand Logo 2">
-                        <img src="https://via.placeholder.com/120x45/666666/FFFFFF?text=Brand+3" alt="Brand Logo 3">
-                        <img src="https://via.placeholder.com/120x45/666666/FFFFFF?text=Brand+4" alt="Brand Logo 4">
-                    </div>
-                    <div class="home-cta-container">
-                        <a href="#" class="hero-cta-button secondary-cta" data-page="vendors-page">View Vendor List</a>
-                    </div>
-                    <div class="distributor-contact">
-                        <p>Sales Inquiries: <a href="mailto:sales@example.com">sales@example.com</a> | Phone: (555) 123-4567</p>
-                    </div>
-                </div>
-            </section>
-        </div>
+        /* --- Main Navigation --- */
+        .app-nav {
+            display: none;
+            background: linear-gradient(to right, var(--black-primary), var(--black-secondary));
+            padding: var(--spacing-unit) 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .app-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-size: calc(var(--spacing-unit) * 1.4);
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        .nav-logo span {
+            color: var(--accent-red);
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: calc(var(--spacing-unit) * 1.5);
+            font-weight: 500;
+            padding-bottom: 0.25rem;
+            transition: color 0.3s ease, border-color 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-links a:hover, .nav-links a.active-nav-link {
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--accent-red);
+        }
 
-        <!-- Fitment Page Content -->
-        <div id="fitment-page" class="page-content">
-            <header class="page-header-generic">
-                <div class="container">
-                    <h1>Vehicle <span>Fitment</span> Database</h1>
-                    <p>Quick reference for sales. Select a manufacturer or search below.</p>
-                </div>
-            </header>
-            <div class="container">
-                <div class="fitment-search-container">
-                    <input type="text" id="manufacturer-search-input" placeholder="Search Manufacturers (e.g., Ford)...">
-                </div>
-                <div class="manufacturer-cards-container" id="manufacturer-cards-list">
-                    <!-- Manufacturer cards will be dynamically inserted here by JavaScript -->
-                </div>
-            </div>
-            <!-- Fitment Detail View (for individual manufacturer's table) -->
-            <div id="fitment-detail-section-wrapper" class="page-content" style="display: none;"> 
-                <div class="container fitment-detail-view">
-                    <header class="fitment-detail-header">
-                        <button class="back-to-list-btn" id="back-to-mfg-list-btn" aria-label="Back to manufacturer list">
-                            <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-                        </button>
-                        <h2 class="fitment-detail-title" id="fitment-detail-manufacturer-name"><span>Manufacturer</span> Fitment</h2>
-                    </header>
-                    <div id="fitment-detail-table-container">
-                        <!-- Table will be dynamically inserted here -->
-                    </div>
-                </div>
-            </div>
-        </div>
+        .mobile-bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--black-secondary);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-around;
+            padding: 0.5rem 0;
+            z-index: 1000;
+        }
+        .mobile-bottom-nav a {
+            flex-grow: 1;
+            text-align: center;
+            padding: 0.75rem 0.25rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.7rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: color 0.2s ease;
+        }
+        .mobile-bottom-nav a svg {
+            width: 20px;
+            height: 20px;
+            margin-bottom: 0.25rem;
+            fill: currentColor;
+        }
+        .mobile-bottom-nav a.active-nav-link {
+            color: var(--accent-red);
+        }
 
-        <!-- Service Page Content -->
-        <div id="service-page" class="page-content">
-            <header class="page-header-generic">
-                <div class="container">
-                    <h1>BMS <span>Claim Requirements</span></h1>
-                    <p class="handwritten-note-header">(BMS Requires: 2 Written Forms, one Payment History). Send Email to Logan/Heather.</p>
-                </div>
-            </header>
-            <div class="container content-section">
-                <div class="service-requirements">
-                    <h2>Claim Checklist:</h2>
-                    <ul>
-                        <li>BMS Waivers fully filled out
-                            <ul><li>Including Tread Depth</li></ul>
-                        </li>
-                        <li>$1,000 Tire & Wheel Guarantee Form</li>
-                        <li>Rental Purchase Agreement
-                            <ul><li><strong>STOCK NUMBERS MUST MATCH INVENTORY REPORT</strong></li></ul>
-                        </li>
-                        <li>Inventory Report
-                            <ul>
-                                <li>NOTATION OF DAMAGED TIRE</li>
-                                <li>Swap/Service needs to be done <strong>after NOT before</strong> printing of Inventory Report</li>
-                            </ul>
-                        </li>
-                        <li>Customer Payment History
-                            <ul><li><strong>MAKE SURE CUSTOMER IS CURRENT</strong></li></ul>
-                        </li>
-                        <li>Photos of damaged tires
-                            <ul><li>IF WE ARE CLAIMING MORE THAN ONE THEY ALL HAVE TO BE IN A PICTURE TOGETHER</li></ul>
-                        </li>
-                    </ul>
-                    <p class="important-note handwritten-note"><strong>Important: CHECK PAYMENT HISTORY FIRST!</strong></p>
-                </div>
-            </div>
-        </div>
+        /* --- Page Content Wrappers --- */
+        .page-content {
+            display: none;
+            animation: fadeInPage 0.5s ease-out;
+        }
+        .page-content.active-page {
+            display: block;
+        }
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        <!-- Vendors Page Content -->
-        <div id="vendors-page" class="page-content">
-            <header class="page-header-generic">
-                <div class="container">
-                    <h1>Wheel Vendor <span>Contact List</span></h1>
-                    <p>Quick reference for contacting our wheel distributors.</p>
-                </div>
-            </header>
-            <div class="container content-section">
-                <div class="table-responsive-wrapper">
-                    <table id="wheel-vendors-table">
-                        <thead>
-                            <tr>
-                                <th>Wheel Vendor</th>
-                                <th>Phone Number</th>
-                                <th>Brands Carried</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td data-label="Vendor">American Tire Distributors</td><td data-label="Number"><a href="tel:800-903-0014">800-903-0014</a></td><td data-label="Brands">Black Rock, Center Line, Cragar, Dick Cepek, DrifZ, Dropstars, Focal, Gear Off-Road, ICW, Konig, Motiv, OE Performance, Pacer, Platinum, TIS Off-Road, Ultra, Worx Off-Road</td></tr>
-                            <tr><td data-label="Vendor">Direct Line</td><td data-label="Number"><a href="tel:904-739-1920">904-739-1920</a></td><td data-label="Brands">904, DPS, Enkei, F1R, Rohana</td></tr>
-                            <tr><td data-label="Vendor">Elite Wheel Warehouse</td><td data-label="Number"><a href="tel:813-673-8393">813-673-8393 ext 115</a></td><td data-label="Brands">Amani Forged, Azara, Blade, Cavallo, Modern Concept, OE Revolution, Spec-1, Twisted, Vortex Off-Road, XF Off-Road, Xtreme Off-Road</td></tr>
-                            <tr><td data-label="Vendor">Fast Forward Wheels</td><td data-label="Number"><a href="tel:469-200-1763">469-200-1763</a></td><td data-label="Brands">2 Crave, Fiero, Heavy Hitters, Mach M, Prive Lux, Replica Tech</td></tr>
-                            <tr><td data-label="Vendor">HPD</td><td data-label="Number"><a href="tel:866-980-5090">866-980-5090</a></td><td data-label="Brands">HD Wheels, HD Off-Road, Overland Sector</td></tr>
-                            <tr><td data-label="Vendor">Impact Wheels</td><td data-label="Number"><a href="tel:949-932-0945">949-932-0945</a></td><td data-label="Brands">Impact Off-Road, Impact Racing, DNK</td></tr>
-                            <tr><td data-label="Vendor">Pinnacle Wheel</td><td data-label="Number"><a href="tel:626-363-6978">626-363-6978</a></td><td data-label="Brands">Pinnacle, Noir Elite, K2 Off-Road, Drag Concepts</td></tr>
-                            <tr><td data-label="Vendor">Southern Tire & Wheel</td><td data-label="Number"><a href="tel:334-288-2288">334-288-2288</a></td><td data-label="Brands">N/A</td></tr>
-                            <tr><td data-label="Vendor">Strada</td><td data-label="Number"><a href="tel:626-336-1634">626-336-1634</a></td><td data-label="Brands">Off-Road Monster, Shift, Xcess, Ignite, Wheel Replicas</td></tr>
-                            <tr><td data-label="Vendor">VCT Wheel</td><td data-label="Number"><a href="tel:877-943-3575">877-943-3575</a></td><td data-label="Brands">Replica 1, Revolution Racing, Scorpion Off-Road, VCT</td></tr>
-                            <tr><td data-label="Vendor">Velocity Wheel</td><td data-label="Number"><a href="tel:626-960-5389">626-960-5389</a></td><td data-label="Brands">Borghini, Dcenti, RDR Off-Road, Red Sport, Strada, U2, Velocity, Velsen</td></tr>
-                            <tr><td data-label="Vendor">Western Distributors</td><td data-label="Number"><a href="tel:866-465-9807">866-465-9807</a></td><td data-label="Brands">Avenue, American Outlaw, Curva Concepts, Defy, DRW, Hardrock Off-Road, Hostile Off-Road, Liquid Metal, NS Wheels, OEM, RBP, Revenge, Wicked, XXR XIX</td></tr>
-                            <tr><td data-label="Vendor">Wheel One</td><td data-label="Number"><a href="tel:866-894-3351">866-894-3351</a></td><td data-label="Brands">American Truxx, Dirty Life, ION, Kraze, Mayhem, Ridler</td></tr>
-                            <tr><td data-label="Vendor">Wheel Pros</td><td data-label="Number"><a href="tel:504-471-0907">504-471-0907</a></td><td data-label="Brands">American Racing, Asanti, Black Rhino, DUB, Fairway, Foose, Fuel Off-Road, KMC, Moto Metal, Motegi, MSA Off-Road, Niche, Petrol, Pro Comp, Replicas, Status, TSW, US Mags, XD</td></tr>
-                            <tr><td data-label="Vendor">Wholesale Wheels</td><td data-label="Number"><a href="tel:469-289-2300">469-289-2300</a></td><td data-label="Brands">LFF, LUX, LUXXX HD, Replica, Venom</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+        /* --- Generic Page Header --- */
+        .page-header-generic {
+            padding: calc(var(--spacing-unit) * 2) 0 calc(var(--spacing-unit) * 1.5);
+            text-align: center;
+            background-color: var(--black-secondary);
+            border-bottom: 1px solid var(--black-tertiary);
+        }
+        .page-header-generic h1 {
+            font-size: calc(var(--spacing-unit) * 1.6);
+            font-weight: 600;
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+        }
+        .page-header-generic h1 span { color: var(--accent-red); }
+        .page-header-generic p {
+            font-size: calc(var(--spacing-unit) * 0.9);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    </main>
+        /* --- Home Page --- */
+        .hero-section {
+            background: var(--overlay-dark) url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJncmFkMSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwZjBmMGYiLz4KPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMxYTFhMWEiLz4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGYwZjBmIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjE5MjAiIGhlaWdodD0iMTA4MCIgZmlsbD0idXJsKCNncmFkMSkiLz4KPC9zdmc+') no-repeat center center/cover;
+            color: var(--text-primary);
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 6) var(--spacing-unit) calc(var(--spacing-unit) * 7);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-section::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0,0,0,0.7);
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 600px; }
+        .hero-title {
+            font-size: calc(var(--spacing-unit) * 2.2);
+            font-weight: 300; margin-bottom: var(--spacing-unit);
+            letter-spacing: 1px; line-height: 1.2;
+        }
+        .hero-title span { font-weight: 700; color: var(--accent-red); }
+        .hero-subtitle {
+            font-size: calc(var(--spacing-unit) * 1);
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            color: var(--text-secondary); font-weight: 300;
+        }
+        .hero-cta-button {
+            background-color: var(--accent-red); color: var(--text-primary);
+            padding: calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 2);
+            text-decoration: none; border-radius: 4px;
+            font-size: calc(var(--spacing-unit) * 1); font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block; box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+        }
+        .hero-cta-button:hover { background-color: var(--accent-red-hover); transform: translateY(-2px); }
+        .hero-cta-button.secondary-cta {
+            background-color: var(--black-tertiary);
+            border: 1px solid var(--accent-red);
+            color: var(--accent-red);
+        }
+        .hero-cta-button.secondary-cta:hover {
+            background-color: var(--accent-red);
+            color: var(--text-primary);
+        }
 
-    <!-- Bottom Navigation (Mobile) -->
-    <nav class="mobile-bottom-nav">
-        <a href="#" data-page="home-page" class="active-nav-link">
-            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-            Home
-        </a>
-        <a href="#" data-page="fitment-page">
-            <svg viewBox="0 0 24 24"><path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V21h4.5c0-1.71 1.29-3.14 3-3.43V19h3v-1.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5V19h3.5v-1.82A2.73 2.73 0 0020.5 11zM11 5H9V3.5c0-.28.22-.5.5-.5s.5.22.5.5V5zm5 0h-2V3.5c0-.28.22-.5.5-.5s.5.22.5.5V5z"/></svg>
-            Fitment
-        </a>
-        <a href="#" data-page="service-page">
-             <svg viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
-            Service
-        </a>
-        <a href="#" data-page="vendors-page">
-            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-            Vendors
-        </a>
-    </nav>
+        .home-section {
+            padding: calc(var(--spacing-unit) * 3) 0;
+            background-color: var(--black-primary);
+        }
+        .home-section:nth-child(even) { background-color: var(--black-secondary); }
 
-    <footer>
-        <div class="container">
-            <p>© <span id="current-year"></span> Shane's Custom Wheels & Fitment. Internal Sales Tool. <strong>Developed by intelliaipro.com</strong></p>
-        </div>
-    </footer>
+        .home-section-title {
+            text-align: center;
+            font-size: calc(var(--spacing-unit) * 1.8); font-weight: 300;
+            margin-bottom: calc(var(--spacing-unit) * 0.5); color: var(--text-primary);
+            letter-spacing: 1px;
+        }
+        .home-section-title span { color: var(--accent-red); font-weight: 600; }
+        .home-section-subtitle {
+            text-align: center; font-size: calc(var(--spacing-unit) * 0.9);
+            color: var(--text-secondary); max-width: 700px;
+            margin: 0 auto calc(var(--spacing-unit) * 2.5) auto;
+        }
+        .home-cta-container {
+            text-align: center;
+            margin-top: calc(var(--spacing-unit) * 1.5);
+        }
 
-    <script src="script.js"></script>
-</body>
-</html>
+        /* AI Master Home Card */
+        .ai-master-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 0, 64, 0.1) 0%, 
+                rgba(15, 15, 15, 0.95) 50%, 
+                rgba(255, 102, 0, 0.1) 100%);
+            border: 1px solid var(--ai-border-glow);
+            border-radius: 8px;
+            padding: calc(var(--spacing-unit) * 2);
+            margin: calc(var(--spacing-unit) * 2) auto;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 0, 64, 0.2);
+        }
+
+        .ai-master-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: cardShine 3s ease-in-out infinite;
+        }
+
+        @keyframes cardShine {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .ai-master-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(255, 0, 64, 0.4);
+        }
+
+        .ai-master-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: calc(var(--spacing-unit) * 1.4);
+            color: var(--ai-primary-red);
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ai-master-card p {
+            color: var(--text-secondary);
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+
+        .ai-master-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--ai-primary-red), var(--ai-accent-orange));
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .distributor-logos {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: center; gap: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 2);
+        }
+        .distributor-logos img {
+            max-height: 45px; max-width: 120px;
+            filter: grayscale(70%) brightness(160%); opacity: 0.7;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+        .distributor-logos img:hover { filter: grayscale(0%) brightness(100%); opacity: 1; }
+        .distributor-contact {
+            text-align: center; margin-top: calc(var(--spacing-unit) * 2);
+            font-size: calc(var(--spacing-unit) * 0.9);
+        }
+        .distributor-contact a { color: var(--accent-red); text-decoration: none; font-weight: 500; }
+        .distributor-contact a:hover { text-decoration: underline; }
+
+        /* --- AI Fitment Master Page --- */
+        .ai-master-page {
+            height: calc(100vh - 140px);
+            background: var(--ai-dark-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* AI Background Effects */
+        .ai-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 0, 64, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 102, 0, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(204, 0, 51, 0.2) 0%, transparent 50%),
+                linear-gradient(135deg, #000000 0%, #1a0000 50%, #000000 100%);
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(15deg); }
+        }
+
+        .ai-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .ai-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--ai-primary-red);
+            border-radius: 50%;
+            animation: aiFloat 15s infinite linear;
+            opacity: 0;
+        }
+
+        .ai-particle:nth-child(odd) {
+            background: var(--ai-accent-orange);
+            animation-duration: 20s;
+        }
+
+        @keyframes aiFloat {
+            0% {
+                transform: translateY(100vh) translateX(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .ai-scan-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .ai-scan-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--ai-primary-red) 20%, 
+                var(--ai-accent-orange) 50%, 
+                var(--ai-primary-red) 80%, 
+                transparent 100%);
+            animation: aiScan 8s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        .ai-scan-line:nth-child(1) { animation-delay: 0s; }
+        .ai-scan-line:nth-child(2) { animation-delay: 2s; }
+        .ai-scan-line:nth-child(3) { animation-delay: 4s; }
+
+        @keyframes aiScan {
+            0%, 10% {
+                top: -2px;
+                opacity: 0;
+                transform: scaleX(0);
+            }
+            20% {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+            80% {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+            90%, 100% {
+                top: 100%;
+                opacity: 0;
+                transform: scaleX(0);
+            }
+        }
+
+        .ai-master-container {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ai-header {
+            background: 
+                linear-gradient(135deg, 
+                rgba(255, 0, 64, 0.2) 0%, 
+                rgba(0, 0, 0, 0.8) 50%, 
+                rgba(255, 102, 0, 0.2) 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--ai-border-glow);
+            padding: 8px 12px;
+            text-align: center;
+        }
+
+        .ai-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ai-logo-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--ai-primary-red), var(--ai-accent-orange));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 8px;
+            animation: aiIconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes aiIconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .ai-logo-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: #ffffff;
+        }
+
+        .ai-logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--ai-primary-red), var(--ai-accent-orange));
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: aiTextGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes aiTextGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .ai-bot-header {
+            padding: 6px 12px;
+            background: 
+                linear-gradient(90deg, 
+                rgba(26, 0, 0, 0.9) 0%, 
+                rgba(255, 0, 64, 0.8) 20%, 
+                rgba(255, 102, 0, 0.8) 80%, 
+                rgba(26, 0, 0, 0.9) 100%);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--ai-border-glow);
+        }
+
+        .ai-bot-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .ai-bot-icon {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 6px;
+            animation: aiBotIconSpin 10s linear infinite;
+        }
+
+        @keyframes aiBotIconSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .ai-bot-icon svg {
+            width: 12px;
+            height: 12px;
+            fill: var(--ai-primary-red);
+        }
+
+        .ai-bot-name {
+            font-size: 12px;
+            font-weight: 600;
+            text-shadow: 0 0 10px var(--ai-primary-red);
+            letter-spacing: 0.5px;
+        }
+
+        .ai-bot-status {
+            display: flex;
+            align-items: center;
+        }
+
+        .ai-status-indicator {
+            width: 6px;
+            height: 6px;
+            background-color: #00ff88;
+            border-radius: 50%;
+            margin-right: 4px;
+            position: relative;
+            box-shadow: 0 0 8px #00ff88;
+        }
+
+        .ai-status-indicator::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #00ff88;
+            animation: aiStatusPulse 1.5s infinite;
+        }
+
+        @keyframes aiStatusPulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            70% { transform: scale(2.5); opacity: 0; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+
+        .ai-status-text {
+            font-size: 10px;
+            color: #00ff88;
+            text-shadow: 0 0 5px #00ff88;
+            font-w
