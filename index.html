@@ -6,9 +6,7 @@
     <title>Shane's Custom Wheels & Fitment</title>
     <meta name="description" content="Internal tool for Shane's sales team. Quick access to wheel and tire fitment data, package deals, and distributor information.">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Favicon (optional) e.g. <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
 <style>
-/* Combined CSS - Mobile First Approach */
 :root {
     --black-primary: #0F0F0F;
     --black-secondary: #1A1A1A;
@@ -17,17 +15,17 @@
     --black-hover: #383838;
     --text-primary: #EAEAEA;
     --text-secondary: #B0B0B0;
-    --accent-red: #D92525; /* Slightly brighter red */
+    --accent-red: #D92525;
     --accent-red-hover: #F04040;
     --overlay-dark: rgba(0, 0, 0, 0.65);
-    --spacing-unit: 1rem; /* Base for padding/margins */
+    --spacing-unit: 1rem;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent; /* Better mobile tap feel */
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -39,20 +37,20 @@ body {
     color: var(--text-primary);
     font-family: 'Montserrat', 'Segoe UI', sans-serif;
     line-height: 1.6;
-    font-size: 16px; /* Base font size */
-    padding-bottom: 70px; /* Space for fixed bottom nav on mobile */
+    font-size: 18px; /* Increased base font size for mobile */
+    padding-bottom: 90px; /* More space for bigger mobile nav */
 }
 
 .container {
-    width: 90%;
+    width: 92%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-unit);
 }
 
-/* --- Main Navigation (Desktop: Top, Mobile: Bottom Fixed) --- */
+/* --- Enhanced Mobile Navigation --- */
 .app-nav {
-    display: none; /* Hidden by default, shown for desktop */
+    display: none;
     background: linear-gradient(to right, var(--black-primary), var(--black-secondary));
     padding: var(--spacing-unit) 0;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
@@ -66,7 +64,7 @@ body {
     align-items: center;
 }
 .nav-logo {
-    font-size: calc(var(--spacing-unit) * 1.4);
+    font-size: calc(var(--spacing-unit) * 1.6);
     font-weight: 700;
     color: var(--text-primary);
     text-decoration: none;
@@ -77,56 +75,61 @@ body {
 .nav-links a {
     color: var(--text-secondary);
     text-decoration: none;
-    margin-left: calc(var(--spacing-unit) * 1.2); /* Adjusted for more links */
+    margin-left: calc(var(--spacing-unit) * 1.2);
     font-weight: 500;
     padding-bottom: 0.25rem;
     transition: color 0.3s ease, border-color 0.3s ease;
     border-bottom: 2px solid transparent;
-    font-size: calc(var(--spacing-unit) * 0.9); /* Slightly smaller for more links */
+    font-size: calc(var(--spacing-unit) * 1);
 }
 .nav-links a:hover, .nav-links a.active-nav-link {
     color: var(--text-primary);
     border-bottom: 2px solid var(--accent-red);
 }
 
+/* Enhanced Mobile Bottom Navigation */
 .mobile-bottom-nav {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: var(--black-secondary);
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 -2px 15px rgba(0,0,0,0.4);
     display: flex;
     justify-content: space-around;
-    padding: 0.3rem 0; /* Reduced padding */
+    padding: 0.8rem 0; /* Increased padding */
     z-index: 1000;
 }
 .mobile-bottom-nav a {
     flex-grow: 1;
     text-align: center;
-    padding: 0.5rem 0.1rem; /* Adjusted padding */
+    padding: 0.8rem 0.2rem; /* Increased padding */
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.60rem; /* Adjusted for 5 items */
+    font-size: 0.75rem; /* Increased font size */
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, transform 0.2s ease;
+    font-weight: 500;
 }
 .mobile-bottom-nav a svg {
-    width: 20px; /* Adjusted icon size */
-    height: 20px;
-    margin-bottom: 0.15rem; /* Adjusted margin */
+    width: 28px; /* Increased icon size */
+    height: 28px;
+    margin-bottom: 0.3rem; /* Increased margin */
     fill: currentColor;
 }
 .mobile-bottom-nav a.active-nav-link {
     color: var(--accent-red);
+    transform: translateY(-2px);
 }
-
+.mobile-bottom-nav a:active {
+    transform: scale(0.95);
+}
 
 /* --- Page Content Wrappers --- */
 .page-content {
-    display: none; /* All pages hidden by default */
+    display: none;
     animation: fadeInPage 0.5s ease-out;
 }
 .page-content.active-page {
@@ -137,78 +140,93 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- Generic Page Header (Used for Fitment & Service) --- */
+/* --- Enhanced Page Headers --- */
 .page-header-generic {
-    padding: calc(var(--spacing-unit) * 2) 0 calc(var(--spacing-unit) * 1.5);
+    padding: calc(var(--spacing-unit) * 2.5) 0 calc(var(--spacing-unit) * 2);
     text-align: center;
     background-color: var(--black-secondary);
     border-bottom: 1px solid var(--black-tertiary);
 }
-.page-header-generic.fitment-page-header { 
-     padding-bottom: calc(var(--spacing-unit) * 2.5); 
-}
 .page-header-generic h1 {
-    font-size: calc(var(--spacing-unit) * 1.6);
+    font-size: calc(var(--spacing-unit) * 2); /* Increased size */
     font-weight: 600;
-    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    margin-bottom: calc(var(--spacing-unit) * 0.8);
+    line-height: 1.2;
 }
-.page-header-generic h1 span { color: var(--accent-red); }
+.page-header-generic h1 span { 
+    color: var(--accent-red); 
+}
 .page-header-generic p {
-    font-size: calc(var(--spacing-unit) * 0.9);
+    font-size: calc(var(--spacing-unit) * 1.1); /* Increased size */
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
+    line-height: 1.5;
 }
-
 
 /* --- Home Page --- */
 .hero-section {
-    background: var(--overlay-dark) url('images/your-hero-image.jpg') no-repeat center center/cover; 
-    /* IMPORTANT: Replace with your actual hero image path if you have one, e.g., url('images/shanes-hero.jpg') */
-    /* If no image yet, you can use a gradient or keep the placeholder: */
-    /* background: linear-gradient(135deg, var(--black-secondary) 0%, var(--black-primary) 100%); */
+    background: var(--overlay-dark);
     color: var(--text-primary);
     text-align: center;
-    padding: calc(var(--spacing-unit) * 5) var(--spacing-unit) calc(var(--spacing-unit) * 6); /* Adjusted padding */
+    padding: calc(var(--spacing-unit) * 4) var(--spacing-unit) calc(var(--spacing-unit) * 5);
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.hero-section::before { /* Overlay only if using a background image */
-    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    /* background-color: rgba(0,0,0,0.7); */ /* Comment out or remove if not using image or want less overlay */
+.hero-content { 
+    position: relative; 
+    z-index: 2; 
+    max-width: 600px; 
 }
-.hero-content { position: relative; z-index: 2; max-width: 600px; }
 .hero-title {
-    font-size: calc(var(--spacing-unit) * 2); 
-    font-weight: 300; margin-bottom: var(--spacing-unit);
-    letter-spacing: 1px; line-height: 1.2;
+    font-size: calc(var(--spacing-unit) * 2.2); /* Increased */
+    font-weight: 300; 
+    margin-bottom: calc(var(--spacing-unit) * 1.2);
+    letter-spacing: 1px; 
+    line-height: 1.2;
 }
-.hero-title span { font-weight: 700; color: var(--accent-red); }
+.hero-title span { 
+    font-weight: 700; 
+    color: var(--accent-red); 
+}
 .hero-subtitle {
-    font-size: calc(var(--spacing-unit) * 0.9); 
-    margin-bottom: calc(var(--spacing-unit) * 1.5);
-    color: var(--text-secondary); font-weight: 300;
+    font-size: calc(var(--spacing-unit) * 1.1); /* Increased */
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    color: var(--text-secondary); 
+    font-weight: 300;
+    line-height: 1.4;
 }
 .hero-cta-group {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-unit);
+    gap: calc(var(--spacing-unit) * 1.2);
     margin-top: calc(var(--spacing-unit) * 1.5);
     align-items: center; 
 }
 .hero-cta-button {
-    background-color: var(--accent-red); color: var(--text-primary);
-    padding: calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 1.8); 
-    text-decoration: none; border-radius: 4px;
-    font-size: calc(var(--spacing-unit) * 0.95); font-weight: 600;
+    background-color: var(--accent-red); 
+    color: var(--text-primary);
+    padding: calc(var(--spacing-unit) * 1.1) calc(var(--spacing-unit) * 2.2); /* Increased */
+    text-decoration: none; 
+    border-radius: 6px;
+    font-size: calc(var(--spacing-unit) * 1.1); /* Increased */
+    font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    display: inline-block; box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
-    min-width: 220px; 
+    display: inline-block; 
+    box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+    min-width: 250px; /* Increased */
+    min-height: 52px; /* Added min height for easier tapping */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.hero-cta-button:hover { background-color: var(--accent-red-hover); transform: translateY(-2px); }
+.hero-cta-button:hover { 
+    background-color: var(--accent-red-hover); 
+    transform: translateY(-2px); 
+}
 .hero-cta-button-alt {
     background-color: transparent;
     border: 2px solid var(--accent-red);
@@ -219,32 +237,40 @@ body {
     color: var(--text-primary);
 }
 
-
 .home-section {
-    padding: calc(var(--spacing-unit) * 2.5) 0; 
+    padding: calc(var(--spacing-unit) * 3) 0; /* Increased */
     background-color: var(--black-primary);
 }
-.home-section:nth-child(even) { background-color: var(--black-secondary); }
+.home-section:nth-child(even) { 
+    background-color: var(--black-secondary); 
+}
 
 .home-section-title {
     text-align: center;
-    font-size: calc(var(--spacing-unit) * 1.6); 
+    font-size: calc(var(--spacing-unit) * 1.8); /* Increased */
     font-weight: 300;
-    margin-bottom: calc(var(--spacing-unit) * 0.5); color: var(--text-primary);
+    margin-bottom: calc(var(--spacing-unit) * 0.8); 
+    color: var(--text-primary);
     letter-spacing: 1px;
 }
-.home-section-title span { color: var(--accent-red); font-weight: 600; }
+.home-section-title span { 
+    color: var(--accent-red); 
+    font-weight: 600; 
+}
 .home-section-subtitle {
-    text-align: center; font-size: calc(var(--spacing-unit) * 0.85); 
-    color: var(--text-secondary); max-width: 700px;
-    margin: 0 auto calc(var(--spacing-unit) * 2) auto; 
+    text-align: center; 
+    font-size: calc(var(--spacing-unit) * 1); /* Increased */
+    color: var(--text-secondary); 
+    max-width: 700px;
+    margin: 0 auto calc(var(--spacing-unit) * 2.5) auto; 
+    line-height: 1.5;
 }
 
 /* Home Page Quick Links Cards Section */
 .home-cards-container {
     display: grid;
     grid-template-columns: 1fr; 
-    gap: var(--spacing-unit);
+    gap: calc(var(--spacing-unit) * 1.2); /* Increased */
     margin-top: calc(var(--spacing-unit) * 1.5);
 }
 .home-feature-card {
@@ -253,179 +279,477 @@ body {
     align-items: center;
     text-align: center;
     background-color: var(--black-card);
-    padding: calc(var(--spacing-unit) * 1.2); 
-    border-radius: 8px;
+    padding: calc(var(--spacing-unit) * 1.5); /* Increased */
+    border-radius: 10px; /* Increased border radius */
     text-decoration: none;
     color: var(--text-primary);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3); /* Enhanced shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-left: 4px solid var(--accent-red); 
+    min-height: 140px; /* Added min height for consistency */
 }
 .home-feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 }
 .home-card-icon {
-    margin-bottom: calc(var(--spacing-unit) * 0.8); 
+    margin-bottom: calc(var(--spacing-unit) * 1); 
 }
 .home-card-icon svg {
-    width: 36px; 
-    height: 36px;
+    width: 42px; /* Increased */
+    height: 42px;
     fill: var(--accent-red);
 }
 .home-feature-card h3 {
-    font-size: calc(var(--spacing-unit) * 1); 
+    font-size: calc(var(--spacing-unit) * 1.15); /* Increased */
     font-weight: 600;
-    margin-bottom: calc(var(--spacing-unit) * 0.3);
+    margin-bottom: calc(var(--spacing-unit) * 0.4);
+    line-height: 1.3;
 }
 .home-feature-card p {
-    font-size: calc(var(--spacing-unit) * 0.8); 
+    font-size: calc(var(--spacing-unit) * 0.95); /* Increased */
     color: var(--text-secondary);
     line-height: 1.4;
 }
 
-
-.distributor-logos {
-    display: flex; flex-wrap: wrap; justify-content: center;
-    align-items: center; gap: calc(var(--spacing-unit) * 1.5); 
+/* --- Mobile-First Package Deals Cards --- */
+.package-deals-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--spacing-unit) * 1);
     margin-top: calc(var(--spacing-unit) * 1.5);
 }
-.distributor-logos img {
-    max-height: 40px; 
-    max-width: 110px;
-    filter: grayscale(70%) brightness(160%); opacity: 0.7;
-    transition: filter 0.3s ease, opacity 0.3s ease;
+
+.package-deal-card {
+    background-color: var(--black-card);
+    border-radius: 8px;
+    padding: calc(var(--spacing-unit) * 1.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-left: 4px solid var(--accent-red);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.distributor-logos img:hover { filter: grayscale(0%) brightness(100%); opacity: 1; }
-.distributor-contact {
-    text-align: center; margin-top: calc(var(--spacing-unit) * 1.5); 
+
+.package-deal-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.package-deal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: calc(var(--spacing-unit) * 0.8);
+    padding-bottom: calc(var(--spacing-unit) * 0.5);
+    border-bottom: 1px solid var(--black-tertiary);
+}
+
+.package-size {
+    font-size: calc(var(--spacing-unit) * 1.3);
+    font-weight: 700;
+    color: var(--accent-red);
+}
+
+.weekly-rate {
+    font-size: calc(var(--spacing-unit) * 0.9);
+    color: var(--text-secondary);
+    text-align: right;
+}
+
+.weekly-rate-amount {
+    display: block;
+    font-size: calc(var(--spacing-unit) * 1.1);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.package-purchase {
+    text-align: center;
+}
+
+.package-purchase-label {
     font-size: calc(var(--spacing-unit) * 0.85);
+    color: var(--text-secondary);
+    margin-bottom: calc(var(--spacing-unit) * 0.3);
 }
-.distributor-contact a { color: var(--accent-red); text-decoration: none; font-weight: 500; }
-.distributor-contact a:hover { text-decoration: underline; }
 
+.package-purchase-amount {
+    font-size: calc(var(--spacing-unit) * 1.4);
+    font-weight: 700;
+    color: var(--text-primary);
+}
 
-/* --- Fitment Page --- */
+/* --- Mobile-First Vendor Cards --- */
+.vendor-cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--spacing-unit) * 1);
+    margin-top: calc(var(--spacing-unit) * 1.5);
+}
+
+.vendor-card {
+    background-color: var(--black-card);
+    border-radius: 8px;
+    padding: calc(var(--spacing-unit) * 1.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-left: 4px solid var(--accent-red);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vendor-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.vendor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: calc(var(--spacing-unit) * 0.8);
+    flex-wrap: wrap;
+    gap: calc(var(--spacing-unit) * 0.5);
+}
+
+.vendor-name {
+    font-size: calc(var(--spacing-unit) * 1.1);
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 1;
+    min-width: 200px;
+}
+
+.vendor-phone {
+    font-size: calc(var(--spacing-unit) * 0.95);
+    font-weight: 500;
+    color: var(--accent-red);
+    text-decoration: none;
+    padding: calc(var(--spacing-unit) * 0.3) calc(var(--spacing-unit) * 0.8);
+    background-color: rgba(217, 37, 37, 0.1);
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.vendor-phone:hover {
+    background-color: rgba(217, 37, 37, 0.2);
+}
+
+.vendor-brands-label {
+    font-size: calc(var(--spacing-unit) * 0.8);
+    color: var(--text-secondary);
+    margin-bottom: calc(var(--spacing-unit) * 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.vendor-brands {
+    font-size: calc(var(--spacing-unit) * 0.9);
+    color: var(--text-primary);
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+/* --- AI Interface Enhancement --- */
+.ai-interface-container {
+    width: 100%;
+    height: 80vh; /* Use most of the viewport height */
+    min-height: 600px;
+    background-color: var(--black-card);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    margin: calc(var(--spacing-unit) * 2) 0;
+    overflow: hidden;
+    border: 2px solid var(--black-tertiary);
+}
+
+.ai-interface-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+.ai-intro {
+    text-align: center;
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--black-secondary);
+    margin-bottom: calc(var(--spacing-unit) * 1);
+    border-radius: 8px;
+}
+
+.ai-intro h2 {
+    font-size: calc(var(--spacing-unit) * 1.4);
+    margin-bottom: calc(var(--spacing-unit) * 0.8);
+    color: var(--accent-red);
+}
+
+.ai-intro p {
+    font-size: calc(var(--spacing-unit) * 1);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* --- Fitment Database --- */
 .fitment-search-container {
-    margin: var(--spacing-unit) auto calc(var(--spacing-unit) * 1.5); 
-    max-width: 500px; padding: 0 var(--spacing-unit);
+    margin: calc(var(--spacing-unit) * 1.5) auto calc(var(--spacing-unit) * 2); 
+    max-width: 500px; 
+    padding: 0 var(--spacing-unit);
 }
 .fitment-search-container input[type="text"] {
     width: 100%;
-    padding: calc(var(--spacing-unit) * 0.75) var(--spacing-unit);
+    padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 1.2); /* Increased */
     background-color: var(--black-tertiary);
-    border: 1px solid var(--black-card);
-    border-radius: 4px; color: var(--text-primary);
-    font-size: calc(var(--spacing-unit) * 0.9); outline: none;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    border: 2px solid var(--black-card); /* Thicker border */
+    border-radius: 8px; /* Increased border radius */
+    color: var(--text-primary);
+    font-size: calc(var(--spacing-unit) * 1); /* Increased */
+    outline: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    min-height: 52px; /* Added min height */
 }
-.fitment-search-container input[type="text"]::placeholder { color: var(--text-secondary); }
+.fitment-search-container input[type="text"]:focus {
+    border-color: var(--accent-red);
+    box-shadow: 0 4px 15px rgba(217, 37, 37, 0.2);
+}
+.fitment-search-container input[type="text"]::placeholder { 
+    color: var(--text-secondary); 
+}
 
 .manufacturer-cards-container {
     display: grid;
     grid-template-columns: 1fr; 
-    gap: var(--spacing-unit);
+    gap: calc(var(--spacing-unit) * 1.2); /* Increased */
     padding: 0 var(--spacing-unit) var(--spacing-unit);
 }
 .manufacturer-card {
     background-color: var(--black-card);
-    border-radius: 6px;
-    padding: calc(var(--spacing-unit) * 1.25);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 8px; /* Increased */
+    padding: calc(var(--spacing-unit) * 1.4); /* Increased */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25); /* Enhanced */
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
     border-left: 4px solid var(--accent-red);
     cursor: pointer;
+    min-height: 120px; /* Added consistent height */
 }
 .manufacturer-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
 }
 .manufacturer-card-title {
-    font-size: calc(var(--spacing-unit) * 1.2);
-    font-weight: 600; margin-bottom: calc(var(--spacing-unit) * 0.25);
+    font-size: calc(var(--spacing-unit) * 1.3); /* Increased */
+    font-weight: 600; 
+    margin-bottom: calc(var(--spacing-unit) * 0.4); /* Increased */
+    line-height: 1.3;
 }
 .manufacturer-card-desc {
-    font-size: calc(var(--spacing-unit) * 0.85);
+    font-size: calc(var(--spacing-unit) * 0.95); /* Increased */
     color: var(--text-secondary);
-    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    margin-bottom: calc(var(--spacing-unit) * 0.8); /* Increased */
+    line-height: 1.4;
 }
 .manufacturer-card-tag {
-    display: inline-block; background-color: rgba(217, 37, 37, 0.1);
-    color: var(--accent-red); padding: 0.25rem 0.75rem; border-radius: 3px;
-    font-size: 0.7rem; font-weight: 500; text-transform: uppercase;
+    display: inline-block; 
+    background-color: rgba(217, 37, 37, 0.1);
+    color: var(--accent-red); 
+    padding: 0.4rem 1rem; /* Increased */
+    border-radius: 4px;
+    font-size: 0.8rem; /* Increased */
+    font-weight: 500; 
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
-.manufacturer-card.hidden-card { display: none !important; }
-
+.manufacturer-card.hidden-card { 
+    display: none !important; 
+}
 
 /* Fitment Detail View */
 .fitment-detail-view {
-    padding: var(--spacing-unit) 0; 
+    padding: calc(var(--spacing-unit) * 1.5) 0; 
     background-color: var(--black-primary);
 }
 .fitment-detail-header {
     display: flex;
     align-items: center;
-    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    margin-bottom: calc(var(--spacing-unit) * 2);
     padding: 0 var(--spacing-unit); 
 }
 .back-to-list-btn {
-    background: none; border: none; color: var(--accent-red);
-    font-size: calc(var(--spacing-unit) * 1.5); 
-    padding: 0.5rem; margin-right: 0.5rem; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
+    background: none; 
+    border: none; 
+    color: var(--accent-red);
+    font-size: calc(var(--spacing-unit) * 1.8); /* Increased */
+    padding: calc(var(--spacing-unit) * 0.8); /* Increased */
+    margin-right: calc(var(--spacing-unit) * 0.8); 
+    cursor: pointer;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    min-width: 48px; /* Added for easier tapping */
+    min-height: 48px;
+}
+.back-to-list-btn:hover {
+    background-color: rgba(217, 37, 37, 0.1);
+    transform: scale(1.1);
+}
+.back-to-list-btn svg {
+    width: 28px; /* Increased */
+    height: 28px;
+    fill: currentColor;
 }
 .fitment-detail-title {
-    font-size: calc(var(--spacing-unit) * 1.5);
+    font-size: calc(var(--spacing-unit) * 1.6); /* Increased */
     font-weight: 600;
+    line-height: 1.3;
 }
-.fitment-detail-title span { color: var(--accent-red); }
+.fitment-detail-title span { 
+    color: var(--accent-red); 
+}
+
+/* --- Mobile-First Fitment Table Cards --- */
+.fitment-table-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--spacing-unit) * 1);
+    padding: 0 var(--spacing-unit);
+}
+
+.fitment-vehicle-card {
+    background-color: var(--black-card);
+    border-radius: 8px;
+    padding: calc(var(--spacing-unit) * 1.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-left: 4px solid var(--accent-red);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fitment-vehicle-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.fitment-vehicle-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: calc(var(--spacing-unit) * 0.8);
+    flex-wrap: wrap;
+    gap: calc(var(--spacing-unit) * 0.5);
+}
+
+.fitment-vehicle-name {
+    font-size: calc(var(--spacing-unit) * 1.2);
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.fitment-vehicle-years {
+    font-size: calc(var(--spacing-unit) * 0.9);
+    color: var(--accent-red);
+    background-color: rgba(217, 37, 37, 0.1);
+    padding: calc(var(--spacing-unit) * 0.2) calc(var(--spacing-unit) * 0.6);
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.fitment-specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--spacing-unit) * 0.8);
+    margin-bottom: calc(var(--spacing-unit) * 0.8);
+}
+
+.fitment-spec-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.fitment-spec-label {
+    font-size: calc(var(--spacing-unit) * 0.75);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    margin-bottom: calc(var(--spacing-unit) * 0.2);
+}
+
+.fitment-spec-value {
+    font-size: calc(var(--spacing-unit) * 0.9);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.fitment-notes {
+    margin-top: calc(var(--spacing-unit) * 0.8);
+    padding-top: calc(var(--spacing-unit) * 0.8);
+    border-top: 1px solid var(--black-tertiary);
+}
+
+.fitment-notes-label {
+    font-size: calc(var(--spacing-unit) * 0.75);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    margin-bottom: calc(var(--spacing-unit) * 0.3);
+}
+
+.fitment-notes-text {
+    font-size: calc(var(--spacing-unit) * 0.85);
+    color: var(--text-primary);
+    line-height: 1.4;
+    font-style: italic;
+}
 
 /* --- Service Page --- */
 .content-section { 
-    padding: calc(var(--spacing-unit) * 1.5) 0;
+    padding: calc(var(--spacing-unit) * 2) 0; /* Increased */
 }
 .service-requirements {
     background-color: var(--black-card);
-    padding: calc(var(--spacing-unit) * 1.5);
-    border-radius: 6px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    padding: calc(var(--spacing-unit) * 2); /* Increased */
+    border-radius: 10px; /* Increased */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* Enhanced */
 }
 .service-requirements h2 {
-    font-size: calc(var(--spacing-unit) * 1.3);
+    font-size: calc(var(--spacing-unit) * 1.5); /* Increased */
     color: var(--accent-red);
-    margin-bottom: var(--spacing-unit);
-    border-bottom: 1px solid var(--black-tertiary);
-    padding-bottom: calc(var(--spacing-unit) * 0.5);
+    margin-bottom: calc(var(--spacing-unit) * 1.2); /* Increased */
+    border-bottom: 2px solid var(--black-tertiary); /* Thicker border */
+    padding-bottom: calc(var(--spacing-unit) * 0.8); /* Increased */
 }
 .service-requirements ul {
     list-style-type: none;
     padding-left: 0;
-    margin-bottom: var(--spacing-unit);
+    margin-bottom: calc(var(--spacing-unit) * 1.2); /* Increased */
 }
 .service-requirements ul li {
-    margin-bottom: calc(var(--spacing-unit) * 0.75);
-    font-size: calc(var(--spacing-unit) * 0.95);
-    line-height: 1.5;
-    padding-left: 1.5em; 
+    margin-bottom: calc(var(--spacing-unit) * 1); /* Increased */
+    font-size: calc(var(--spacing-unit) * 1.05); /* Increased */
+    line-height: 1.6; /* Increased */
+    padding-left: 2em; /* Increased */
     position: relative;
 }
 .service-requirements ul li::before {
     content: '•';
     color: var(--accent-red);
     font-weight: bold;
+    font-size: calc(var(--spacing-unit) * 1.2); /* Increased */
     position: absolute;
     left: 0;
     top: 0;
 }
 .service-requirements ul ul {
     list-style-type: none;
-    padding-left: calc(var(--spacing-unit) * 1.2);
-    margin-top: calc(var(--spacing-unit) * 0.5);
+    padding-left: calc(var(--spacing-unit) * 1.5); /* Increased */
+    margin-top: calc(var(--spacing-unit) * 0.8); /* Increased */
 }
- .service-requirements ul ul li::before {
+.service-requirements ul ul li::before {
     content: '-';
     color: var(--text-secondary);
- }
+}
 .service-requirements strong {
     color: var(--text-primary);
     font-weight: 600;
@@ -434,87 +758,84 @@ body {
     font-family: 'Comic Sans MS', 'Chalkduster', 'cursive';
     color: #FFD700; 
     font-style: italic;
-    font-size: calc(var(--spacing-unit)*0.85) !important;
-    margin-top: calc(var(--spacing-unit)*0.25);
+    font-size: calc(var(--spacing-unit) * 0.95) !important; /* Increased */
+    margin-top: calc(var(--spacing-unit) * 0.4);
 }
 .handwritten-note { 
     font-family: 'Comic Sans MS', 'Chalkduster', 'cursive';
     color: #FFD700;
     font-style: italic;
+    font-size: calc(var(--spacing-unit) * 1.05); /* Increased */
 }
 .important-note {
-    margin-top: var(--spacing-unit);
-    padding: var(--spacing-unit);
+    margin-top: calc(var(--spacing-unit) * 1.5); /* Increased */
+    padding: calc(var(--spacing-unit) * 1.5); /* Increased */
     background-color: rgba(217, 37, 37, 0.1);
-    border-left: 3px solid var(--accent-red);
-    border-radius: 4px;
+    border-left: 4px solid var(--accent-red); /* Thicker border */
+    border-radius: 6px; /* Increased */
     text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* Table Styling */
-table {
-    width: 100%; border-collapse: collapse;
-    margin-bottom: calc(var(--spacing-unit) * 2);
-    background-color: var(--black-card); border-radius: 4px;
-    overflow-x: auto; 
-    display: block; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    font-size: 0.8rem; 
+.distributor-logos {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center; 
+    gap: calc(var(--spacing-unit) * 1.8); /* Increased */
+    margin-top: calc(var(--spacing-unit) * 2); /* Increased */
 }
-/* Revert to table display for inner elements for proper layout */
-table thead, table tbody, table tr, table th, table td {
-    display: table-cell;
+.distributor-logos img {
+    max-height: 50px; /* Increased */
+    max-width: 130px; /* Increased */
+    filter: grayscale(70%) brightness(160%); 
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
-table th, table td { 
-    padding: calc(var(--spacing-unit) * 0.6) calc(var(--spacing-unit) * 0.8); 
-    text-align: left; border-bottom: 1px solid var(--black-tertiary);
-    white-space: nowrap; 
+.distributor-logos img:hover { 
+    filter: grayscale(0%) brightness(100%); 
+    opacity: 1;
+    transform: scale(1.05);
 }
-table th {
-    background-color: rgba(217, 37, 37, 0.15); color: var(--text-primary);
-    font-weight: 600; text-transform: uppercase;
-    font-size: 0.7rem; letter-spacing: 0.5px;
+.distributor-contact {
+    text-align: center; 
+    margin-top: calc(var(--spacing-unit) * 2); /* Increased */
+    font-size: calc(var(--spacing-unit) * 0.95); /* Increased */
+    line-height: 1.5;
 }
-table tr:nth-child(even) { background-color: rgba(255,255,255,0.02); }
-table td { color: var(--text-secondary); }
-table td:first-child { color: var(--text-primary); font-weight: 500; }
+.distributor-contact a { 
+    color: var(--accent-red); 
+    text-decoration: none; 
+    font-weight: 500; 
+    padding: calc(var(--spacing-unit) * 0.3) calc(var(--spacing-unit) * 0.6);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+.distributor-contact a:hover { 
+    text-decoration: underline;
+    background-color: rgba(217, 37, 37, 0.1);
+}
 
-/* Specific widths for vendors table */
-#wheel-vendors-table th:nth-child(1), 
-#wheel-vendors-table td:nth-child(1) { min-width: 140px; }
-#wheel-vendors-table th:nth-child(2), 
-#wheel-vendors-table td:nth-child(2) { min-width: 120px; }
-#wheel-vendors-table th:nth-child(3), 
-#wheel-vendors-table td:nth-child(3) { min-width: 250px; white-space: normal; }
-
-.table-responsive-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin-bottom: var(--spacing-unit); 
-    border-radius: 4px; 
-    border: 1px solid var(--black-tertiary); 
-}
-.table-responsive-wrapper table {
-    display: inline-table; 
-    width: auto; 
-    min-width: 100%; 
-    margin-bottom: 0; 
-    border: none; 
-    box-shadow: none;
-}
-        
 /* Footer */
 footer {
-    background-color: var(--black-tertiary); color: var(--text-secondary);
-    padding: calc(var(--spacing-unit) * 2) 0; text-align: center;
-    font-size: 0.8rem; border-top: 1px solid var(--black-primary);
+    background-color: var(--black-tertiary); 
+    color: var(--text-secondary);
+    padding: calc(var(--spacing-unit) * 2.5) 0; /* Increased */
+    text-align: center;
+    font-size: 0.9rem; /* Increased */
+    border-top: 1px solid var(--black-primary);
+    line-height: 1.5;
 }
-footer strong { color: var(--text-primary); font-weight: 500; }
+footer strong { 
+    color: var(--text-primary); 
+    font-weight: 500; 
+}
 
 /* --- Desktop Overrides (min-width: 768px) --- */
 @media (min-width: 768px) {
     body {
         padding-bottom: 0; 
+        font-size: 16px; /* Standard desktop size */
     }
     .mobile-bottom-nav {
         display: none; 
@@ -522,81 +843,153 @@ footer strong { color: var(--text-primary); font-weight: 500; }
     .app-nav {
         display: block; 
     }
-    .nav-links a { font-size: calc(var(--spacing-unit) * 0.95); margin-left: calc(var(--spacing-unit) * 1.5); }
+    .nav-links a { 
+        font-size: calc(var(--spacing-unit) * 0.95); 
+        margin-left: calc(var(--spacing-unit) * 1.5); 
+    }
 
-    .hero-title { font-size: calc(var(--spacing-unit) * 3.5); }
-    .hero-subtitle { font-size: calc(var(--spacing-unit) * 1.2); }
-    .hero-cta-group { flex-direction: row; justify-content: center; }
-    .hero-cta-button { padding: calc(var(--spacing-unit) * 0.9) calc(var(--spacing-unit) * 2.2); font-size: calc(var(--spacing-unit) * 1.05); }
-    .hero-cta-button + .hero-cta-button { margin-left: var(--spacing-unit); margin-top: 0; }
+    .hero-title { 
+        font-size: calc(var(--spacing-unit) * 3.5); 
+    }
+    .hero-subtitle { 
+        font-size: calc(var(--spacing-unit) * 1.2); 
+    }
+    .hero-cta-group { 
+        flex-direction: row; 
+        justify-content: center; 
+    }
+    .hero-cta-button { 
+        padding: calc(var(--spacing-unit) * 0.9) calc(var(--spacing-unit) * 2.2); 
+        font-size: calc(var(--spacing-unit) * 1.05); 
+        min-width: 220px;
+        min-height: auto;
+    }
+    .hero-cta-button + .hero-cta-button { 
+        margin-left: var(--spacing-unit); 
+        margin-top: 0; 
+    }
 
-    .home-section { padding: calc(var(--spacing-unit) * 4) 0; } 
-    .home-section-title { font-size: calc(var(--spacing-unit) * 2); } 
-    .home-section-subtitle { font-size: calc(var(--spacing-unit) * 1); } 
-    .home-cards-container { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: calc(var(--spacing-unit) * 1.5); }
-    .home-feature-card h3 {font-size: calc(var(--spacing-unit) * 1.2);}
-    .home-feature-card p {font-size: calc(var(--spacing-unit) * 0.9);}
+    .home-section { 
+        padding: calc(var(--spacing-unit) * 4) 0; 
+    } 
+    .home-section-title { 
+        font-size: calc(var(--spacing-unit) * 2); 
+    } 
+    .home-section-subtitle { 
+        font-size: calc(var(--spacing-unit) * 1); 
+    } 
+    .home-cards-container { 
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
+        gap: calc(var(--spacing-unit) * 1.5); 
+    }
+    .home-feature-card h3 {
+        font-size: calc(var(--spacing-unit) * 1.2);
+    }
+    .home-feature-card p {
+        font-size: calc(var(--spacing-unit) * 0.9);
+    }
 
-    .page-header-generic h1 { font-size: calc(var(--spacing-unit) * 2); }
-    .fitment-page-header { padding-bottom: calc(var(--spacing-unit) * 3); }
+    .package-deals-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: calc(var(--spacing-unit) * 1.5);
+    }
+
+    .vendor-cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: calc(var(--spacing-unit) * 1.5);
+    }
+
+    .page-header-generic h1 { 
+        font-size: calc(var(--spacing-unit) * 2.5); 
+    }
 
     .manufacturer-cards-container {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
         gap: calc(var(--spacing-unit) * 1.5);
     }
-    .manufacturer-card { padding: calc(var(--spacing-unit) * 1.5); }
+    .manufacturer-card { 
+        padding: calc(var(--spacing-unit) * 1.5); 
+    }
 
-    .service-requirements h2 { font-size: calc(var(--spacing-unit) * 1.5); }
-    .service-requirements ul li { font-size: calc(var(--spacing-unit) * 1); }
+    .fitment-table-container {
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: calc(var(--spacing-unit) * 1.5);
+    }
 
-    table { 
-        font-size: 0.9rem; 
-        display: table; 
-        overflow-x: visible; 
+    .service-requirements h2 { 
+        font-size: calc(var(--spacing-unit) * 1.8); 
     }
-    table thead, table tbody, table tr, table th, table td { /* Ensure standard table behavior on desktop */
-        display: table-cell;
+    .service-requirements ul li { 
+        font-size: calc(var(--spacing-unit) * 1); 
     }
-    table th, table td { 
-        padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.2);  
-        white-space: normal; 
-    }
-    table th { font-size: 0.8rem; }
-    #wheel-vendors-table td:nth-child(3) { line-height: 1.5; } 
 
-    .table-responsive-wrapper {
-        overflow-x: visible; /* No need for wrapper to scroll on desktop */
-        border: none; 
-    }
-    .table-responsive-wrapper table {
-        width: 100%; 
-        display: table;
-        border: 1px solid var(--black-tertiary); 
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    .ai-interface-container {
+        height: 85vh;
+        min-height: 700px;
     }
 }
- @media print {
-    body { background-color: white; color: black !important; padding-bottom: 0; }
-    .app-nav, .mobile-bottom-nav, .hero-section, footer, .back-to-list-btn, .fitment-search-container, .home-cards-container { display: none !important; }
-    .page-content.active-page { display: block !important; }
-    .home-section, .fitment-detail-view, .content-section { background-color: white !important; padding: var(--spacing-unit) 0; }
-    .page-header-generic { background-color: white !important; border-bottom: 1px solid #ccc; color: black !important; }
-    .page-header-generic h1, .page-header-generic h1 span, .page-header-generic p {color: black !important;}
-    table { box-shadow: none; margin-bottom: var(--spacing-unit); background-color: white !important; display: table !important; overflow-x: visible !important; }
-    thead, tbody, tr, th, td { display: table-cell !important; }
-    th, td { border: 1px solid #ccc; padding: 0.5rem; color: black !important; white-space: normal !important; }
-    th { background-color: #f0f0f0 !important; color: black !important; }
-    td:first-child { color: black !important; }
+
+@media print {
+    body { 
+        background-color: white; 
+        color: black !important; 
+        padding-bottom: 0; 
+        font-size: 12pt;
+    }
+    .app-nav, .mobile-bottom-nav, .hero-section, footer, .back-to-list-btn, .fitment-search-container, .home-cards-container, .ai-interface-container { 
+        display: none !important; 
+    }
+    .page-content.active-page { 
+        display: block !important; 
+    }
+    .home-section, .fitment-detail-view, .content-section { 
+        background-color: white !important; 
+        padding: var(--spacing-unit) 0; 
+    }
+    .page-header-generic { 
+        background-color: white !important; 
+        border-bottom: 1px solid #ccc; 
+        color: black !important; 
+    }
+    .page-header-generic h1, .page-header-generic h1 span, .page-header-generic p {
+        color: black !important;
+    }
+    .package-deal-card, .vendor-card, .fitment-vehicle-card {
+        background-color: white !important;
+        border: 1px solid #ccc;
+        box-shadow: none;
+        margin-bottom: 1rem;
+    }
+    .package-size, .vendor-phone, .fitment-vehicle-years {
+        color: black !important;
+        background-color: #f0f0f0 !important;
+    }
     .home-section-title, .home-section-subtitle, .fitment-detail-title, .fitment-detail-title span,
-    .service-requirements h2, .service-requirements ul li, .service-requirements strong { color: black !important; text-align: left; }
-    .home-section-title span, .fitment-detail-title span, .service-requirements h2 { color: black !important; } 
-    .service-requirements ul li::before { color: black !important;}
-    .service-requirements ul ul li::before { color: #555 !important;}
-    .handwritten-note, .handwritten-note-header { color: #444 !important; font-style: normal; } 
-    .important-note { background-color: #eee !important; border-left-color: #888 !important; }
-    .distributor-logos img { filter: none; opacity: 1;}
-    .table-responsive-wrapper { overflow-x: visible !important; border: none !important; }
-    .table-responsive-wrapper table { border: 1px solid #ccc !important; }
+    .service-requirements h2, .service-requirements ul li, .service-requirements strong { 
+        color: black !important; 
+        text-align: left; 
+    }
+    .home-section-title span, .fitment-detail-title span, .service-requirements h2 { 
+        color: black !important; 
+    } 
+    .service-requirements ul li::before { 
+        color: black !important;
+    }
+    .service-requirements ul ul li::before { 
+        color: #555 !important;
+    }
+    .handwritten-note, .handwritten-note-header { 
+        color: #444 !important; 
+        font-style: normal; 
+    } 
+    .important-note { 
+        background-color: #eee !important; 
+        border-left-color: #888 !important; 
+    }
+    .distributor-logos img { 
+        filter: none; 
+        opacity: 1;
+    }
 }
 </style>
 </head>
@@ -610,21 +1003,21 @@ footer strong { color: var(--text-primary); font-weight: 500; }
                 <a href="#" data-page="home-page" class="active-nav-link">Home</a>
                 <a href="#" data-page="fitment-page">Fitment Database</a>
                 <a href="#" data-page="vendors-page">Wheel Vendors</a>
-                <a href="fitment-ai.html">Fitment AI</a>
+                <a href="#" data-page="ai-page">Fitment AI</a>
                 <a href="#" data-page="service-page">Service Info</a>
             </div>
         </div>
     </nav>
 
     <!-- Home Page Content -->
-    <div id="home-page" class="page-content">
+    <div id="home-page" class="page-content active-page">
         <section class="hero-section">
             <div class="hero-content">
                 <h1 class="hero-title">Perfect Fit, <span>Premium Style</span></h1>
                 <p class="hero-subtitle">Shane's internal sales tool for custom wheels, tire packages, and expert vehicle fitment information.</p>
                 <div class="hero-cta-group">
                     <a href="#" class="hero-cta-button" data-page="fitment-page">Explore Fitment Database</a>
-                    <a href="fitment-ai.html" class="hero-cta-button hero-cta-button-alt">Ask Fitment AI</a>
+                    <a href="#" class="hero-cta-button hero-cta-button-alt" data-page="ai-page">Ask Fitment AI</a>
                 </div>
             </div>
         </section>
@@ -640,7 +1033,7 @@ footer strong { color: var(--text-primary); font-weight: 500; }
                         <h3>Fitment Database</h3>
                         <p>Detailed vehicle fitment specs.</p>
                     </a>
-                    <a href="fitment-ai.html" class="home-feature-card">
+                    <a href="#" data-page="ai-page" class="home-feature-card">
                         <div class="home-card-icon">
                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <path d="M12 2a2.5 2.5 0 00-2.5 2.5V6H8a1 1 0 000 2h1.5v1H8a1 1 0 000 2h1.5v1H8a1 1 0 000 2h1.5v1.5a2.5 2.5 0 005 0V16H16a1 1 0 000-2h-1.5v-1H16a1 1 0 000-2h-1.5V8H16a1 1 0 000-2h-1.5V4.5A2.5 2.5 0 0012 2zm0 13.5a1 1 0 110-2 1 1 0 010 2zm0-4a1 1 0 110-2 1 1 0 010 2zm0-4a1 1 0 110-2 1 1 0 010 2z"/>
@@ -671,17 +1064,86 @@ footer strong { color: var(--text-primary); font-weight: 500; }
             <div class="container">
                 <h2 class="home-section-title">Wheel & Tire <span>Package Deals</span></h2>
                 <p class="home-section-subtitle">Weekly rates and purchase programs. Includes TPMS, mount & balance.</p>
-                <table>
-                    <thead><tr><th>Size</th><th>Weekly Rate</th><th>Purchase Pkg (w/ Sensors)</th></tr></thead>
-                    <tbody>
-                        <tr><td data-label="Size">18s</td><td data-label="Weekly Rate">$65</td><td data-label="Purchase Pkg">$2,220</td></tr>
-                        <tr><td data-label="Size">20s</td><td data-label="Weekly Rate">$70</td><td data-label="Purchase Pkg">$2,620</td></tr>
-                        <tr><td data-label="Size">22s</td><td data-label="Weekly Rate">$80</td><td data-label="Purchase Pkg">$2,920</td></tr>
-                        <tr><td data-label="Size">24s</td><td data-label="Weekly Rate">$95</td><td data-label="Purchase Pkg">$3,520</td></tr>
-                        <tr><td data-label="Size">Off-Road 20</td><td data-label="Weekly Rate">$99</td><td data-label="Purchase Pkg">$3,420</td></tr>
-                        <tr><td data-label="Size">Off-Road 22</td><td data-label="Weekly Rate">$105</td><td data-label="Purchase Pkg">$3,720</td></tr>
-                    </tbody>
-                </table>
+                <div class="package-deals-container">
+                    <div class="package-deal-card">
+                        <div class="package-deal-header">
+                            <div class="package-size">18s</div>
+                            <div class="weekly-rate">
+                                Weekly Rate
+                                <span class="weekly-rate-amount">$65</span>
+                            </div>
+                        </div>
+                        <div class="package-purchase">
+                            <div class="package-purchase-label">Purchase Package (w/ Sensors)</div>
+                            <div class="package-purchase-amount">$2,220</div>
+                        </div>
+                    </div>
+                    <div class="package-deal-card">
+                        <div class="package-deal-header">
+                            <div class="package-size">20s</div>
+                            <div class="weekly-rate">
+                                Weekly Rate
+                                <span class="weekly-rate-amount">$70</span>
+                            </div>
+                        </div>
+                        <div class="package-purchase">
+                            <div class="package-purchase-label">Purchase Package (w/ Sensors)</div>
+                            <div class="package-purchase-amount">$2,620</div>
+                        </div>
+                    </div>
+                    <div class="package-deal-card">
+                        <div class="package-deal-header">
+                            <div class="package-size">22s</div>
+                            <div class="weekly-rate">
+                                Weekly Rate
+                                <span class="weekly-rate-amount">$80</span>
+                            </div>
+                        </div>
+                        <div class="package-purchase">
+                            <div class="package-purchase-label">Purchase Package (w/ Sensors)</div>
+                            <div class="package-purchase-amount">$2,920</div>
+                        </div>
+                    </div>
+                    <div class="package-deal-card">
+                        <div class="package-deal-header">
+                            <div class="package-size">24s</div>
+                            <div class="weekly-rate">
+                                Weekly Rate
+                                <span class="weekly-rate-amount">$95</span>
+                            </div>
+                        </div>
+                        <div class="package-purchase">
+                            <div class="package-purchase-label">Purchase Package (w/ Sensors)</div>
+                            <div class="package-purchase-amount">$3,520</div>
+                        </div>
+                    </div>
+                    <div class="package-deal-card">
+                        <div class="package-deal-header">
+                            <div class="package-size">Off-Road 20</div>
+                            <div class="weekly-rate">
+                                Weekly Rate
+                                <span class="weekly-rate-amount">$99</span>
+                            </div>
+                        </div>
+                        <div class="package-purchase">
+                            <div class="package-purchase-label">Purchase Package (w/ Sensors)</div>
+                            <div class="package-purchase-amount">$3,420</div>
+                        </div>
+                    </div>
+                    <div class="package-deal-card">
+                        <div class="package-deal-header">
+                            <div class="package-size">Off-Road 22</div>
+                            <div class="weekly-rate">
+                                Weekly Rate
+                                <span class="weekly-rate-amount">$105</span>
+                            </div>
+                        </div>
+                        <div class="package-purchase">
+                            <div class="package-purchase-label">Purchase Package (w/ Sensors)</div>
+                            <div class="package-purchase-amount">$3,720</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -696,10 +1158,35 @@ footer strong { color: var(--text-primary); font-weight: 500; }
                     <img src="https://via.placeholder.com/120x45/333333/FFFFFF?text=Brand+4" alt="Brand Logo 4">
                 </div>
                 <div class="distributor-contact">
-                    <p>Sales Inquiries: <a href="mailto:sales@example.com">sales@example.com</a> | Phone: (555) 123-4567</p>
+                    <p>Sales Inquiries: <a href="mailto:sales@example.com">sales@example.com</a> | Phone: <a href="tel:5551234567">(555) 123-4567</a></p>
                 </div>
             </div>
         </section>
+    </div>
+
+    <!-- Fitment AI Page Content -->
+    <div id="ai-page" class="page-content">
+        <header class="page-header-generic">
+            <div class="container">
+                <h1>Fitment Master <span>AI</span></h1>
+                <p>Get instant, expert wheel and tire fitment advice powered by AI</p>
+            </div>
+        </header>
+        <div class="container content-section">
+            <div class="ai-intro">
+                <h2>Ask Shane's Fitment Expert AI</h2>
+                <p>Get instant answers about wheel fitment, tire sizes, offset recommendations, and compatibility questions. Simply type your question below!</p>
+            </div>
+            <div class="ai-interface-container">
+                <iframe 
+                    src="https://embed.pickaxeproject.com/axe?id=Shane_s_AI_Fitment_Specialist_9GY64&mode=embed_gold&host=beta&theme=custom&opacity=100&font_family=Montserrat&font_color=%23EAEAEA&background_color=%23191919&input_background_color=%232C2C2C&input_font_color=%23EAEAEA&button_background_color=%23D92525&button_font_color=%23FFFFFF&chat_bubble_background_color=%231F1F1F&chat_bubble_font_color=%23EAEAEA"
+                    frameborder="0"
+                    style="overflow: hidden; transition: height 0.5s ease;"
+                    width="100%"
+                    height="100%">
+                </iframe>
+            </div>
+        </div>
     </div>
 
     <!-- Fitment Page Content -->
@@ -724,8 +1211,8 @@ footer strong { color: var(--text-primary); font-weight: 500; }
                     </button>
                     <h2 class="fitment-detail-title" id="fitment-detail-manufacturer-name"><span>Manufacturer</span> Fitment</h2>
                 </header>
-                <div id="fitment-detail-table-container">
-                    <!-- Table will be dynamically inserted here -->
+                <div class="fitment-table-container" id="fitment-detail-table-container">
+                    <!-- Fitment cards will be dynamically inserted here -->
                 </div>
             </div>
         </div>
@@ -740,19 +1227,8 @@ footer strong { color: var(--text-primary); font-weight: 500; }
             </div>
         </header>
         <div class="container content-section">
-            <div class="table-responsive-wrapper">
-                 <table id="wheel-vendors-table">
-                    <thead>
-                        <tr>
-                            <th>Wheel Vendor</th>
-                            <th>Phone Number</th>
-                            <th>Brands Carried</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Vendor data will be inserted here by JavaScript -->
-                    </tbody>
-                </table>
+            <div class="vendor-cards-container" id="vendor-cards-container">
+                <!-- Vendor cards will be dynamically inserted here by JavaScript -->
             </div>
         </div>
     </div>
@@ -808,8 +1284,8 @@ footer strong { color: var(--text-primary); font-weight: 500; }
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
             Vendors
         </a>
-         <a href="fitment-ai.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path d="M12 2a2.5 2.5 0 00-2.5 2.5V6H8a1 1 0 000 2h1.5v1H8a1 1 0 000 2h1.5v1H8a1 1 0 000 2h1.5v1.5a2.5 2.5 0 005 0V16H16a1 1 0 000-2h-1.5v-1H16a1 1 0 000-2h-1.5V8H16a1 1 0 000-2h-1.5V4.5A2.5 2.5 0 0012 2zm0 13.5a1 1 0 110-2 1 1 0 010 2zm0-4a1 1 0 110-2 1 1 0 010 2zm0-4a1 1 0 110-2 1 1 0 010 2z"/></svg>
+         <a href="#" data-page="ai-page">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2.5 2.5 0 00-2.5 2.5V6H8a1 1 0 000 2h1.5v1H8a1 1 0 000 2h1.5v1H8a1 1 0 000 2h1.5v1.5a2.5 2.5 0 005 0V16H16a1 1 0 000-2h-1.5v-1H16a1 1 0 000-2h-1.5V8H16a1 1 0 000-2h-1.5V4.5A2.5 2.5 0 0012 2zm0 13.5a1 1 0 110-2 1 1 0 010 2zm0-4a1 1 0 110-2 1 1 0 010 2zm0-4a1 1 0 110-2 1 1 0 010 2z"/></svg>
             AI
         </a>
         <a href="#" data-page="service-page">
@@ -825,7 +1301,6 @@ footer strong { color: var(--text-primary); font-weight: 500; }
     </footer>
 
 <script>
-// Combined JavaScript
 document.addEventListener('DOMContentLoaded', () => {
     // --- Data ---
     const fitmentData = {
@@ -969,7 +1444,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { vendor: "Wholesale Wheels", number: "469-289-2300", brands: "LFF, LUX, LUXXX HD, Replica, Venom" }
     ];
 
-
     // --- DOM Elements ---
     const pages = document.querySelectorAll('.page-content');
     const navLinks = document.querySelectorAll('.app-nav a[data-page], .mobile-bottom-nav a[data-page], .hero-cta-button[data-page], .home-secondary-cta-button[data-page], .home-feature-card[data-page]');
@@ -981,195 +1455,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const fitmentDetailTableContainer = document.getElementById('fitment-detail-table-container');
     const backToMfgListBtn = document.getElementById('back-to-mfg-list-btn');
     const currentYearSpan = document.getElementById('current-year');
-    const wheelVendorsTableBody = document.querySelector('#wheel-vendors-table tbody');
-
+    const vendorCardsContainer = document.getElementById('vendor-cards-container');
 
     // --- Functions ---
     const setActivePage = (pageId) => {
         if (!pageId) {
-            console.warn("setActivePage called with no pageId");
-            return;
-        }
-
-        pages.forEach(page => {
-            if (page.id === pageId) {
-                page.classList.add('active-page');
-            } else {
-                page.classList.remove('active-page');
-            }
-        });
-
-        navLinks.forEach(link => {
-            if (link.dataset.page) { 
-                if (link.dataset.page === pageId) {
-                    link.classList.add('active-nav-link');
-                } else {
-                    link.classList.remove('active-nav-link');
-                }
-            }
-        });
-        window.scrollTo(0, 0);
-    };
-
-    const createManufacturerCard = (mfgKey, mfgData) => {
-        const card = document.createElement('div');
-        card.className = 'manufacturer-card';
-        card.dataset.mfgKey = mfgKey;
-        card.dataset.searchTerms = mfgData.searchTerms ? mfgData.searchTerms.toLowerCase() : '';
-        
-        card.innerHTML = `
-            <h3 class="manufacturer-card-title">${mfgData.name || 'N/A'}</h3>
-            <p class="manufacturer-card-desc">${mfgData.description || ''}</p>
-            <span class="manufacturer-card-tag">${mfgData.tag || ''}</span>
-        `;
-        card.addEventListener('click', () => showFitmentDetail(mfgKey));
-        return card;
-    };
-
-    const populateManufacturerCards = () => {
-        if (!manufacturerCardsList) return;
-        manufacturerCardsList.innerHTML = ''; 
-        Object.keys(fitmentData).forEach(key => {
-            if (fitmentData.hasOwnProperty(key)) { 
-                const card = createManufacturerCard(key, fitmentData[key]);
-                manufacturerCardsList.appendChild(card);
-            }
-        });
-    };
-
-    const filterManufacturerCards = () => {
-        if (!manufacturerSearchInput || !manufacturerCardsList) return;
-        const searchTerm = manufacturerSearchInput.value.toLowerCase();
-        const cards = manufacturerCardsList.querySelectorAll('.manufacturer-card');
-        cards.forEach(card => {
-            const searchTerms = card.dataset.searchTerms || "";
-            if (searchTerms.includes(searchTerm)) {
-                card.classList.remove('hidden-card'); 
-            } else {
-                card.classList.add('hidden-card');
-            }
-        });
-    };
-
-    const createFitmentTable = (vehicles) => {
-        if (!vehicles || vehicles.length === 0) return '<p>No vehicle data available.</p>';
-        const table = document.createElement('table');
-        table.innerHTML = `
-            <thead>
-                <tr>
-                    <th>Vehicle</th>
-                    <th>Years</th>
-                    <th>Lug Pattern</th>
-                    <th>Center Bore</th>
-                    <th>Thread Size</th>
-                    <th>Offset (ET)</th>
-                    <th>Notes</th>
-                </tr>
-            </thead>
-            <tbody>
-                ${vehicles.map(v => `
-                    <tr>
-                        <td data-label="Vehicle">${v.vehicle || ''}</td>
-                        <td data-label="Years">${v.years || ''}</td>
-                        <td data-label="Lug Pattern">${v.lugPattern || ''}</td>
-                        <td data-label="Center Bore">${v.cb || ''}</td>
-                        <td data-label="Thread Size">${v.thread || ''}</td>
-                        <td data-label="Offset (ET)">${v.offset || ''}</td>
-                        <td data-label="Notes">${v.notes || ''}</td>
-                    </tr>
-                `).join('')}
-            </tbody>
-        `;
-        return table;
-    };
-    
-    const showFitmentDetail = (mfgKey) => {
-        const mfg = fitmentData[mfgKey];
-        if (!mfg || !fitmentDetailSectionWrapper || !fitmentDetailTableContainer || !fitmentDetailManufacturerName) {
-            console.error("Missing elements for fitment detail view or no data for:", mfgKey);
-            return;
-        }
-
-        fitmentDetailManufacturerName.innerHTML = `<span>${mfg.name}</span> Fitment`;
-        fitmentDetailTableContainer.innerHTML = ''; 
-        const table = createFitmentTable(mfg.vehicles);
-        if (typeof table === 'string') { // Handle no data case
-            fitmentDetailTableContainer.innerHTML = table;
-        } else {
-            fitmentDetailTableContainer.appendChild(table);
-        }
-        
-
-        const fitmentPage = document.getElementById('fitment-page');
-        if (fitmentPage) {
-            const fitmentSearchContainer = fitmentPage.querySelector('.fitment-search-container');
-            if(fitmentSearchContainer) fitmentSearchContainer.style.display = 'none';
-        }
-        if(manufacturerCardsList) manufacturerCardsList.style.display = 'none';
-        fitmentDetailSectionWrapper.style.display = 'block';
-        window.scrollTo(0,0);
-    };
-
-    const hideFitmentDetail = () => {
-        if (!fitmentDetailSectionWrapper) return;
-        fitmentDetailSectionWrapper.style.display = 'none';
-        
-        const fitmentPage = document.getElementById('fitment-page');
-         if (fitmentPage) {
-            const fitmentSearchContainer = fitmentPage.querySelector('.fitment-search-container');
-            if(fitmentSearchContainer) fitmentSearchContainer.style.display = 'block';
-        }
-        if(manufacturerCardsList) manufacturerCardsList.style.display = 'grid'; 
-        if (manufacturerSearchInput) manufacturerSearchInput.value = ''; 
-        filterManufacturerCards(); 
-    };
-
-    const populateWheelVendorsTable = () => {
-        if (!wheelVendorsTableBody) return;
-        wheelVendorsTableBody.innerHTML = ''; 
-        wheelVendorsData.forEach(vendor => {
-            const row = wheelVendorsTableBody.insertRow();
-            row.innerHTML = `
-                <td data-label="Wheel Vendor">${vendor.vendor}</td>
-                <td data-label="Phone Number">${vendor.number}</td>
-                <td data-label="Brands Carried">${vendor.brands}</td>
-            `;
-        });
-    };
-
-    // --- Event Listeners ---
-    navLinks.forEach(link => { 
-        link.addEventListener('click', (e) => {
-            if (link.dataset.page) { 
-                e.preventDefault();
-                const pageId = link.dataset.page;
-                setActivePage(pageId);
-                if (pageId === 'fitment-page') { 
-                    hideFitmentDetail(); 
-                }
-            }
-        });
-    });
-
-    if (manufacturerSearchInput) {
-        manufacturerSearchInput.addEventListener('input', filterManufacturerCards);
-    }
-    if (backToMfgListBtn) {
-        backToMfgListBtn.addEventListener('click', hideFitmentDetail);
-    }
-
-    // --- Initialization ---
-    if(currentYearSpan) currentYearSpan.textContent = new Date().getFullYear();
-    
-    if (typeof populateManufacturerCards === "function") populateManufacturerCards();
-    else console.error("populateManufacturerCards is not defined");
-
-    if (typeof populateWheelVendorsTable === "function") populateWheelVendorsTable();
-    else console.error("populateWheelVendorsTable is not defined");
-    
-    if (typeof setActivePage === "function") setActivePage('home-page');
-    else console.error("setActivePage is not defined");
-});
-</script>
-</body>
-</html>
+            console.warn("setActivePage called with no pageI
