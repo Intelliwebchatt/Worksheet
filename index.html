@@ -1,637 +1,300 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shane's Fitment Expert</title>
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
             font-family: Arial, sans-serif;
             background: #0F0F0F;
-            color: #EAEAEA;
-            line-height: 1.6;
+            color: white;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        .nav {
+        .header {
             background: #1A1A1A;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid #D92525;
         }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
+        .header h1 {
+            margin: 0;
             color: #D92525;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
+        .nav {
+            background: #2C2C2C;
+            padding: 10px;
+            text-align: center;
         }
 
-        .nav-links a {
-            color: #EAEAEA;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
+        .nav button {
             background: #D92525;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
         }
 
-        /* Pages */
+        .nav button:hover {
+            background: #F04040;
+        }
+
+        .nav button.active {
+            background: #B01E1E;
+        }
+
         .page {
             display: none;
-            min-height: calc(100vh - 80px);
+            padding: 20px;
+            min-height: calc(100vh - 120px);
         }
 
         .page.active {
             display: block;
         }
 
-        /* Home Page */
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: #D92525;
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: #B0B0B0;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #D92525;
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background: #F04040;
-        }
-
-        /* AI Master Card */
         .ai-card {
-            background: linear-gradient(135deg, rgba(255, 0, 64, 0.1), rgba(15, 15, 15, 0.9));
-            border: 2px solid #ff0040;
-            border-radius: 12px;
-            padding: 30px;
-            margin: 40px auto;
-            max-width: 600px;
+            background: rgba(217, 37, 37, 0.1);
+            border: 2px solid #D92525;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
             text-align: center;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .ai-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 0, 64, 0.3);
+            background: rgba(217, 37, 37, 0.2);
         }
 
-        .ai-card h3 {
-            font-size: 24px;
-            color: #ff0040;
-            margin-bottom: 15px;
-        }
-
-        .ai-card p {
-            color: #B0B0B0;
-            margin-bottom: 20px;
-        }
-
-        .ai-badge {
-            background: linear-gradient(45deg, #ff0040, #ff6600);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        /* AI Master Page */
-        .ai-master-page {
+        .ai-master-container {
             background: #0a0a0a;
-            min-height: 100vh;
+            height: 80vh;
+            border: 2px solid #D92525;
+            border-radius: 5px;
             position: relative;
-        }
-
-        .ai-header {
-            background: linear-gradient(90deg, rgba(255, 0, 64, 0.2), rgba(0, 0, 0, 0.8));
-            padding: 15px;
-            text-align: center;
-            border-bottom: 2px solid #ff0040;
-        }
-
-        .ai-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .ai-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(45deg, #ff0040, #ff6600);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-        }
-
-        .ai-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #ff0040;
         }
 
         .ai-bot-header {
-            background: rgba(255, 0, 64, 0.1);
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: #D92525;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
         }
 
-        .ai-bot-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .ai-bot-icon {
-            width: 30px;
-            height: 30px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ff0040;
-        }
-
-        .ai-status {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            background: #00ff88;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .ai-chat {
-            height: calc(100vh - 140px);
-            background: linear-gradient(135deg, rgba(15, 15, 15, 0.9), rgba(20, 0, 5, 0.8));
+        .ai-chat-area {
+            height: calc(100% - 50px);
             position: relative;
-            border-left: 2px solid #ff0040;
-            border-right: 2px solid #ff0040;
         }
 
-        .pickaxe-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 10;
-        }
-
-        .pickaxe-container > div,
         #deployment-008cf251-6683-4ad7-a748-9b5de60ee594 {
             width: 100% !important;
             height: 100% !important;
-            max-width: 100% !important;
-            max-height: 100% !important;
-            min-height: 100% !important;
+            border: none !important;
         }
 
-        .pickaxe-container iframe {
+        #deployment-008cf251-6683-4ad7-a748-9b5de60ee594 iframe {
             width: 100% !important;
             height: 100% !important;
             border: none !important;
-            background: transparent !important;
         }
 
-        /* Other Pages */
-        .page-header {
-            background: #1A1A1A;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .page-header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
-        .page-header h1 span {
-            color: #D92525;
-        }
-
-        .content {
-            padding: 40px 0;
-        }
-
-        /* Tables */
         table {
             width: 100%;
+            border-collapse: collapse;
             background: #1F1F1F;
-            border-radius: 8px;
-            overflow: hidden;
             margin: 20px 0;
         }
 
         th, td {
-            padding: 12px;
+            padding: 10px;
+            border: 1px solid #2C2C2C;
             text-align: left;
-            border-bottom: 1px solid #2C2C2C;
         }
 
         th {
             background: #D92525;
             color: white;
-            font-weight: bold;
         }
 
-        td a {
+        .content-section {
+            background: #1F1F1F;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .content-section h2 {
             color: #D92525;
-            text-decoration: none;
+            margin-bottom: 15px;
         }
 
-        td a:hover {
-            text-decoration: underline;
+        .checklist {
+            list-style: none;
+            padding: 0;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .ai-chat {
-                height: calc(100vh - 120px);
-            }
-
-            table {
-                font-size: 14px;
-            }
-
-            th, td {
-                padding: 8px;
-            }
+        .checklist li {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
         }
 
-        /* Mobile Navigation */
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            bottom: 0;
+        .checklist li:before {
+            content: "•";
+            color: #D92525;
+            position: absolute;
             left: 0;
-            right: 0;
-            background: #1A1A1A;
-            padding: 10px 0;
-            z-index: 100;
-        }
-
-        .mobile-nav-links {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .mobile-nav a {
-            color: #EAEAEA;
-            text-decoration: none;
-            text-align: center;
-            font-size: 12px;
-            padding: 5px;
-        }
-
-        .mobile-nav a.active {
-            color: #D92525;
         }
 
         @media (max-width: 768px) {
-            .mobile-nav {
-                display: block;
+            .nav button {
+                padding: 8px 12px;
+                font-size: 12px;
+                margin: 2px;
             }
             
-            body {
-                padding-bottom: 60px;
+            .ai-master-container {
+                height: 70vh;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <div class="nav-container">
-                <div class="logo">Shane's Fitment Expert</div>
-                <div class="nav-links">
-                    <a href="#" onclick="showPage('home')" class="active">Home</a>
-                    <a href="#" onclick="showPage('ai-master')">AI Fitment</a>
-                    <a href="#" onclick="showPage('service')">Service</a>
-                    <a href="#" onclick="showPage('vendors')">Vendors</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <div class="header">
+        <h1>Shane's Fitment Expert</h1>
+    </div>
 
-    <!-- Home Page -->
+    <div class="nav">
+        <button onclick="showPage('home')" class="active" id="home-btn">Home</button>
+        <button onclick="showPage('ai-master')" id="ai-btn">AI Fitment</button>
+        <button onclick="showPage('service')" id="service-btn">Service</button>
+        <button onclick="showPage('vendors')" id="vendors-btn">Vendors</button>
+    </div>
+
+    <!-- HOME PAGE -->
     <div id="home" class="page active">
-        <div class="hero">
-            <div class="container">
-                <h1>Perfect Fit, <span>Premium Style</span></h1>
-                <p>Internal sales tool for custom wheels, tire packages, and expert vehicle fitment information.</p>
-                <a href="#" class="btn" onclick="showPage('service')">View Services</a>
-            </div>
+        <h2>Welcome to Shane's Fitment Center</h2>
+        <p>Your one-stop shop for custom wheels and tire packages.</p>
+        
+        <div class="ai-card" onclick="showPage('ai-master')">
+            <h3>🤖 AI Fitment Master</h3>
+            <p>Get instant fitment advice and wheel recommendations from our AI assistant.</p>
+            <strong>Click here to start chatting!</strong>
         </div>
 
-        <div class="container">
-            <!-- AI Master Card -->
-            <div class="ai-card" onclick="showPage('ai-master')">
-                <h3>🤖 Shane's AI Fitment Master</h3>
-                <p>Get instant fitment advice, wheel recommendations, and technical support from our advanced AI assistant.</p>
-                <span class="ai-badge">New AI Technology</span>
-            </div>
-
-            <!-- Package Deals Table -->
-            <h2 style="text-align: center; margin: 40px 0 20px;">Package Deals</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Size</th>
-                        <th>Weekly Rate</th>
-                        <th>Purchase Package</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>18s</td><td>$65</td><td>$2,220</td></tr>
-                    <tr><td>20s</td><td>$70</td><td>$2,620</td></tr>
-                    <tr><td>22s</td><td>$80</td><td>$2,920</td></tr>
-                    <tr><td>24s</td><td>$95</td><td>$3,520</td></tr>
-                    <tr><td>Off-Road 20</td><td>$99</td><td>$3,420</td></tr>
-                    <tr><td>Off-Road 22</td><td>$105</td><td>$3,720</td></tr>
-                </tbody>
-            </table>
-        </div>
+        <h3>Package Deals</h3>
+        <table>
+            <tr><th>Size</th><th>Weekly Rate</th><th>Purchase Price</th></tr>
+            <tr><td>18s</td><td>$65</td><td>$2,220</td></tr>
+            <tr><td>20s</td><td>$70</td><td>$2,620</td></tr>
+            <tr><td>22s</td><td>$80</td><td>$2,920</td></tr>
+            <tr><td>24s</td><td>$95</td><td>$3,520</td></tr>
+        </table>
     </div>
 
-    <!-- AI Master Page -->
+    <!-- AI MASTER PAGE -->
     <div id="ai-master" class="page">
-        <div class="ai-master-page">
-            <!-- AI Header -->
-            <div class="ai-header">
-                <div class="ai-logo">
-                    <div class="ai-icon">⚙️</div>
-                    <div class="ai-title">Shane's Fitment Expert</div>
-                </div>
-            </div>
-
-            <!-- Bot Header -->
+        <h2>Shane's AI Fitment Specialist</h2>
+        <div class="ai-master-container">
             <div class="ai-bot-header">
-                <div class="ai-bot-info">
-                    <div class="ai-bot-icon">🤖</div>
-                    <span>Shane's AI Fitment Specialist</span>
-                </div>
-                <div class="ai-status">
-                    <div class="status-dot"></div>
-                    <span>Active</span>
-                </div>
+                Shane's AI Fitment Expert - Active 🟢
             </div>
-
-            <!-- Chat Container -->
-            <div class="ai-chat">
-                <div class="pickaxe-container">
-                    <div id="deployment-008cf251-6683-4ad7-a748-9b5de60ee594"></div>
-                </div>
+            <div class="ai-chat-area">
+                <div id="deployment-008cf251-6683-4ad7-a748-9b5de60ee594"></div>
             </div>
         </div>
     </div>
 
-    <!-- Service Page -->
+    <!-- SERVICE PAGE -->
     <div id="service" class="page">
-        <div class="page-header">
-            <div class="container">
-                <h1>BMS <span>Claim Requirements</span></h1>
-                <p>Requirements for processing BMS claims</p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="content">
-                <div style="background: #1F1F1F; padding: 30px; border-radius: 8px;">
-                    <h2 style="color: #D92525; margin-bottom: 20px;">Claim Checklist:</h2>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
-                            <span style="position: absolute; left: 0; color: #D92525;">•</span>
-                            BMS Waivers fully filled out (Including Tread Depth)
-                        </li>
-                        <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
-                            <span style="position: absolute; left: 0; color: #D92525;">•</span>
-                            $1,000 Tire & Wheel Guarantee Form
-                        </li>
-                        <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
-                            <span style="position: absolute; left: 0; color: #D92525;">•</span>
-                            Rental Purchase Agreement
-                        </li>
-                        <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
-                            <span style="position: absolute; left: 0; color: #D92525;">•</span>
-                            Customer Payment History
-                        </li>
-                        <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
-                            <span style="position: absolute; left: 0; color: #D92525;">•</span>
-                            Photos of damaged tires
-                        </li>
-                    </ul>
-                    <p style="margin-top: 20px; padding: 15px; background: rgba(217, 37, 37, 0.1); border-left: 3px solid #D92525; border-radius: 4px;">
-                        <strong>Important: CHECK PAYMENT HISTORY FIRST!</strong>
-                    </p>
-                </div>
-            </div>
+        <h2>BMS Claim Requirements</h2>
+        <div class="content-section">
+            <h3>Claim Checklist:</h3>
+            <ul class="checklist">
+                <li>BMS Waivers fully filled out (Including Tread Depth)</li>
+                <li>$1,000 Tire & Wheel Guarantee Form</li>
+                <li>Rental Purchase Agreement</li>
+                <li>Customer Payment History</li>
+                <li>Photos of damaged tires</li>
+            </ul>
+            <p style="background: rgba(217, 37, 37, 0.1); padding: 15px; border-left: 3px solid #D92525; margin-top: 20px;">
+                <strong>Important: CHECK PAYMENT HISTORY FIRST!</strong>
+            </p>
         </div>
     </div>
 
-    <!-- Vendors Page -->
+    <!-- VENDORS PAGE -->
     <div id="vendors" class="page">
-        <div class="page-header">
-            <div class="container">
-                <h1>Wheel Vendor <span>Contact List</span></h1>
-                <p>Quick reference for contacting our distributors</p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="content">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Vendor</th>
-                            <th>Phone</th>
-                            <th>Brands</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>American Tire Distributors</td>
-                            <td><a href="tel:800-903-0014">800-903-0014</a></td>
-                            <td>Black Rock, Center Line, Cragar, Dick Cepek</td>
-                        </tr>
-                        <tr>
-                            <td>Direct Line</td>
-                            <td><a href="tel:904-739-1920">904-739-1920</a></td>
-                            <td>904, DPS, Enkei, F1R, Rohana</td>
-                        </tr>
-                        <tr>
-                            <td>Elite Wheel Warehouse</td>
-                            <td><a href="tel:813-673-8393">813-673-8393</a></td>
-                            <td>Amani Forged, Azara, Blade, Cavallo</td>
-                        </tr>
-                        <tr>
-                            <td>Wheel Pros</td>
-                            <td><a href="tel:504-471-0907">504-471-0907</a></td>
-                            <td>American Racing, Asanti, Black Rhino, DUB</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <h2>Wheel Vendor Contact List</h2>
+        <table>
+            <tr><th>Vendor</th><th>Phone</th><th>Brands</th></tr>
+            <tr><td>American Tire Distributors</td><td><a href="tel:800-903-0014" style="color: #D92525;">800-903-0014</a></td><td>Black Rock, Center Line, Cragar</td></tr>
+            <tr><td>Direct Line</td><td><a href="tel:904-739-1920" style="color: #D92525;">904-739-1920</a></td><td>904, DPS, Enkei, F1R</td></tr>
+            <tr><td>Elite Wheel Warehouse</td><td><a href="tel:813-673-8393" style="color: #D92525;">813-673-8393</a></td><td>Amani Forged, Azara, Blade</td></tr>
+            <tr><td>Wheel Pros</td><td><a href="tel:504-471-0907" style="color: #D92525;">504-471-0907</a></td><td>American Racing, Asanti, DUB</td></tr>
+        </table>
     </div>
 
-    <!-- Mobile Navigation -->
-    <nav class="mobile-nav">
-        <div class="mobile-nav-links">
-            <a href="#" onclick="showPage('home')" class="active">Home</a>
-            <a href="#" onclick="showPage('ai-master')">AI</a>
-            <a href="#" onclick="showPage('service')">Service</a>
-            <a href="#" onclick="showPage('vendors')">Vendors</a>
-        </div>
-    </nav>
-
-    <!-- Pickaxe Script -->
-    <script src="https://studio.pickaxe.co/api/embed/bundle.js" defer></script>
-
+    <script src="https://studio.pickaxe.co/api/embed/bundle.js"></script>
     <script>
         function showPage(pageId) {
             // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Show target page
-            document.getElementById(pageId).classList.add('active');
-            
-            // Update nav active states
-            document.querySelectorAll('.nav-links a, .mobile-nav a').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Set active nav link
-            document.querySelectorAll(`[onclick="showPage('${pageId}')"]`).forEach(link => {
-                link.classList.add('active');
-            });
-            
-            // Initialize AI Master if needed
-            if (pageId === 'ai-master') {
-                initializeAIMaster();
+            var pages = document.querySelectorAll('.page');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].classList.remove('active');
             }
             
-            window.scrollTo(0, 0);
-        }
-
-        function initializeAIMaster() {
-            // Force bot to full size
-            setTimeout(() => {
-                const pickaxeElements = document.querySelectorAll('#deployment-008cf251-6683-4ad7-a748-9b5de60ee594 > *');
-                pickaxeElements.forEach(el => {
-                    el.style.width = '100%';
-                    el.style.height = '100%';
-                    el.style.maxWidth = 'none';
-                    el.style.maxHeight = 'none';
-                });
-                
-                const iframes = document.querySelectorAll('.pickaxe-container iframe');
-                iframes.forEach(iframe => {
-                    iframe.style.width = '100%';
-                    iframe.style.height = '100%';
-                    iframe.style.minHeight = '400px';
-                });
-            }, 1000);
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update button states
+            var buttons = document.querySelectorAll('.nav button');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            document.getElementById(pageId + '-btn').classList.add('active');
+            
+            // Force bot resize on AI page
+            if (pageId === 'ai-master') {
+                setTimeout(function() {
+                    var botDiv = document.getElementById('deployment-008cf251-6683-4ad7-a748-9b5de60ee594');
+                    if (botDiv) {
+                        botDiv.style.width = '100%';
+                        botDiv.style.height = '100%';
+                    }
+                    
+                    var iframes = document.querySelectorAll('#deployment-008cf251-6683-4ad7-a748-9b5de60ee594 iframe');
+                    for (var i = 0; i < iframes.length; i++) {
+                        iframes[i].style.width = '100%';
+                        iframes[i].style.height = '100%';
+                    }
+                }, 500);
+            }
         }
 
         // Monitor for bot loading
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new MutationObserver(mutations => {
-                mutations.forEach(mutation => {
-                    if (mutation.addedNodes.length) {
-                        const pickaxeElements = document.querySelectorAll('#deployment-008cf251-6683-4ad7-a748-9b5de60ee594 > *');
-                        pickaxeElements.forEach(el => {
-                            el.style.width = '100%';
-                            el.style.height = '100%';
-                        });
-                    }
-                });
-            });
-            
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true
-            });
-        });
+        setInterval(function() {
+            var botDiv = document.getElementById('deployment-008cf251-6683-4ad7-a748-9b5de60ee594');
+            if (botDiv && botDiv.children.length > 0) {
+                botDiv.style.width = '100%';
+                botDiv.style.height = '100%';
+                
+                var iframes = botDiv.querySelectorAll('iframe');
+                for (var i = 0; i < iframes.length; i++) {
+                    iframes[i].style.width = '100%';
+                    iframes[i].style.height = '100%';
+                }
+            }
+        }, 1000);
     </script>
 </body>
 </html>
