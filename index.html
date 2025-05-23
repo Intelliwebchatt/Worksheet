@@ -3,587 +3,635 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shane's Custom Wheels & Fitment</title>
-    <meta name="description" content="Internal tool for Shane's sales team. Quick access to wheel and tire fitment data, package deals, service info, and vendor contacts.">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <title>Shane's Fitment Expert</title>
     <style>
-        /* Original CSS with AI Master additions */
-        :root {
-            --black-primary: #0F0F0F;
-            --black-secondary: #1A1A1A;
-            --black-tertiary: #2C2C2C;
-            --black-card: #1F1F1F;
-            --black-hover: #383838;
-            --text-primary: #EAEAEA;
-            --text-secondary: #B0B0B0;
-            --accent-red: #D92525;
-            --accent-red-hover: #F04040;
-            --overlay-dark: rgba(0, 0, 0, 0.65);
-            --spacing-unit: 1rem;
-            
-            /* AI Master colors */
-            --ai-primary-red: #ff0040;
-            --ai-secondary-red: #cc0033;
-            --ai-accent-orange: #ff6600;
-            --ai-dark-bg: #0a0a0a;
-            --ai-glass-bg: rgba(255, 255, 255, 0.05);
-            --ai-border-glow: rgba(255, 0, 64, 0.6);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--black-primary);
-            color: var(--text-primary);
-            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+            font-family: Arial, sans-serif;
+            background: #0F0F0F;
+            color: #EAEAEA;
             line-height: 1.6;
-            font-size: 16px;
-            padding-bottom: 70px;
         }
 
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--spacing-unit);
+            padding: 0 20px;
         }
 
-        /* --- Main Navigation --- */
-        .app-nav {
-            display: none;
-            background: linear-gradient(to right, var(--black-primary), var(--black-secondary));
-            padding: var(--spacing-unit) 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        /* Navigation */
+        .nav {
+            background: #1A1A1A;
+            padding: 15px 0;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
-        .app-nav .container {
+
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .nav-logo {
-            font-size: calc(var(--spacing-unit) * 1.4);
-            font-weight: 700;
-            color: var(--text-primary);
-            text-decoration: none;
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #D92525;
         }
-        .nav-logo span {
-            color: var(--accent-red);
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
         }
+
         .nav-links a {
-            color: var(--text-secondary);
+            color: #EAEAEA;
             text-decoration: none;
-            margin-left: calc(var(--spacing-unit) * 1.5);
-            font-weight: 500;
-            padding-bottom: 0.25rem;
-            transition: color 0.3s ease, border-color 0.3s ease;
-            border-bottom: 2px solid transparent;
-        }
-        .nav-links a:hover, .nav-links a.active-nav-link {
-            color: var(--text-primary);
-            border-bottom: 2px solid var(--accent-red);
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background 0.3s;
         }
 
-        .mobile-bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: var(--black-secondary);
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
-            display: flex;
-            justify-content: space-around;
-            padding: 0.5rem 0;
-            z-index: 1000;
-        }
-        .mobile-bottom-nav a {
-            flex-grow: 1;
-            text-align: center;
-            padding: 0.75rem 0.25rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.7rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: color 0.2s ease;
-        }
-        .mobile-bottom-nav a svg {
-            width: 20px;
-            height: 20px;
-            margin-bottom: 0.25rem;
-            fill: currentColor;
-        }
-        .mobile-bottom-nav a.active-nav-link {
-            color: var(--accent-red);
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: #D92525;
         }
 
-        /* --- Page Content Wrappers --- */
-        .page-content {
+        /* Pages */
+        .page {
             display: none;
-            animation: fadeInPage 0.5s ease-out;
+            min-height: calc(100vh - 80px);
         }
-        .page-content.active-page {
+
+        .page.active {
             display: block;
         }
-        @keyframes fadeInPage {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
 
-        /* --- Generic Page Header --- */
-        .page-header-generic {
-            padding: calc(var(--spacing-unit) * 2) 0 calc(var(--spacing-unit) * 1.5);
+        /* Home Page */
+        .hero {
             text-align: center;
-            background-color: var(--black-secondary);
-            border-bottom: 1px solid var(--black-tertiary);
-        }
-        .page-header-generic h1 {
-            font-size: calc(var(--spacing-unit) * 1.6);
-            font-weight: 600;
-            margin-bottom: calc(var(--spacing-unit) * 0.5);
-        }
-        .page-header-generic h1 span { color: var(--accent-red); }
-        .page-header-generic p {
-            font-size: calc(var(--spacing-unit) * 0.9);
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #1A1A1A, #0F0F0F);
         }
 
-        /* --- Home Page --- */
-        .hero-section {
-            background: var(--overlay-dark) url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJncmFkMSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwZjBmMGYiLz4KPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMxYTFhMWEiLz4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGYwZjBmIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjE5MjAiIGhlaWdodD0iMTA4MCIgZmlsbD0idXJsKCNncmFkMSkiLz4KPC9zdmc+') no-repeat center center/cover;
-            color: var(--text-primary);
-            text-align: center;
-            padding: calc(var(--spacing-unit) * 6) var(--spacing-unit) calc(var(--spacing-unit) * 7);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .hero-section::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0,0,0,0.7);
-        }
-        .hero-content { position: relative; z-index: 2; max-width: 600px; }
-        .hero-title {
-            font-size: calc(var(--spacing-unit) * 2.2);
-            font-weight: 300; margin-bottom: var(--spacing-unit);
-            letter-spacing: 1px; line-height: 1.2;
-        }
-        .hero-title span { font-weight: 700; color: var(--accent-red); }
-        .hero-subtitle {
-            font-size: calc(var(--spacing-unit) * 1);
-            margin-bottom: calc(var(--spacing-unit) * 2);
-            color: var(--text-secondary); font-weight: 300;
-        }
-        .hero-cta-button {
-            background-color: var(--accent-red); color: var(--text-primary);
-            padding: calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 2);
-            text-decoration: none; border-radius: 4px;
-            font-size: calc(var(--spacing-unit) * 1); font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            display: inline-block; box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
-        }
-        .hero-cta-button:hover { background-color: var(--accent-red-hover); transform: translateY(-2px); }
-        .hero-cta-button.secondary-cta {
-            background-color: var(--black-tertiary);
-            border: 1px solid var(--accent-red);
-            color: var(--accent-red);
-        }
-        .hero-cta-button.secondary-cta:hover {
-            background-color: var(--accent-red);
-            color: var(--text-primary);
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
         }
 
-        .home-section {
-            padding: calc(var(--spacing-unit) * 3) 0;
-            background-color: var(--black-primary);
-        }
-        .home-section:nth-child(even) { background-color: var(--black-secondary); }
-
-        .home-section-title {
-            text-align: center;
-            font-size: calc(var(--spacing-unit) * 1.8); font-weight: 300;
-            margin-bottom: calc(var(--spacing-unit) * 0.5); color: var(--text-primary);
-            letter-spacing: 1px;
-        }
-        .home-section-title span { color: var(--accent-red); font-weight: 600; }
-        .home-section-subtitle {
-            text-align: center; font-size: calc(var(--spacing-unit) * 0.9);
-            color: var(--text-secondary); max-width: 700px;
-            margin: 0 auto calc(var(--spacing-unit) * 2.5) auto;
-        }
-        .home-cta-container {
-            text-align: center;
-            margin-top: calc(var(--spacing-unit) * 1.5);
+        .hero h1 span {
+            color: #D92525;
         }
 
-        /* AI Master Home Card */
-        .ai-master-card {
-            background: linear-gradient(135deg, 
-                rgba(255, 0, 64, 0.1) 0%, 
-                rgba(15, 15, 15, 0.95) 50%, 
-                rgba(255, 102, 0, 0.1) 100%);
-            border: 1px solid var(--ai-border-glow);
-            border-radius: 8px;
-            padding: calc(var(--spacing-unit) * 2);
-            margin: calc(var(--spacing-unit) * 2) auto;
-            max-width: 600px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 0 20px rgba(255, 0, 64, 0.2);
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #B0B0B0;
         }
 
-        .ai-master-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            animation: cardShine 3s ease-in-out infinite;
-        }
-
-        @keyframes cardShine {
-            0% { left: -100%; }
-            50% { left: 100%; }
-            100% { left: 100%; }
-        }
-
-        .ai-master-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(255, 0, 64, 0.4);
-        }
-
-        .ai-master-card h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: calc(var(--spacing-unit) * 1.4);
-            color: var(--ai-primary-red);
-            margin-bottom: calc(var(--spacing-unit) * 0.5);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .ai-master-card p {
-            color: var(--text-secondary);
-            margin-bottom: calc(var(--spacing-unit) * 1);
-        }
-
-        .ai-master-badge {
+        .btn {
             display: inline-block;
-            background: linear-gradient(45deg, var(--ai-primary-red), var(--ai-accent-orange));
+            background: #D92525;
             color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.3s;
         }
 
-        .distributor-logos {
-            display: flex; flex-wrap: wrap; justify-content: center;
-            align-items: center; gap: calc(var(--spacing-unit) * 2);
-            margin-top: calc(var(--spacing-unit) * 2);
+        .btn:hover {
+            background: #F04040;
         }
-        .distributor-logos img {
-            max-height: 45px; max-width: 120px;
-            filter: grayscale(70%) brightness(160%); opacity: 0.7;
-            transition: filter 0.3s ease, opacity 0.3s ease;
-        }
-        .distributor-logos img:hover { filter: grayscale(0%) brightness(100%); opacity: 1; }
-        .distributor-contact {
-            text-align: center; margin-top: calc(var(--spacing-unit) * 2);
-            font-size: calc(var(--spacing-unit) * 0.9);
-        }
-        .distributor-contact a { color: var(--accent-red); text-decoration: none; font-weight: 500; }
-        .distributor-contact a:hover { text-decoration: underline; }
 
-        /* --- AI Fitment Master Page --- */
+        /* AI Master Card */
+        .ai-card {
+            background: linear-gradient(135deg, rgba(255, 0, 64, 0.1), rgba(15, 15, 15, 0.9));
+            border: 2px solid #ff0040;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .ai-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 64, 0.3);
+        }
+
+        .ai-card h3 {
+            font-size: 24px;
+            color: #ff0040;
+            margin-bottom: 15px;
+        }
+
+        .ai-card p {
+            color: #B0B0B0;
+            margin-bottom: 20px;
+        }
+
+        .ai-badge {
+            background: linear-gradient(45deg, #ff0040, #ff6600);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* AI Master Page */
         .ai-master-page {
-            height: calc(100vh - 140px);
-            background: var(--ai-dark-bg);
+            background: #0a0a0a;
+            min-height: 100vh;
             position: relative;
-            overflow: hidden;
-        }
-
-        /* AI Background Effects */
-        .ai-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 0, 64, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 102, 0, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(204, 0, 51, 0.2) 0%, transparent 50%),
-                linear-gradient(135deg, #000000 0%, #1a0000 50%, #000000 100%);
-            animation: backgroundShift 20s ease-in-out infinite;
-        }
-
-        @keyframes backgroundShift {
-            0%, 100% { filter: hue-rotate(0deg); }
-            50% { filter: hue-rotate(15deg); }
-        }
-
-        .ai-particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .ai-particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--ai-primary-red);
-            border-radius: 50%;
-            animation: aiFloat 15s infinite linear;
-            opacity: 0;
-        }
-
-        .ai-particle:nth-child(odd) {
-            background: var(--ai-accent-orange);
-            animation-duration: 20s;
-        }
-
-        @keyframes aiFloat {
-            0% {
-                transform: translateY(100vh) translateX(0px);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px);
-                opacity: 0;
-            }
-        }
-
-        .ai-scan-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .ai-scan-line {
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                var(--ai-primary-red) 20%, 
-                var(--ai-accent-orange) 50%, 
-                var(--ai-primary-red) 80%, 
-                transparent 100%);
-            animation: aiScan 8s ease-in-out infinite;
-            opacity: 0;
-        }
-
-        .ai-scan-line:nth-child(1) { animation-delay: 0s; }
-        .ai-scan-line:nth-child(2) { animation-delay: 2s; }
-        .ai-scan-line:nth-child(3) { animation-delay: 4s; }
-
-        @keyframes aiScan {
-            0%, 10% {
-                top: -2px;
-                opacity: 0;
-                transform: scaleX(0);
-            }
-            20% {
-                opacity: 1;
-                transform: scaleX(1);
-            }
-            80% {
-                opacity: 1;
-                transform: scaleX(1);
-            }
-            90%, 100% {
-                top: 100%;
-                opacity: 0;
-                transform: scaleX(0);
-            }
-        }
-
-        .ai-master-container {
-            position: relative;
-            z-index: 1;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
         }
 
         .ai-header {
-            background: 
-                linear-gradient(135deg, 
-                rgba(255, 0, 64, 0.2) 0%, 
-                rgba(0, 0, 0, 0.8) 50%, 
-                rgba(255, 102, 0, 0.2) 100%);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--ai-border-glow);
-            padding: 8px 12px;
+            background: linear-gradient(90deg, rgba(255, 0, 64, 0.2), rgba(0, 0, 0, 0.8));
+            padding: 15px;
             text-align: center;
+            border-bottom: 2px solid #ff0040;
         }
 
         .ai-logo {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 10px;
         }
 
-        .ai-logo-icon {
-            width: 28px;
-            height: 28px;
-            background: linear-gradient(135deg, var(--ai-primary-red), var(--ai-accent-orange));
+        .ai-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #ff0040, #ff6600);
             border-radius: 50%;
             display: flex;
-            justify-content: center;
             align-items: center;
-            margin-right: 8px;
-            animation: aiIconPulse 2s ease-in-out infinite;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
         }
 
-        @keyframes aiIconPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .ai-logo-icon svg {
-            width: 16px;
-            height: 16px;
-            fill: #ffffff;
-        }
-
-        .ai-logo-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            background: linear-gradient(135deg, var(--ai-primary-red), var(--ai-accent-orange));
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: aiTextGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes aiTextGlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        .ai-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff0040;
         }
 
         .ai-bot-header {
-            padding: 6px 12px;
-            background: 
-                linear-gradient(90deg, 
-                rgba(26, 0, 0, 0.9) 0%, 
-                rgba(255, 0, 64, 0.8) 20%, 
-                rgba(255, 102, 0, 0.8) 80%, 
-                rgba(26, 0, 0, 0.9) 100%);
-            backdrop-filter: blur(5px);
+            background: rgba(255, 0, 64, 0.1);
+            padding: 10px 20px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid var(--ai-border-glow);
+            align-items: center;
         }
 
-        .ai-bot-title {
+        .ai-bot-info {
             display: flex;
             align-items: center;
+            gap: 10px;
         }
 
         .ai-bot-icon {
-            width: 20px;
-            height: 20px;
-            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            width: 30px;
+            height: 30px;
+            background: white;
             border-radius: 50%;
             display: flex;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            margin-right: 6px;
-            animation: aiBotIconSpin 10s linear infinite;
+            color: #ff0040;
         }
 
-        @keyframes aiBotIconSpin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .ai-bot-icon svg {
-            width: 12px;
-            height: 12px;
-            fill: var(--ai-primary-red);
-        }
-
-        .ai-bot-name {
-            font-size: 12px;
-            font-weight: 600;
-            text-shadow: 0 0 10px var(--ai-primary-red);
-            letter-spacing: 0.5px;
-        }
-
-        .ai-bot-status {
+        .ai-status {
             display: flex;
             align-items: center;
+            gap: 8px;
         }
 
-        .ai-status-indicator {
-            width: 6px;
-            height: 6px;
-            background-color: #00ff88;
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #00ff88;
             border-radius: 50%;
-            margin-right: 4px;
-            position: relative;
-            box-shadow: 0 0 8px #00ff88;
+            animation: pulse 2s infinite;
         }
 
-        .ai-status-indicator::after {
-            content: '';
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .ai-chat {
+            height: calc(100vh - 140px);
+            background: linear-gradient(135deg, rgba(15, 15, 15, 0.9), rgba(20, 0, 5, 0.8));
+            position: relative;
+            border-left: 2px solid #ff0040;
+            border-right: 2px solid #ff0040;
+        }
+
+        .pickaxe-container {
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 50%;
-            background-color: #00ff88;
-            animation: aiStatusPulse 1.5s infinite;
+            z-index: 10;
         }
 
-        @keyframes aiStatusPulse {
-            0% { transform: scale(1); opacity: 0.8; }
-            70% { transform: scale(2.5); opacity: 0; }
-            100% { transform: scale(3); opacity: 0; }
+        .pickaxe-container > div,
+        #deployment-008cf251-6683-4ad7-a748-9b5de60ee594 {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            min-height: 100% !important;
         }
 
-        .ai-status-text {
-            font-size: 10px;
-            color: #00ff88;
-            text-shadow: 0 0 5px #00ff88;
-            font-w
+        .pickaxe-container iframe {
+            width: 100% !important;
+            height: 100% !important;
+            border: none !important;
+            background: transparent !important;
+        }
+
+        /* Other Pages */
+        .page-header {
+            background: #1A1A1A;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .page-header h1 span {
+            color: #D92525;
+        }
+
+        .content {
+            padding: 40px 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            background: #1F1F1F;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #2C2C2C;
+        }
+
+        th {
+            background: #D92525;
+            color: white;
+            font-weight: bold;
+        }
+
+        td a {
+            color: #D92525;
+            text-decoration: none;
+        }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .ai-chat {
+                height: calc(100vh - 120px);
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1A1A1A;
+            padding: 10px 0;
+            z-index: 100;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .mobile-nav a {
+            color: #EAEAEA;
+            text-decoration: none;
+            text-align: center;
+            font-size: 12px;
+            padding: 5px;
+        }
+
+        .mobile-nav a.active {
+            color: #D92525;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-nav {
+                display: block;
+            }
+            
+            body {
+                padding-bottom: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">Shane's Fitment Expert</div>
+                <div class="nav-links">
+                    <a href="#" onclick="showPage('home')" class="active">Home</a>
+                    <a href="#" onclick="showPage('ai-master')">AI Fitment</a>
+                    <a href="#" onclick="showPage('service')">Service</a>
+                    <a href="#" onclick="showPage('vendors')">Vendors</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="hero">
+            <div class="container">
+                <h1>Perfect Fit, <span>Premium Style</span></h1>
+                <p>Internal sales tool for custom wheels, tire packages, and expert vehicle fitment information.</p>
+                <a href="#" class="btn" onclick="showPage('service')">View Services</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- AI Master Card -->
+            <div class="ai-card" onclick="showPage('ai-master')">
+                <h3>🤖 Shane's AI Fitment Master</h3>
+                <p>Get instant fitment advice, wheel recommendations, and technical support from our advanced AI assistant.</p>
+                <span class="ai-badge">New AI Technology</span>
+            </div>
+
+            <!-- Package Deals Table -->
+            <h2 style="text-align: center; margin: 40px 0 20px;">Package Deals</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Size</th>
+                        <th>Weekly Rate</th>
+                        <th>Purchase Package</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>18s</td><td>$65</td><td>$2,220</td></tr>
+                    <tr><td>20s</td><td>$70</td><td>$2,620</td></tr>
+                    <tr><td>22s</td><td>$80</td><td>$2,920</td></tr>
+                    <tr><td>24s</td><td>$95</td><td>$3,520</td></tr>
+                    <tr><td>Off-Road 20</td><td>$99</td><td>$3,420</td></tr>
+                    <tr><td>Off-Road 22</td><td>$105</td><td>$3,720</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- AI Master Page -->
+    <div id="ai-master" class="page">
+        <div class="ai-master-page">
+            <!-- AI Header -->
+            <div class="ai-header">
+                <div class="ai-logo">
+                    <div class="ai-icon">⚙️</div>
+                    <div class="ai-title">Shane's Fitment Expert</div>
+                </div>
+            </div>
+
+            <!-- Bot Header -->
+            <div class="ai-bot-header">
+                <div class="ai-bot-info">
+                    <div class="ai-bot-icon">🤖</div>
+                    <span>Shane's AI Fitment Specialist</span>
+                </div>
+                <div class="ai-status">
+                    <div class="status-dot"></div>
+                    <span>Active</span>
+                </div>
+            </div>
+
+            <!-- Chat Container -->
+            <div class="ai-chat">
+                <div class="pickaxe-container">
+                    <div id="deployment-008cf251-6683-4ad7-a748-9b5de60ee594"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Page -->
+    <div id="service" class="page">
+        <div class="page-header">
+            <div class="container">
+                <h1>BMS <span>Claim Requirements</span></h1>
+                <p>Requirements for processing BMS claims</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="content">
+                <div style="background: #1F1F1F; padding: 30px; border-radius: 8px;">
+                    <h2 style="color: #D92525; margin-bottom: 20px;">Claim Checklist:</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #D92525;">•</span>
+                            BMS Waivers fully filled out (Including Tread Depth)
+                        </li>
+                        <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #D92525;">•</span>
+                            $1,000 Tire & Wheel Guarantee Form
+                        </li>
+                        <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #D92525;">•</span>
+                            Rental Purchase Agreement
+                        </li>
+                        <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #D92525;">•</span>
+                            Customer Payment History
+                        </li>
+                        <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #D92525;">•</span>
+                            Photos of damaged tires
+                        </li>
+                    </ul>
+                    <p style="margin-top: 20px; padding: 15px; background: rgba(217, 37, 37, 0.1); border-left: 3px solid #D92525; border-radius: 4px;">
+                        <strong>Important: CHECK PAYMENT HISTORY FIRST!</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vendors Page -->
+    <div id="vendors" class="page">
+        <div class="page-header">
+            <div class="container">
+                <h1>Wheel Vendor <span>Contact List</span></h1>
+                <p>Quick reference for contacting our distributors</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vendor</th>
+                            <th>Phone</th>
+                            <th>Brands</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>American Tire Distributors</td>
+                            <td><a href="tel:800-903-0014">800-903-0014</a></td>
+                            <td>Black Rock, Center Line, Cragar, Dick Cepek</td>
+                        </tr>
+                        <tr>
+                            <td>Direct Line</td>
+                            <td><a href="tel:904-739-1920">904-739-1920</a></td>
+                            <td>904, DPS, Enkei, F1R, Rohana</td>
+                        </tr>
+                        <tr>
+                            <td>Elite Wheel Warehouse</td>
+                            <td><a href="tel:813-673-8393">813-673-8393</a></td>
+                            <td>Amani Forged, Azara, Blade, Cavallo</td>
+                        </tr>
+                        <tr>
+                            <td>Wheel Pros</td>
+                            <td><a href="tel:504-471-0907">504-471-0907</a></td>
+                            <td>American Racing, Asanti, Black Rhino, DUB</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-links">
+            <a href="#" onclick="showPage('home')" class="active">Home</a>
+            <a href="#" onclick="showPage('ai-master')">AI</a>
+            <a href="#" onclick="showPage('service')">Service</a>
+            <a href="#" onclick="showPage('vendors')">Vendors</a>
+        </div>
+    </nav>
+
+    <!-- Pickaxe Script -->
+    <script src="https://studio.pickaxe.co/api/embed/bundle.js" defer></script>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show target page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update nav active states
+            document.querySelectorAll('.nav-links a, .mobile-nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Set active nav link
+            document.querySelectorAll(`[onclick="showPage('${pageId}')"]`).forEach(link => {
+                link.classList.add('active');
+            });
+            
+            // Initialize AI Master if needed
+            if (pageId === 'ai-master') {
+                initializeAIMaster();
+            }
+            
+            window.scrollTo(0, 0);
+        }
+
+        function initializeAIMaster() {
+            // Force bot to full size
+            setTimeout(() => {
+                const pickaxeElements = document.querySelectorAll('#deployment-008cf251-6683-4ad7-a748-9b5de60ee594 > *');
+                pickaxeElements.forEach(el => {
+                    el.style.width = '100%';
+                    el.style.height = '100%';
+                    el.style.maxWidth = 'none';
+                    el.style.maxHeight = 'none';
+                });
+                
+                const iframes = document.querySelectorAll('.pickaxe-container iframe');
+                iframes.forEach(iframe => {
+                    iframe.style.width = '100%';
+                    iframe.style.height = '100%';
+                    iframe.style.minHeight = '400px';
+                });
+            }, 1000);
+        }
+
+        // Monitor for bot loading
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new MutationObserver(mutations => {
+                mutations.forEach(mutation => {
+                    if (mutation.addedNodes.length) {
+                        const pickaxeElements = document.querySelectorAll('#deployment-008cf251-6683-4ad7-a748-9b5de60ee594 > *');
+                        pickaxeElements.forEach(el => {
+                            el.style.width = '100%';
+                            el.style.height = '100%';
+                        });
+                    }
+                });
+            });
+            
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        });
+    </script>
+</body>
+</html>
