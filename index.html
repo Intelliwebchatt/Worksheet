@@ -38,7 +38,7 @@ body {
     font-family: 'Montserrat', 'Segoe UI', sans-serif;
     line-height: 1.6;
     font-size: 18px;
-    padding-bottom: 90px;
+    padding-bottom: 120px; /* Increased for bigger nav */
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -108,6 +108,14 @@ body {
 @media (max-width: 1023px) {
     .mobile-bottom-nav {
         display: flex !important;
+        padding: 1.4rem 0.5rem 1.8rem 0.5rem !important; /* Even bigger on mobile */
+    }
+    .mobile-bottom-nav a {
+        min-height: 80px !important; /* Bigger touch targets */
+    }
+    .mobile-bottom-nav a svg {
+        width: 36px !important; /* Even bigger icons on phones */
+        height: 36px !important;
     }
     .app-nav {
         display: none !important;
@@ -789,54 +797,16 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.distributor-logos {
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: center;
-    align-items: center; 
-    gap: calc(var(--spacing-unit) * 1.8);
-    margin-top: calc(var(--spacing-unit) * 2);
-}
-.distributor-logos img {
-    max-height: 50px;
-    max-width: 130px;
-    filter: grayscale(70%) brightness(160%); 
-    opacity: 0.7;
-    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-}
-.distributor-logos img:hover { 
-    filter: grayscale(0%) brightness(100%); 
-    opacity: 1;
-    transform: scale(1.05);
-}
-.distributor-contact {
-    text-align: center; 
-    margin-top: calc(var(--spacing-unit) * 2);
-    font-size: calc(var(--spacing-unit) * 0.95);
-    line-height: 1.5;
-}
-.distributor-contact a { 
-    color: var(--accent-red); 
-    text-decoration: none; 
-    font-weight: 500; 
-    padding: calc(var(--spacing-unit) * 0.3) calc(var(--spacing-unit) * 0.6);
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-.distributor-contact a:hover { 
-    text-decoration: underline;
-    background-color: rgba(217, 37, 37, 0.1);
-}
-
 /* Footer */
 footer {
     background-color: var(--black-tertiary); 
     color: var(--text-secondary);
-    padding: calc(var(--spacing-unit) * 2.5) 0;
+    padding: calc(var(--spacing-unit) * 3) 0; /* Increased padding since no distributor section */
     text-align: center;
     font-size: 0.9rem;
     border-top: 1px solid var(--black-primary);
     line-height: 1.5;
+    margin-top: calc(var(--spacing-unit) * 2); /* Add some top margin */
 }
 footer strong { 
     color: var(--text-primary); 
@@ -847,6 +817,7 @@ footer strong {
 @media (min-width: 768px) and (max-width: 1023px) {
     body {
         font-size: 17px;
+        padding-bottom: 130px; /* Account for bigger nav */
     }
     .hero-title { 
         font-size: calc(var(--spacing-unit) * 2.8); 
@@ -883,10 +854,10 @@ footer strong {
         font-size: 16px;
     }
     .mobile-bottom-nav {
-        display: none; 
+        display: none !important; 
     }
     .app-nav {
-        display: block; 
+        display: block !important; 
     }
     .nav-links a { 
         font-size: calc(var(--spacing-unit) * 0.95); 
@@ -1125,22 +1096,6 @@ footer strong {
                             <div class="package-purchase-amount">$3,720</div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="home-section" id="distributor-info-section">
-            <div class="container">
-                <h2 class="home-section-title">Our <span>Distributors</span></h2>
-                <p class="home-section-subtitle">Proudly partnering with leading brands in the industry.</p>
-                <div class="distributor-logos">
-                    <img src="https://via.placeholder.com/120x45/333333/FFFFFF?text=Brand+1" alt="Brand Logo 1">
-                    <img src="https://via.placeholder.com/120x45/333333/FFFFFF?text=Brand+2" alt="Brand Logo 2">
-                    <img src="https://via.placeholder.com/120x45/333333/FFFFFF?text=Brand+3" alt="Brand Logo 3">
-                    <img src="https://via.placeholder.com/120x45/333333/FFFFFF?text=Brand+4" alt="Brand Logo 4">
-                </div>
-                <div class="distributor-contact">
-                    <p>Sales Inquiries: <a href="mailto:sales@example.com">sales@example.com</a> | Phone: <a href="tel:5551234567">(555) 123-4567</a></p>
                 </div>
             </div>
         </section>
